@@ -1,0 +1,279 @@
+---
+import PortfolioLayout from '../../layouts/PortfolioLayout.astro';
+---
+
+<PortfolioLayout
+  title="Work — Petar Jovanovic"
+  description="Selected case studies from 7+ years building production software across fintech, enterprise, and startups."
+>
+  <!-- Page header -->
+  <section class="pt-36 pb-16 px-6 border-b border-white/[0.06]">
+    <div class="max-w-6xl mx-auto">
+      <p data-reveal class="text-[#444] text-xs font-mono tracking-[0.25em] uppercase mb-5">Selected Work</p>
+      <h1
+        data-reveal
+        style="transition-delay:80ms"
+        class="text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight max-w-2xl"
+      >
+        Projects that shipped<br class="hidden sm:block" /> and mattered.
+      </h1>
+      <p
+        data-reveal
+        style="transition-delay:160ms"
+        class="text-[#666] text-lg leading-relaxed mt-6 max-w-xl"
+      >
+        A selection of the work I'm most proud of. Focused on systems, scale, and outcomes—not just features.
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── Paayed ──────────────────────────────────────────── -->
+  <article id="paayed" class="px-6 py-24 border-b border-white/[0.06] scroll-mt-20">
+    <div class="max-w-6xl mx-auto">
+      <!-- Header -->
+      <div data-reveal class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-16">
+        <div>
+          <p class="text-[#818cf8] text-xs font-mono tracking-widest uppercase mb-3">Fintech · Component Systems · 2025–Present</p>
+          <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Paayed</h2>
+          <p class="text-[#666] mt-2 text-base">All-in-One B2B Fintech Operating Platform for UK SMEs</p>
+        </div>
+        <div class="shrink-0 flex flex-wrap gap-2 md:justify-end">
+          {['TypeScript', 'React', 'Tailwind', 'Radix UI', 'RTL', 'Jest', 'GitHub CI/CD'].map(t => (
+            <span class="text-[11px] text-[#555] border border-white/[0.06] px-2.5 py-1 rounded-md font-mono">{t}</span>
+          ))}
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-12 lg:gap-20">
+        <!-- Problem -->
+        <div data-reveal>
+          <h3 class="text-[#444] text-xs font-mono tracking-[0.2em] uppercase mb-5">The Problem</h3>
+          <div class="space-y-3 text-[#777] text-sm leading-relaxed">
+            <p>A growing fintech platform serving UK SMEs was scaling rapidly, but its frontend wasn't.</p>
+            <p>Components were duplicated across teams, designs were inconsistent, and every new feature required re-solving the same UI problems from scratch.</p>
+            <p>Maintenance costs were climbing, and the absence of shared standards meant inconsistencies were compounding with every sprint.</p>
+          </div>
+        </div>
+
+        <!-- Contribution -->
+        <div data-reveal style="transition-delay:80ms">
+          <h3 class="text-[#444] text-xs font-mono tracking-[0.2em] uppercase mb-5">My Contribution</h3>
+          <ul class="space-y-2.5">
+            {[
+              'Designed and led the full shared React component library and design system',
+              'Standardized 90+ components with TypeScript and documented in Storybook',
+              'Introduced Chromatic for visual regression testing',
+              'Set up ESLint rules, Husky git hooks, and CI/CD validation',
+              'Implemented secure authentication (Laravel Sanctum + 3D Secure)',
+              'Built hosted payment page (HPP) integration',
+              'Delivered real-time analytics dashboards and reporting',
+              'Admin & Client CRM modules',
+              'Full accounting suite: Invoices, Quotes, Credit Notes, Expenses',
+            ].map(item => (
+              <li class="flex gap-3 text-sm text-[#777]">
+                <span class="text-[#818cf8] shrink-0 mt-1">›</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Impact -->
+        <div data-reveal style="transition-delay:160ms">
+          <h3 class="text-[#444] text-xs font-mono tracking-[0.2em] uppercase mb-5">The Impact</h3>
+          <ul class="space-y-4">
+            {[
+              { metric: '90+', label: 'components standardized' },
+              { metric: '1', label: 'single source of truth for all UI' },
+              { metric: '↓', label: 'reduced maintenance cost long-term' },
+              { metric: '↑', label: 'faster feature delivery across teams' },
+              { metric: '✓', label: 'compliant with UK acquiring requirements' },
+            ].map(({ metric, label }) => (
+              <li class="flex gap-4 items-baseline">
+                <span class="text-white font-bold text-lg w-10 shrink-0">{metric}</span>
+                <span class="text-[#666] text-sm">{label}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ─── Symphony ────────────────────────────────────────── -->
+  <article id="symphony" class="px-6 py-24 border-b border-white/[0.06] scroll-mt-20 bg-[#0a0a0d]">
+    <div class="max-w-6xl mx-auto">
+      <div data-reveal class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-16">
+        <div>
+          <p class="text-[#818cf8] text-xs font-mono tracking-widest uppercase mb-3">Enterprise · Micro-Frontends · 2022–2024</p>
+          <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Symphony</h2>
+          <p class="text-[#666] mt-2 text-base">Micro-Frontend Platform for a Fortune Global 500 Company</p>
+        </div>
+        <div class="shrink-0 flex flex-wrap gap-2 md:justify-end">
+          {['TypeScript', 'React', 'Jest', 'Stryker.js', 'Docker', 'AWS', 'Azure'].map(t => (
+            <span class="text-[11px] text-[#555] border border-white/[0.06] px-2.5 py-1 rounded-md font-mono">{t}</span>
+          ))}
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-12 lg:gap-20">
+        <div data-reveal>
+          <h3 class="text-[#444] text-xs font-mono tracking-[0.2em] uppercase mb-5">The Problem</h3>
+          <div class="space-y-3 text-[#777] text-sm leading-relaxed">
+            <p>A Fortune Global 500 company had 10+ engineering teams building features on the same platform—each with their own patterns, components, and no shared design language.</p>
+            <p>The result was a fragmented user experience and duplicated engineering effort at massive scale. Every team was solving the same problems independently.</p>
+          </div>
+        </div>
+
+        <div data-reveal style="transition-delay:80ms">
+          <h3 class="text-[#444] text-xs font-mono tracking-[0.2em] uppercase mb-5">My Contribution</h3>
+          <ul class="space-y-2.5">
+            {[
+              'Delivered a Micro-Frontend (MFE) application for article production workflows',
+              'Supported worldwide supplier and QA team collaboration',
+              'Built and maintained a shared internal UI component library',
+              'Published as a versioned npm package used across all teams',
+              'Established mutation testing with Stryker.js for high code confidence',
+              'Full test coverage with React Testing Library and Jest',
+            ].map(item => (
+              <li class="flex gap-3 text-sm text-[#777]">
+                <span class="text-[#818cf8] shrink-0 mt-1">›</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div data-reveal style="transition-delay:160ms">
+          <h3 class="text-[#444] text-xs font-mono tracking-[0.2em] uppercase mb-5">The Impact</h3>
+          <ul class="space-y-4">
+            {[
+              { metric: '10+', label: 'engineering teams on one shared library' },
+              { metric: 'F500', label: 'enterprise scale delivery' },
+              { metric: '↓', label: 'duplicated effort across teams' },
+              { metric: '↑', label: 'design consistency across all MFEs' },
+            ].map(({ metric, label }) => (
+              <li class="flex gap-4 items-baseline">
+                <span class="text-white font-bold text-lg w-10 shrink-0">{metric}</span>
+                <span class="text-[#666] text-sm">{label}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ─── Devtech ──────────────────────────────────────────── -->
+  <article id="devtech" class="px-6 py-24 border-b border-white/[0.06] scroll-mt-20">
+    <div class="max-w-6xl mx-auto">
+      <div data-reveal class="mb-16">
+        <p class="text-[#818cf8] text-xs font-mono tracking-widest uppercase mb-3">Enterprise · Financial Software · 2021–2022</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Devtech</h2>
+        <p class="text-[#666] mt-2 text-base">Multiple enterprise platforms across accounting, analytics, and HR</p>
+      </div>
+
+      <!-- Sub-projects -->
+      <div class="space-y-10">
+        {[
+          {
+            title: 'Enterprise Accounting Platform',
+            client: 'FinQuery (USA)',
+            description: 'Modernized a legacy accounting platform into a high-performance solution used by enterprise finance teams. Delivered financial reporting dashboards, lease accounting workflows, large virtualized data tables, advanced filtering, and export functionality.',
+            stack: ['TypeScript', 'Next.js', 'Redux Toolkit', 'Redux Saga', 'ASP.NET', 'PostgreSQL', 'AWS'],
+          },
+          {
+            title: 'AI-Powered Digital Enablement Platform',
+            client: 'Microsoft 365 ecosystem',
+            description: 'Contributed to a platform helping thousands of organizations maximize Microsoft 365 adoption. Led the release of an advanced version featuring complex big-data visualizations built with custom D3.js chart components and Azure cloud infrastructure.',
+            stack: ['TypeScript', 'React', 'D3.js', 'Context API', 'Material UI', 'Azure Cosmos DB', 'Azure SQL', 'ASP.NET'],
+          },
+          {
+            title: 'Internal Learning Platform',
+            client: 'Internal',
+            description: 'Built and shipped an internal knowledge-sharing platform used by hundreds of employees—from architecture to production in a single sprint cycle.',
+            stack: ['TypeScript', 'React', 'Redux Toolkit', 'Material UI', 'Firebase', 'Google APIs'],
+          },
+          {
+            title: 'HR CRM Platform',
+            client: 'Internal',
+            description: 'Developed the administration panel for employee management and skills tracking, enabling efficient placement and visibility into technical expertise across the organization.',
+            stack: ['TypeScript', 'Next.js', 'Redux Toolkit', 'Material UI'],
+          },
+          {
+            title: 'Booking Marketplace',
+            client: 'USA',
+            description: 'Full-stack marketplace connecting service providers and consumers—service discovery, booking, authentication, Calendly integration, and Docker-based deployment on AWS.',
+            stack: ['TypeScript', 'Next.js', 'Prisma', 'PostgreSQL', 'Auth0', 'Docker', 'AWS', 'Calendly API'],
+          },
+        ].map(({ title, client, description, stack }, i) => (
+          <div
+            data-reveal
+            style={`transition-delay:${i * 60}ms`}
+            class="border-l-2 border-white/[0.06] pl-6 hover:border-[#818cf8]/40 transition-colors duration-300"
+          >
+            <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 mb-3">
+              <h3 class="text-white font-semibold text-base">{title}</h3>
+              <span class="text-[#444] text-xs font-mono">— {client}</span>
+            </div>
+            <p class="text-[#666] text-sm leading-relaxed mb-4">{description}</p>
+            <div class="flex flex-wrap gap-2">
+              {stack.map(t => (
+                <span class="text-[11px] text-[#555] border border-white/[0.06] px-2.5 py-1 rounded-md font-mono">{t}</span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </article>
+
+  <!-- ─── Earlier Work ─────────────────────────────────────── -->
+  <section class="px-6 py-24 bg-[#0a0a0d]">
+    <div class="max-w-6xl mx-auto">
+      <div data-reveal class="mb-12">
+        <p class="text-[#444] text-xs font-mono tracking-[0.25em] uppercase mb-4">Earlier Work</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight">More projects.</h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {[
+          {
+            company: 'Lioneve Media',
+            period: '2020–2021',
+            projects: ['Fitcher — Social & subscription platform (Instagram-like Stories, creator profiles)', 'Magic Unbox — Entertainment platform with payment processing and probability engine'],
+          },
+          {
+            company: 'Boopro',
+            period: '2020',
+            projects: ['Bridge TV — Smart TV interface for Samsung & LG built from scratch with React'],
+          },
+          {
+            company: 'Permanentum',
+            period: '2019',
+            projects: ['Affiliate marketing platform with Ethereum-based position system and referral tree visualizations'],
+          },
+        ].map(({ company, period, projects }, i) => (
+          <div
+            data-reveal
+            style={`transition-delay:${i * 80}ms`}
+            class="border border-white/[0.06] rounded-xl p-6 hover:border-white/[0.10] transition-colors duration-300"
+          >
+            <div class="flex items-baseline justify-between mb-4">
+              <h3 class="text-white font-semibold text-sm">{company}</h3>
+              <span class="text-[#3f3f46] text-xs font-mono">{period}</span>
+            </div>
+            <ul class="space-y-2">
+              {projects.map(p => (
+                <li class="text-[#666] text-xs leading-relaxed flex gap-2">
+                  <span class="text-[#444] shrink-0">·</span>
+                  {p}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</PortfolioLayout>

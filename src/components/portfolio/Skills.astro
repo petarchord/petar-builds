@@ -1,0 +1,68 @@
+---
+const categories = [
+  {
+    label: 'Languages',
+    skills: ['TypeScript', 'JavaScript'],
+  },
+  {
+    label: 'Frontend',
+    skills: ['React.js', 'Next.js', 'Gatsby.js'],
+  },
+  {
+    label: 'State Management',
+    skills: ['Redux', 'Redux Toolkit', 'Redux Thunk'],
+  },
+  {
+    label: 'Backend',
+    skills: ['Node.js', 'Express.js'],
+  },
+  {
+    label: 'Databases',
+    skills: ['PostgreSQL', 'MongoDB', 'MySQL'],
+  },
+  {
+    label: 'ORMs',
+    skills: ['Prisma', 'Sequelize'],
+  },
+  {
+    label: 'Testing',
+    skills: ['React Testing Library', 'Jest', 'Stryker.js', 'Jasmine'],
+  },
+  {
+    label: 'Build Tools',
+    skills: ['Vite', 'Webpack', 'Create React App'],
+  },
+  {
+    label: 'Code Quality',
+    skills: ['ESLint', 'Prettier', 'Husky'],
+  },
+];
+---
+
+<section id="skills" class="py-24 px-6 bg-[#0d0d10] scroll-mt-20">
+  <div class="max-w-5xl mx-auto">
+    <p class="text-[#818cf8] text-xs font-mono tracking-[0.3em] uppercase mb-3 opacity-80">
+      02 — Skills
+    </p>
+    <h2 class="text-3xl md:text-4xl font-bold text-white mb-16 leading-tight">
+      Technical Expertise
+    </h2>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10">
+      {categories.map(({ label, skills }) => (
+        <div>
+          <h3 class="text-[#52525b] text-xs font-mono tracking-[0.2em] uppercase mb-4">
+            {label}
+          </h3>
+          <div class="flex flex-wrap gap-2">
+            {skills.map((skill) => (
+              <span class="text-xs text-[#a1a1aa] bg-white/4 border border-white/6 px-3 py-1.5 rounded-full hover:border-[#818cf8]/30 hover:text-white transition-colors duration-200">
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
