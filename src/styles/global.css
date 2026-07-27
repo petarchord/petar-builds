@@ -58,3 +58,56 @@
   opacity: 1;
   transform: none;
 }
+
+/* Marquee / ticker */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 35s linear infinite;
+}
+
+.marquee-outer:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* ─── Company logos in marquee ───────────────────────────── */
+
+/* Logos that already have a transparent background (white artwork) */
+.logo-transparent {
+  height: 26px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.32;
+  transition: opacity 0.3s ease;
+}
+
+/* Logos with a solid white background + colored/dark artwork.
+   grayscale() removes colour, invert() flips the artwork to white
+   and the white background to near-black (invisible at low opacity
+   on the dark site). */
+.logo-solid {
+  height: 26px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(1) invert(1);
+  opacity: 0.38;
+  transition:
+    opacity 0.3s ease,
+    filter 0.3s ease;
+}
+
+/* Brighten all logos when the user hovers the strip */
+.marquee-outer:hover .logo-transparent {
+  opacity: 0.72;
+}
+.marquee-outer:hover .logo-solid {
+  opacity: 0.78;
+  filter: grayscale(0.4) invert(1);
+}

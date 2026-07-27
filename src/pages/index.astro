@@ -1,11 +1,28 @@
 ---
 import PortfolioLayout from '../layouts/PortfolioLayout.astro';
+import PaayedLogo from '../assets/Paayed-logo.png';
+import InditexLogo from '../assets/Inditex-logo.webp';
+import FinqueryLogo from '../assets/Finquery-logo.webp';
+import SymphonyLogo from '../assets/Symphony-logo.png';
+import DevtechLogo from '../assets/Devtech-logo.png';
+import NuliaLogo from '../assets/Nulia-logo.png';
+
+// type: 'solid'       = coloured/dark artwork on a white background
+// type: 'transparent' = white artwork on a transparent background
+const logos = [
+  { name: 'Paayed',    src: PaayedLogo.src,   type: 'solid' },
+  { name: 'Inditex',   src: InditexLogo.src,  type: 'solid' },
+  { name: 'FinQuery',  src: FinqueryLogo.src, type: 'transparent' },
+  { name: 'Symphony',  src: SymphonyLogo.src, type: 'transparent' },
+  { name: 'Devtech',   src: DevtechLogo.src,  type: 'transparent' },
+  { name: 'Nulia',     src: NuliaLogo.src,    type: 'solid' },
+];
 
 const stats = [
   { value: '7+', label: 'Years of experience' },
-  { value: 'F500', label: 'Fortune Global 500' },
-  { value: '20+', label: 'Production projects' },
-  { value: 'M+', label: 'Users impacted' },
+  { value: '3', label: 'Startups built from the ground up' },
+  { value: '10+', label: 'Production projects' },
+  { value: '100K+', label: 'Users impacted' },
 ];
 
 const companies = ['Paayed', 'Inditex', 'FinQuery', 'Symphony', 'Devtech'];
@@ -13,19 +30,19 @@ const companies = ['Paayed', 'Inditex', 'FinQuery', 'Symphony', 'Devtech'];
 const principles = [
   {
     title: 'Think in systems.',
-    body: 'I care more about architecture than individual features. Good systems outlive any single implementation.',
+    body: 'Every feature matters, but the architecture behind it determines how well the product grows. I build with the bigger picture in mind, so today’s decisions don’t become tomorrow’s technical debt.',
   },
   {
     title: 'Ship with purpose.',
-    body: 'Every technical decision should solve a real business problem. Engineering for its own sake is waste.',
+    body: 'Every technical decision should solve real problems and create value for both users and the business. The best engineering moves the product forward, not just the codebase.',
   },
   {
     title: 'Simplicity scales.',
-    body: 'The best software usually removes complexity instead of adding it. Constraints are often features.',
+    body: 'The best solutions remove unnecessary complexity, making products easier to build, maintain, and evolve. Simplicity isn’t cutting corners, it’s making the right trade-offs.',
   },
   {
     title: 'AI accelerates engineers.',
-    body: 'I use AI every day—but engineering judgment remains the real competitive advantage.',
+    body: 'AI helps me move faster, explore ideas, and automate repetitive work. Engineering judgment, product thinking, and experience are what turn that speed into great software.',
   },
 ];
 
@@ -111,24 +128,23 @@ const tech = [
           data-reveal
           class="text-[#555] text-xs font-mono tracking-[0.25em] uppercase mb-8"
         >
-          Senior Software Engineer
+          Sr. Software Engineer | Sass Specialist | AI Enthusiast
         </p>
         <h1
           data-reveal
           style="transition-delay:80ms"
           class="text-[clamp(2.4rem,5.5vw,4rem)] font-bold text-white leading-[1.08] tracking-[-0.025em] mb-7"
         >
-          Building scalable products,<br class="hidden sm:block" />
-          not just beautiful interfaces.
+          Building scalable products that grow with your business.
+		  <!-- <br class="hidden sm:block" /> -->
+          <!-- not just beautiful interfaces. -->
         </h1>
         <p
           data-reveal
           style="transition-delay:160ms"
           class="text-[#888] text-lg leading-relaxed max-w-[520px] mb-10"
         >
-          Senior Software Engineer with 7+ years helping startups and enterprise
-          teams build software that scales—from fintech platforms and design
-          systems to Fortune Global 500 applications.
+          I’ve spent the last 7+ years building software for industry leaders, including platforms for Fortune Global 500 companies spanning fintech, ed-tech, social networking, and e-commerce.
         </p>
         <div data-reveal style="transition-delay:240ms" class="flex flex-wrap gap-3">
           <a
@@ -173,14 +189,38 @@ const tech = [
         ))}
       </div>
 
-      <!-- Worked with -->
-      <div data-reveal class="flex flex-wrap items-center gap-x-8 gap-y-3">
-        <p class="text-[#3f3f46] text-xs font-mono tracking-widest uppercase">Worked with</p>
-        {companies.map((company) => (
-          <span class="text-[#555] text-sm hover:text-[#888] transition-colors duration-200">
-            {company}
-          </span>
-        ))}
+      <!-- Worked with: logo marquee -->
+      <div data-reveal class="mt-4">
+        <p class="text-center text-[#3f3f46] text-xs font-mono tracking-[0.25em] uppercase mb-10">
+          Worked with
+        </p>
+
+        <!-- Full-width marquee — clips overflow + gradient edge fade -->
+        <div
+          class="marquee-outer relative overflow-hidden"
+          style="mask-image: linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%);"
+        >
+          <!-- Track: two identical copies for a seamless infinite loop -->
+          <div class="marquee-track flex w-max items-center gap-0">
+            {[...logos, ...logos].map((logo, i) => (
+              <div class="flex items-center shrink-0" key={i}>
+                <img
+                  src={logo.src}
+                  alt={logo.name}
+                  class={`logo-${logo.type}`}
+                  draggable="false"
+                />
+                <!-- Separator between logos -->
+                <span
+                  class="text-[#1e1e22] select-none px-10 text-xs"
+                  aria-hidden="true"
+                >
+                  /
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   </section>
