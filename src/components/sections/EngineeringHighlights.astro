@@ -1,0 +1,49 @@
+---
+const highlights = [
+  {
+    icon: '◈',
+    title: 'Component Libraries',
+    body: 'Building reusable design systems and component libraries that scale across multiple teams. From Storybook documentation to visual regression testing.',
+  },
+  {
+    icon: '⬡',
+    title: 'Frontend Architecture',
+    body: 'Designing scalable React applications with clean data flows, Micro-Frontend patterns, and codebases that are maintainable as teams grow.',
+  },
+  {
+    icon: '◎',
+    title: 'Performance & Accessibility',
+    body: "Core Web Vitals, virtualization for large datasets, lazy loading, and ARIA-compliant interfaces. Speed and inclusivity aren't trade-offs.",
+  },
+  {
+    icon: '⟡',
+    title: 'AI-Assisted Development',
+    body: 'Daily use of Cursor, Claude, and GitHub Copilot—treating AI as a force multiplier, not a replacement for senior engineering judgment.',
+  },
+];
+---
+
+<section class="px-6 py-32">
+  <div class="max-w-6xl mx-auto">
+    <div data-reveal class="mb-14">
+      <p class="text-[#444] text-xs font-mono tracking-[0.25em] uppercase mb-4">Engineering Highlights</p>
+      <h2 class="text-3xl md:text-[2.5rem] font-bold text-white tracking-tight leading-tight">
+        What I do well.
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-4">
+      {highlights.map(({ icon, title, body }, i) => (
+        <div
+          data-reveal
+          style={`transition-delay:${i * 80}ms`}
+          class="border border-white/[0.06] rounded-xl p-8 hover:border-white/[0.10] hover:bg-white/[0.02] transition-all duration-300"
+        >
+          <span class="text-[#818cf8] text-xl block mb-5" aria-hidden="true">{icon}</span>
+          <h3 class="text-white font-semibold text-lg mb-3">{title}</h3>
+          <p class="text-[#666] text-sm leading-relaxed">{body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

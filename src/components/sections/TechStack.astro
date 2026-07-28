@@ -1,0 +1,19 @@
+---
+const tech = [
+  'React', 'TypeScript', 'Next.js', 'Node.js', 'Astro',
+  'Tailwind', 'PostgreSQL', 'Docker', 'GitHub Actions', 'AWS', 'Storybook', 'Testing',
+];
+---
+
+<section class="border-t border-white/[0.06] px-6 py-20">
+  <div class="max-w-6xl mx-auto">
+    <p data-reveal class="text-[#444] text-xs font-mono tracking-[0.25em] uppercase mb-8">Tech</p>
+    <div data-reveal class="flex flex-wrap gap-3">
+      {tech.map((t) => (
+        <span class="text-sm text-[#666] border border-white/[0.06] px-4 py-2 rounded-lg hover:border-white/[0.12] hover:text-[#aaa] transition-colors duration-200">
+          {t}
+        </span>
+      ))}
+    </div>
+  </div>
+</section>
