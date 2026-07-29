@@ -22,7 +22,7 @@ import PortfolioLayout from '../../layouts/PortfolioLayout.astro';
         style="transition-delay:160ms"
         class="text-[#666] text-lg leading-relaxed mt-6 max-w-xl"
       >
-        A selection of the work I'm most proud of. Focused on systems, scale, and outcomes—not just features.
+        A selection of the work I'm most proud of. Focused on systems, scale, and outcomes.
       </p>
     </div>
   </section>
@@ -34,7 +34,9 @@ import PortfolioLayout from '../../layouts/PortfolioLayout.astro';
       <div data-reveal class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-16">
         <div>
           <p class="text-[#818cf8] text-xs font-mono tracking-widest uppercase mb-3">Fintech · Component Systems · 2025–Present</p>
-          <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Paayed</h2>
+          <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">
+            <a href="https://paayed.com/" target="_blank" rel="noopener noreferrer" class="hover:text-[#818cf8] transition-colors duration-200">Paayed</a>
+          </h2>
           <p class="text-[#666] mt-2 text-base">All-in-One B2B Fintech Operating Platform for UK SMEs</p>
         </div>
         <div class="shrink-0 flex flex-wrap gap-2 md:justify-end">
@@ -103,128 +105,231 @@ import PortfolioLayout from '../../layouts/PortfolioLayout.astro';
   <!-- ─── Symphony ────────────────────────────────────────── -->
   <article id="symphony" class="px-6 py-24 border-b border-white/[0.06] scroll-mt-20 bg-[#0a0a0d]">
     <div class="max-w-6xl mx-auto">
-      <div data-reveal class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-16">
-        <div>
-          <p class="text-[#818cf8] text-xs font-mono tracking-widest uppercase mb-3">Enterprise · Micro-Frontends · 2022–2024</p>
-          <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Symphony</h2>
-          <p class="text-[#666] mt-2 text-base">Micro-Frontend Platform for a Fortune Global 500 Company</p>
-        </div>
-        <div class="shrink-0 flex flex-wrap gap-2 md:justify-end">
-          {['TypeScript', 'React', 'Jest', 'Stryker.js', 'Docker', 'AWS', 'Azure'].map(t => (
-            <span class="text-[11px] text-[#555] border border-white/[0.06] px-2.5 py-1 rounded-md font-mono">{t}</span>
-          ))}
-        </div>
+
+      <!-- Header -->
+      <div data-reveal class="mb-6">
+        <p class="text-[#818cf8] text-xs font-mono tracking-widest uppercase mb-3">Outsourcing · Enterprise &amp; Product · Sep 2022–Dec 2024</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">
+          <a href="https://symphony.is/" target="_blank" rel="noopener noreferrer" class="hover:text-[#818cf8] transition-colors duration-200">Symphony</a>
+        </h2>
+        <!-- <p class="text-[#666] mt-2 text-base">Software Developer — 4 client engagements across fashion enterprise, marketplace, HR, and learning tech</p> -->
       </div>
 
-      <div class="grid md:grid-cols-3 gap-12 lg:gap-20">
-        <div data-reveal>
-          <h3 class="text-[#444] text-xs font-mono tracking-[0.2em] uppercase mb-5">The Problem</h3>
-          <div class="space-y-3 text-[#777] text-sm leading-relaxed">
-            <p>A Fortune Global 500 company had 10+ engineering teams building features on the same platform—each with their own patterns, components, and no shared design language.</p>
-            <p>The result was a fragmented user experience and duplicated engineering effort at massive scale. Every team was solving the same problems independently.</p>
+      <!-- Context note -->
+      <p data-reveal class="text-[#666666] text-base leading-relaxed max-w-2xl mb-14">
+        Symphony is a software development outsourcing company. During my two years there, I contributed
+        to four separate client projects - each with distinct requirements, teams, and tech stacks.
+      </p>
+
+      <!-- Client projects -->
+      <div class="space-y-10">
+
+        <!-- Project 1: Fortune 500 Fashion MFE -->
+        <div
+          data-reveal
+          class="border-l-2 border-white/[0.06] pl-6 hover:border-[#818cf8]/40 transition-colors duration-300"
+        >
+          <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 mb-3">
+            <h3 class="text-white font-semibold text-base">MFE Web App — Fortune Global 500 Fashion Enterprise</h3>
+            <span class="text-[#818cf8] text-xs font-mono shrink-0">Primary engagement</span>
+          </div>
+          <p class="text-[#666] text-sm leading-relaxed mb-3">
+            Successfully shipped a Micro-Frontend (MFE) web application that supports the article
+            production workflow and day-to-day business operations between external suppliers worldwide
+            and the company's quality assurance teams. Worked under Domain-Driven Design (DDD) principles,
+            coordinating with 10+ diverse cross-functional teams to build adaptable solutions that met
+            continuously evolving business requirements.
+          </p>
+          <p class="text-[#555] text-sm leading-relaxed mb-4">
+            Built and maintained a shared internal UI component library published as a versioned npm
+            package — enabling consistent design and accelerating development across all MFE teams.
+            Established mutation testing with Stryker.js to ensure high code confidence and reduce
+            false-positive test coverage. Integrated Azure Application Insights for user behaviour
+            tracking and operational observability.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            {['TypeScript', 'JavaScript', 'React', 'RTL', 'Jest', 'Stryker.js', 'ESLint/Prettier', 'Docker', 'AWS', 'Azure App Insights', 'GitHub CI/CD', 'Scrum'].map(t => (
+              <span class="text-[11px] text-[#555] border border-white/[0.06] px-2.5 py-1 rounded-md font-mono">{t}</span>
+            ))}
           </div>
         </div>
 
-        <div data-reveal style="transition-delay:80ms">
-          <h3 class="text-[#444] text-xs font-mono tracking-[0.2em] uppercase mb-5">My Contribution</h3>
-          <ul class="space-y-2.5">
-            {[
-              'Delivered a Micro-Frontend (MFE) application for article production workflows',
-              'Supported worldwide supplier and QA team collaboration',
-              'Built and maintained a shared internal UI component library',
-              'Published as a versioned npm package used across all teams',
-              'Established mutation testing with Stryker.js for high code confidence',
-              'Full test coverage with React Testing Library and Jest',
-            ].map(item => (
-              <li class="flex gap-3 text-sm text-[#777]">
-                <span class="text-[#818cf8] shrink-0 mt-1">›</span>
-                {item}
-              </li>
+        <!-- Project 2: US Booking Marketplace -->
+        <div
+          data-reveal
+          style="transition-delay:80ms"
+          class="border-l-2 border-white/[0.06] pl-6 hover:border-[#818cf8]/40 transition-colors duration-300"
+        >
+          <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 mb-3">
+            <h3 class="text-white font-semibold text-base">Booking Platform — US Marketplace</h3>
+            <span class="text-[#444] text-xs font-mono shrink-0">Full-stack product</span>
+          </div>
+          <p class="text-[#666] text-sm leading-relaxed mb-4">
+            Successfully delivered a full-stack application connecting service providers and consumers,
+            enabling seamless service discovery, booking, and management. Implemented end-to-end booking
+            flows, authentication via Auth0, provider and consumer dashboards, and Calendly API integration
+            for calendar-based scheduling. Deployed on AWS with GitHub CI/CD and Docker.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            {['TypeScript', 'JavaScript', 'Next.js', 'Prisma', 'PostgreSQL', 'Auth0', 'Material UI', 'ESLint/Prettier', 'Docker', 'AWS', 'Calendly API', 'GitHub CI/CD', 'Scrum'].map(t => (
+              <span class="text-[11px] text-[#555] border border-white/[0.06] px-2.5 py-1 rounded-md font-mono">{t}</span>
             ))}
-          </ul>
+          </div>
         </div>
 
-        <div data-reveal style="transition-delay:160ms">
-          <h3 class="text-[#444] text-xs font-mono tracking-[0.2em] uppercase mb-5">The Impact</h3>
-          <ul class="space-y-4">
-            {[
-              { metric: '10+', label: 'engineering teams on one shared library' },
-              { metric: 'F500', label: 'enterprise scale delivery' },
-              { metric: '↓', label: 'duplicated effort across teams' },
-              { metric: '↑', label: 'design consistency across all MFEs' },
-            ].map(({ metric, label }) => (
-              <li class="flex gap-4 items-baseline">
-                <span class="text-white font-bold text-lg w-10 shrink-0">{metric}</span>
-                <span class="text-[#666] text-sm">{label}</span>
-              </li>
+        <!-- Project 3: HR CRM Tool -->
+        <div
+          data-reveal
+          style="transition-delay:120ms"
+          class="border-l-2 border-white/[0.06] pl-6 hover:border-[#818cf8]/40 transition-colors duration-300"
+        >
+          <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 mb-3">
+            <h3 class="text-white font-semibold text-base">CRM Tool — HR &amp; People Placement</h3>
+            <span class="text-[#444] text-xs font-mono shrink-0">Internal tooling</span>
+          </div>
+          <p class="text-[#666] text-sm leading-relaxed mb-4">
+            Developed the admin panel of an internal CRM platform, crafting and continuously improving
+            the UI/UX to provide clear insights into employee skills and experience. Enabled efficient
+            people placement by surfacing structured data about team capabilities in an intuitive interface.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            {['TypeScript', 'JavaScript', 'Next.js', 'Redux Toolkit', 'Redux Thunk', 'Material UI', 'ESLint/Prettier', 'Husky', 'GitHub CI/CD', 'Kanban'].map(t => (
+              <span class="text-[11px] text-[#555] border border-white/[0.06] px-2.5 py-1 rounded-md font-mono">{t}</span>
             ))}
-          </ul>
+          </div>
         </div>
+
+        <!-- Project 4: Internal Learning Platform -->
+        <div
+          data-reveal
+          style="transition-delay:160ms"
+          class="border-l-2 border-white/[0.06] pl-6 hover:border-[#818cf8]/40 transition-colors duration-300"
+        >
+          <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 mb-3">
+            <h3 class="text-white font-semibold text-base">Internal Learning Platform</h3>
+            <span class="text-[#444] text-xs font-mono shrink-0">Internal product</span>
+          </div>
+          <p class="text-[#666] text-sm leading-relaxed mb-4">
+            Developed and released an internal learning platform, helping hundreds of employees learn,
+            share knowledge, and collaborate in a more effective and structured way. Integrated Google
+            APIs for authentication and content management, with Firebase as the backend. Managed state
+            with Redux Toolkit and Redux Thunk for scalable data flows.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            {['TypeScript', 'JavaScript', 'React', 'Redux Toolkit', 'Redux Thunk', 'Material UI', 'ESLint/Prettier', 'Google APIs', 'Firebase', 'Husky', 'GitHub CI/CD', 'Kanban'].map(t => (
+              <span class="text-[11px] text-[#555] border border-white/[0.06] px-2.5 py-1 rounded-md font-mono">{t}</span>
+            ))}
+          </div>
+        </div>
+
       </div>
+
+      <!-- Impact summary -->
+      <div data-reveal class="mt-14 pt-10 border-t border-white/[0.06] grid sm:grid-cols-4 gap-8">
+        {[
+          { metric: '10+', label: 'coordinated engineering teams' },
+          { metric: 'F500', label: 'flagship client scale' },
+          { metric: '4',    label: 'shipped client products' },
+          { metric: 'npm',  label: 'shared UI library published' },
+        ].map(({ metric, label }) => (
+          <div>
+            <p class="text-white font-bold text-2xl tracking-tight mb-1">{metric}</p>
+            <p class="text-[#555] text-xs leading-snug">{label}</p>
+          </div>
+        ))}
+      </div>
+
     </div>
   </article>
 
   <!-- ─── Devtech ──────────────────────────────────────────── -->
   <article id="devtech" class="px-6 py-24 border-b border-white/[0.06] scroll-mt-20">
     <div class="max-w-6xl mx-auto">
-      <div data-reveal class="mb-16">
-        <p class="text-[#818cf8] text-xs font-mono tracking-widest uppercase mb-3">Enterprise · Financial Software · 2021–2022</p>
-        <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Devtech</h2>
-        <p class="text-[#666] mt-2 text-base">Multiple enterprise platforms across accounting, analytics, and HR</p>
+
+      <!-- Header -->
+      <div data-reveal class="mb-6">
+        <p class="text-[#818cf8] text-xs font-mono tracking-widest uppercase mb-3">Enterprise · Software Development · Aug 2021–Sep 2022</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">
+          <a href="https://devtechgroup.com/" target="_blank" rel="noopener noreferrer" class="hover:text-[#818cf8] transition-colors duration-200">Devtech</a>
+        </h2>
+        <p class="text-[#666] mt-2 text-base">Software Developer — 2 client engagements across enterprise accounting and AI-powered digital enablement</p>
       </div>
 
       <!-- Sub-projects -->
-      <div class="space-y-10">
+      <div class="space-y-10 mb-14">
+
+        <!-- Project 1: Enterprise Accounting -->
+        <div
+          data-reveal
+          class="border-l-2 border-white/[0.06] pl-6 hover:border-[#818cf8]/40 transition-colors duration-300"
+        >
+          <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 mb-3">
+            <h3 class="text-white font-semibold text-base">Enterprise Accounting Platform</h3>
+            <span class="text-[#818cf8] text-xs font-mono shrink-0">FinQuery · USA</span>
+          </div>
+          <p class="text-[#666] text-sm leading-relaxed mb-3">
+            Modernized a legacy enterprise accounting system into a scalable, high-performance platform
+            using modern technologies. Designed and implemented core features including financial reporting
+            dashboards and lease accounting flows.
+          </p>
+          <p class="text-[#555] text-sm leading-relaxed mb-4">
+            Developed performant, data-heavy UI components — advanced tables, filtering systems, and
+            export functionality — enabling efficient handling of large-scale financial datasets. Built
+            interactive visualizations and actively participated in planning, organizing, and delivering
+            new features while supporting and maintaining existing ones in an Agile Scrum environment.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            {['TypeScript', 'JavaScript', 'Next.js', 'Redux Toolkit', 'Redux Saga', 'ASP.NET', 'PostgreSQL', 'AWS', 'Jenkins', 'Scrum'].map(t => (
+              <span class="text-[11px] text-[#555] border border-white/[0.06] px-2.5 py-1 rounded-md font-mono">{t}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Project 2: AI Digital Enablement -->
+        <div
+          data-reveal
+          style="transition-delay:80ms"
+          class="border-l-2 border-white/[0.06] pl-6 hover:border-[#818cf8]/40 transition-colors duration-300"
+        >
+          <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 mb-3">
+            <h3 class="text-white font-semibold text-base">AI-Powered Digital Enablement Platform</h3>
+            <span class="text-[#444] text-xs font-mono shrink-0">Microsoft 365 ecosystem</span>
+          </div>
+          <p class="text-[#666] text-sm leading-relaxed mb-3">
+            Contributed to a large-scale platform helping thousands of organizations improve their digital
+            experiences and maximize the value of Microsoft 365. The platform leverages AI to surface
+            actionable insights across an organization's M365 toolset.
+          </p>
+          <p class="text-[#555] text-sm leading-relaxed mb-4">
+            Led the release of an advanced application version featuring complex big-data visualizations.
+            Built custom, standalone chart components using D3.js to represent large datasets in clear,
+            interactive graphics. Integrated with Azure Cosmos DB, Azure Blob Storage, and Azure SQL DB,
+            with CI/CD managed through Azure DevOps.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            {['TypeScript', 'JavaScript', 'React', 'Context API', 'D3.js', 'Material UI', 'ASP.NET', 'Husky', 'Azure DevOps', 'Azure Cosmos DB', 'Azure Blob Storage', 'Azure SQL', 'ScrumBan'].map(t => (
+              <span class="text-[11px] text-[#555] border border-white/[0.06] px-2.5 py-1 rounded-md font-mono">{t}</span>
+            ))}
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Impact summary -->
+      <div data-reveal class="pt-10 border-t border-white/[0.06] grid sm:grid-cols-4 gap-8">
         {[
-          {
-            title: 'Enterprise Accounting Platform',
-            client: 'FinQuery (USA)',
-            description: 'Modernized a legacy accounting platform into a high-performance solution used by enterprise finance teams. Delivered financial reporting dashboards, lease accounting workflows, large virtualized data tables, advanced filtering, and export functionality.',
-            stack: ['TypeScript', 'Next.js', 'Redux Toolkit', 'Redux Saga', 'ASP.NET', 'PostgreSQL', 'AWS'],
-          },
-          {
-            title: 'AI-Powered Digital Enablement Platform',
-            client: 'Microsoft 365 ecosystem',
-            description: 'Contributed to a platform helping thousands of organizations maximize Microsoft 365 adoption. Led the release of an advanced version featuring complex big-data visualizations built with custom D3.js chart components and Azure cloud infrastructure.',
-            stack: ['TypeScript', 'React', 'D3.js', 'Context API', 'Material UI', 'Azure Cosmos DB', 'Azure SQL', 'ASP.NET'],
-          },
-          {
-            title: 'Internal Learning Platform',
-            client: 'Internal',
-            description: 'Built and shipped an internal knowledge-sharing platform used by hundreds of employees—from architecture to production in a single sprint cycle.',
-            stack: ['TypeScript', 'React', 'Redux Toolkit', 'Material UI', 'Firebase', 'Google APIs'],
-          },
-          {
-            title: 'HR CRM Platform',
-            client: 'Internal',
-            description: 'Developed the administration panel for employee management and skills tracking, enabling efficient placement and visibility into technical expertise across the organization.',
-            stack: ['TypeScript', 'Next.js', 'Redux Toolkit', 'Material UI'],
-          },
-          {
-            title: 'Booking Marketplace',
-            client: 'USA',
-            description: 'Full-stack marketplace connecting service providers and consumers—service discovery, booking, authentication, Calendly integration, and Docker-based deployment on AWS.',
-            stack: ['TypeScript', 'Next.js', 'Prisma', 'PostgreSQL', 'Auth0', 'Docker', 'AWS', 'Calendly API'],
-          },
-        ].map(({ title, client, description, stack }, i) => (
-          <div
-            data-reveal
-            style={`transition-delay:${i * 60}ms`}
-            class="border-l-2 border-white/[0.06] pl-6 hover:border-[#818cf8]/40 transition-colors duration-300"
-          >
-            <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 mb-3">
-              <h3 class="text-white font-semibold text-base">{title}</h3>
-              <span class="text-[#444] text-xs font-mono">— {client}</span>
-            </div>
-            <p class="text-[#666] text-sm leading-relaxed mb-4">{description}</p>
-            <div class="flex flex-wrap gap-2">
-              {stack.map(t => (
-                <span class="text-[11px] text-[#555] border border-white/[0.06] px-2.5 py-1 rounded-md font-mono">{t}</span>
-              ))}
-            </div>
+          { metric: '#1',  label: 'leading USA accounting platform' },
+          { metric: 'K+',  label: 'organisations on the M365 platform' },
+          { metric: 'D3',  label: 'custom big-data chart components' },
+          { metric: '2',   label: 'legacy systems modernised' },
+        ].map(({ metric, label }) => (
+          <div>
+            <p class="text-white font-bold text-2xl tracking-tight mb-1">{metric}</p>
+            <p class="text-[#555] text-xs leading-snug">{label}</p>
           </div>
         ))}
       </div>
+
     </div>
   </article>
 

@@ -2,7 +2,7 @@
 const selectedWork = [
   {
     label: 'Fintech · Component Systems',
-    company: 'Paayed',
+    company: 'Paayed - All in One Payment Platform (Accounting, CRM, Payments)',
     description:
       'Led the development of a shared React component library and design system, establishing scalable frontend standards that improved UI consistency, accelerated development, and reduced maintenance costs. Delivered core fintech features including secure authentication, 3DS payment flows, Hosted Payment Pages, analytics, CRM, reporting, and accounting modules.',
     outcomes: [
@@ -15,29 +15,57 @@ const selectedWork = [
     href: '/work#paayed',
   },
   {
-    label: 'Enterprise · Micro-Frontends',
-    company: 'Symphony',
-    description:
-      'Delivered a Micro-Frontend platform and shared npm component library adopted by 10+ engineering teams at a Fortune Global 500 company.',
-    outcomes: [
-      '10+ teams on shared library',
-      'Consistent design across all MFEs',
-      'Reduced duplication at scale',
+    label: 'Fashion Industry · E-commerce & Marketplace · EdTech',
+    company: 'Symphony - IT Services Agency',
+    tagline: '4 client projects · Sep 2022–Dec 2024',
+    projects: [
+      {
+        name: 'Fortune Global 500 MFE Platform',
+        highlight: 'Shipped MFE web app supporting article production & worldwide supplier workflows. Built a shared npm UI library adopted across 10+ engineering teams.',
+      },
+      {
+        name: 'US Booking Marketplace',
+        highlight: 'Full-stack platform connecting service providers and consumers — service discovery, booking flows, and calendar integration.',
+      },
+      {
+        name: 'HR CRM Tool',
+        highlight: 'Admin panel with continuous UI/UX improvements, surfacing employee skills and experience insights for efficient people placement.',
+      },
+      {
+        name: 'Internal Learning Platform',
+        highlight: 'Developed and shipped a knowledge-sharing platform helping hundreds of employees learn and collaborate.',
+      },
     ],
-    stack: ['TypeScript', 'React', 'Jest', 'Stryker.js', 'Docker', 'AWS'],
+    outcomes: [
+      'Fortune Global 500 flagship client',
+      '10+ coordinated engineering teams',
+      '4 shipped client products',
+      'Shared npm UI library published',
+    ],
+    stack: ['TypeScript', 'React', 'Next.js', 'Jest', 'Stryker.js', 'Docker', 'AWS'],
     href: '/work#symphony',
   },
   {
-    label: 'Enterprise · Financial Software',
-    company: 'Devtech',
-    description:
-      'Modernized a legacy accounting platform and built complex D3.js big-data visualizations for a Microsoft 365 adoption platform used by thousands of organizations.',
-    outcomes: [
-      'High-performance financial reporting',
-      'Complex data visualizations at scale',
-      'Lease accounting workflows delivered',
+    label: 'Fintech · Accounting & Analytics · AI-based EdTech',
+    company: 'Devtech - IT Services Agency',
+    tagline: '2 client projects · Aug 2021–Sep 2022',
+    projects: [
+      {
+        name: 'Enterprise Accounting Platform (USA)',
+        highlight: 'Transformed the UI of a legacy enterprise system into a modern, scalable frontend aligned with current engineering best practices. Delivered financial reporting dashboards, lease accounting flows, and performant data-heavy UI components.',
+      },
+      {
+        name: 'AI-Powered Microsoft-365 Enablement Platform',
+        highlight: 'Owned the frontend implementation of advanced data visualization features, building custom standalone D3.js chart components to render complex, large-scale datasets.',
+      },
     ],
-    stack: ['TypeScript', 'Next.js', 'D3.js', 'Redux Toolkit', 'PostgreSQL', 'AWS'],
+    outcomes: [
+      'Leading USA accounting platform',
+      'Custom D3.js big-data chart components',
+      'Thousands of organisations on M365',
+      'Legacy systems fully modernised',
+    ],
+    stack: ['TypeScript', 'Next.js', 'React', 'D3.js', 'Redux Toolkit', 'PostgreSQL', 'Azure'],
     href: '/work#devtech',
   },
 ];
@@ -61,7 +89,7 @@ const selectedWork = [
     </div>
 
     <div class="space-y-4">
-      {selectedWork.map(({ label, company, description, outcomes, stack, href }, i) => (
+      {selectedWork.map(({ label, company, description, tagline, projects, outcomes, stack, href }, i) => (
         <a
           href={href}
           data-reveal
@@ -75,7 +103,20 @@ const selectedWork = [
               <h3 class="text-white font-semibold text-xl mb-3 group-hover:text-[#818cf8] transition-colors duration-200">
                 {company}
               </h3>
-              <p class="text-[#666] text-sm leading-relaxed mb-6">{description}</p>
+              {projects ? (
+                <div class="mb-6">
+                  <ul class="space-y-3">
+                    {projects.map((p: { name: string; highlight: string }) => (
+                      <li>
+                        <span class="text-white/70 text-sm font-semibold block mb-0.5">{p.name}</span>
+                        <span class="text-[#666] text-sm leading-relaxed">{p.highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : (
+                <p class="text-[#666] text-sm leading-relaxed mb-6">{description}</p>
+              )}
               <div class="flex flex-wrap gap-2">
                 {stack.map((t) => (
                   <span class="text-[11px] text-[#555] border border-white/[0.06] px-2.5 py-1 rounded-md font-mono">
