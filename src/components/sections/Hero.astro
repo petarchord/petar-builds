@@ -1,16 +1,31 @@
 ---
+import PaayedLogo from '../../assets/Paayed-logo.png';
+import InditexLogo from '../../assets/Inditex-logo.webp';
+import FinqueryLogo from '../../assets/Finquery-logo.webp';
+import SymphonyLogo from '../../assets/Symphony-logo.png';
+import DevtechLogo from '../../assets/Devtech-logo.png';
+import NuliaLogo from '../../assets/Nulia-logo.png';
 
+const logos = [
+  { name: 'Paayed',   src: PaayedLogo.src,   type: 'solid' },
+  { name: 'Inditex',  src: InditexLogo.src,  type: 'solid' },
+  { name: 'FinQuery', src: FinqueryLogo.src, type: 'transparent' },
+  { name: 'Symphony', src: SymphonyLogo.src, type: 'transparent' },
+  { name: 'Devtech',  src: DevtechLogo.src,  type: 'transparent' },
+  { name: 'Nulia',    src: NuliaLogo.src,    type: 'solid' },
+];
 ---
 
-<section class="min-h-[100svh] flex items-center px-6 pt-28 pb-20">
-  <div class="max-w-6xl mx-auto w-full grid lg:grid-cols-[1fr_360px] gap-16 lg:gap-24 items-center">
-    <!-- Text -->
-    <div>
+<section class="min-h-[100svh] flex items-center px-6 pt-28 pb-20 overflow-x-hidden">
+  <div class="max-w-6xl mx-auto w-full grid lg:grid-cols-[1fr_440px] gap-16 lg:gap-20 items-center">
+
+    <!-- ─── Left column: text + CTAs + worked-with ─── -->
+    <div class="min-w-0 overflow-hidden">
       <p
         data-reveal
         class="text-[#555] text-xs font-mono tracking-[0.25em] uppercase mb-8"
       >
-        Sr. Web Developer | Saas Specialist | AI Enthusiast
+        Sr. Web Developer · SaaS Specialist · AI Enthusiast
       </p>
       <h1
         data-reveal
@@ -28,7 +43,9 @@
         including platforms for Fortune Global 500 companies spanning fintech,
         ed-tech, social networking, and e-commerce.
       </p>
-      <div data-reveal style="transition-delay:240ms" class="flex flex-wrap gap-3">
+
+      <!-- CTAs -->
+      <div data-reveal style="transition-delay:240ms" class="flex flex-wrap gap-3 mb-12">
         <a
           href="/work"
           class="bg-white text-[#09090b] text-sm font-semibold px-6 py-3 rounded-lg hover:bg-[#e8e8e8] transition-colors duration-200"
@@ -42,17 +59,81 @@
           Let's talk
         </a>
       </div>
+
+      <!-- Worked with – marquee directly below CTAs -->
+      <div data-reveal style="transition-delay:340ms">
+        <p class="text-[#3f3f46] text-xs font-mono tracking-[0.25em] uppercase mb-5">
+          Worked with
+        </p>
+        <div
+          class="marquee-outer relative overflow-hidden"
+          style="mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);"
+        >
+          <div class="marquee-track flex w-max items-center">
+            {[...logos, ...logos].map((logo) => (
+              <div class="flex items-center shrink-0">
+                <img
+                  src={logo.src}
+                  alt={logo.name}
+                  class={`logo-${logo.type}`}
+                  draggable="false"
+                />
+                <span class="text-[#1e1e22] select-none px-8 text-xs" aria-hidden="true">/</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Portrait -->
-    <div data-reveal style="transition-delay:320ms" class="hidden lg:block">
-      <figure class="w-[300px] h-[300px] rounded-full aspect-[4/5] overflow-hidden bg-[#101013] border border-white/[0.06]">
-        <img
-          src="/src/assets/petar-portfolio-image.png"
-          alt="Petar Jovanovic"
-          class="w-full h-full object-cover object-top grayscale-[0.8]"
-        />
-      </figure>
+    <!-- ─── Right column: portrait + floating stat cards ─── -->
+    <div class="hidden lg:flex justify-center items-center">
+      <!--
+        Container sized to comfortably hold the 240px circle + the cards
+        that float beyond its edges. Cards use absolute positioning.
+      -->
+      <div class="relative" style="width:420px; height:400px;">
+
+        <!-- Portrait circle -->
+        <figure
+          class="absolute rounded-full overflow-hidden bg-[#101013] border border-white/[0.06]"
+          style="width:240px; height:240px; left:90px; top:80px;"
+        >
+          <img
+            src="/src/assets/petar-portfolio-image.png"
+            alt="Petar Jovanovic"
+            class="w-full h-full object-cover object-top grayscale-[0.8]"
+          />
+        </figure>
+
+        <!-- ── Stat cards – each pops in with a staggered delay ── -->
+
+        <!-- Top-left: 7+ years -->
+        <div class="stat-card absolute" style="width:130px; left:0; top:36px; animation-delay:500ms;">
+          <p class="text-white font-bold text-2xl tracking-tight leading-none mb-1.5">7+</p>
+          <p class="text-[#555] text-xs leading-snug">Years of experience</p>
+        </div>
+
+        <!-- Top-right: F500 -->
+        <div class="stat-card absolute" style="width:130px; right:0; top:62px; animation-delay:700ms;">
+          <p class="text-white font-bold text-2xl tracking-tight leading-none mb-1.5">F500</p>
+          <p class="text-[#555] text-xs leading-snug">Fortune Global 500</p>
+        </div>
+
+        <!-- Bottom-left: 10+ projects -->
+        <div class="stat-card absolute" style="width:130px; left:0; bottom:52px; animation-delay:900ms;">
+          <p class="text-white font-bold text-2xl tracking-tight leading-none mb-1.5">10+</p>
+          <p class="text-[#555] text-xs leading-snug">Production projects</p>
+        </div>
+
+        <!-- Bottom-right: 100K+ users -->
+        <div class="stat-card absolute" style="width:130px; right:0; bottom:28px; animation-delay:1100ms;">
+          <p class="text-white font-bold text-2xl tracking-tight leading-none mb-1.5">100K+</p>
+          <p class="text-[#555] text-xs leading-snug">Users impacted</p>
+        </div>
+
+      </div>
     </div>
+
   </div>
 </section>

@@ -59,6 +59,32 @@
   transform: none;
 }
 
+/* ─── Floating stat cards (hero portrait) ───────────────── */
+@keyframes stat-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.stat-card {
+  background: #111116;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  padding: 14px 16px;
+  animation: stat-pop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  opacity: 0;
+}
+
+[data-reveal].in-view {
+  opacity: 1;
+  transform: none;
+}
+
 /* Marquee / ticker */
 @keyframes marquee {
   from {
