@@ -1,23 +1,18 @@
 ---
-const { pathname } = Astro.url;
-
 const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/#services', label: 'Services' },
-  { href: '/work', label: 'Work' },
-  { href: '/writing', label: 'Writing' },
-  { href: '/#about', label: 'About' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/#hero',     label: 'Home',     section: 'hero' },
+  { href: '/#about',    label: 'About',    section: 'about' },
+  { href: '/#work',     label: 'Work',     section: 'work' },
+  { href: '/#services', label: 'Services', section: 'services' },
+  { href: '/#writing',  label: 'Writing',  section: 'writing' },
+  { href: '/#contact',  label: 'Contact',  section: 'contact' },
 ];
-
-const isActive = (href: string) =>
-  href === '/' ? pathname === '/' : pathname.startsWith(href);
 ---
 
 <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
   <nav class="max-w-6xl mx-auto px-6 xl:px-0 py-5 flex items-center justify-between">
     <a
-      href="/"
+      href="/#hero"
       class="text-white font-semibold text-sm tracking-tight hover:opacity-70 transition-opacity duration-200"
     >
       Petar Jovanović
@@ -29,12 +24,8 @@ const isActive = (href: string) =>
         <li>
           <a
             href={link.href}
-            class:list={[
-              'text-sm px-3 py-1.5 rounded-md transition-colors duration-200',
-              isActive(link.href)
-                ? 'text-white bg-white/8'
-                : 'text-[#888] hover:text-white',
-            ]}
+            data-nav-link={link.section}
+            class="nav-link text-sm px-3 py-1.5 rounded-md transition-colors duration-200 text-[#888] hover:text-white"
           >
             {link.label}
           </a>
@@ -93,12 +84,8 @@ const isActive = (href: string) =>
         <li>
           <a
             href={link.href}
-            class:list={[
-              'block text-sm px-3 py-2 rounded-md transition-colors duration-200',
-              isActive(link.href)
-                ? 'text-white bg-white/8'
-                : 'text-[#888] hover:text-white',
-            ]}
+            data-nav-link={link.section}
+            class="nav-link block text-sm px-3 py-2 rounded-md transition-colors duration-200 text-[#888] hover:text-white"
           >
             {link.label}
           </a>
@@ -109,6 +96,7 @@ const isActive = (href: string) =>
 </header>
 
 <script>
+  // ── Header blur on scroll ──────────────────────────────────
   const header = document.getElementById('site-header') as HTMLElement;
   const menuToggle = document.getElementById('menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
@@ -143,5 +131,38 @@ const isActive = (href: string) =>
       closeIcon?.classList.add('hidden');
     });
   });
+
+  // ── Scroll-based active nav link ──────────────────────────
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>('[data-nav-link]');
+
+  const setActive = (sectionId: string) => {
+    navLinks.forEach((link) => {
+      const isActive = link.getAttribute('data-nav-link') === sectionId;
+      link.classList.toggle('text-white', isActive);
+      link.classList.toggle('bg-white/[0.08]', isActive);
+      link.classList.toggle('text-[#888]', !isActive);
+    });
+  };
+
+  const sections: { id: string; el: HTMLElement }[] = [];
+  navLinks.forEach((link) => {
+    const id = link.getAttribute('data-nav-link')!;
+    const el = document.getElementById(id);
+    if (el) sections.push({ id, el });
+  });
+
+  const onScroll = () => {
+    // Walk from bottom to top: last section whose top is above the midpoint wins
+    let current = sections[0]?.id ?? '';
+    for (const { id, el } of sections) {
+      if (el.getBoundingClientRect().top <= window.innerHeight * 0.45) {
+        current = id;
+      }
+    }
+    setActive(current);
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll(); // set initial active on page load
 </script>
 
