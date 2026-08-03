@@ -13,9 +13,19 @@ const navLinks = [
   <nav class="max-w-6xl mx-auto px-6 xl:px-0 py-5 flex items-center justify-between">
     <a
       href="/#hero"
-      class="text-white font-semibold text-sm tracking-tight hover:opacity-70 transition-opacity duration-200"
+      class="hover:opacity-80 transition-opacity duration-200 flex items-center gap-2.5"
+      aria-label="petarbuilds.tech — home"
     >
-      Petar Jovanović
+      <!-- Mark: stacked layers representing "builds" -->
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="3" y="14" width="16" height="3" rx="1.5" fill="#818cf8"/>
+        <rect x="3" y="9"  width="16" height="3" rx="1.5" fill="#818cf8" opacity="0.6"/>
+        <rect x="3" y="4"  width="16" height="3" rx="1.5" fill="#818cf8" opacity="0.3"/>
+      </svg>
+      <!-- Wordmark -->
+      <span class="text-sm font-semibold tracking-tight leading-none">
+        <span class="text-white">petar</span><span class="text-[#818cf8]">builds</span><span class="text-[#444] font-mono text-[11px]">.tech</span>
+      </span>
     </a>
 
     <!-- Desktop nav -->

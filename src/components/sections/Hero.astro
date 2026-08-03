@@ -5,6 +5,7 @@ import FinqueryLogo from '../../assets/Finquery-logo.webp';
 import SymphonyLogo from '../../assets/Symphony-logo.png';
 import DevtechLogo from '../../assets/Devtech-logo.png';
 import NuliaLogo from '../../assets/Nulia-logo.png';
+import PortraitImage from '../../assets/petar-portfolio-image.png';
 
 const logos = [
   { name: 'Paayed',   src: PaayedLogo.src,   type: 'solid' },
@@ -32,7 +33,7 @@ const logos = [
         style="transition-delay:80ms"
         class="text-[clamp(2.4rem,5.5vw,4rem)] font-bold text-white leading-[1.08] tracking-[-0.025em] mb-7"
       >
-        Building scalable software that grows with your business.
+        Building scalable <span class="text-[#818cf8]">software</span> that grows with your <span class="text-[#818cf8]">business</span>.
       </h1>
       <p
         data-reveal
@@ -100,7 +101,7 @@ const logos = [
           style="width:240px; height:240px; left:90px; top:80px;"
         >
           <img
-            src="/src/assets/petar-portfolio-image.png"
+            src={PortraitImage.src}
             alt="Petar Jovanovic"
             class="w-full h-full object-cover object-top grayscale-[0.8]"
           />
