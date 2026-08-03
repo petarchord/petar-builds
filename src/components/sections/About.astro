@@ -1,0 +1,117 @@
+---
+const values = [
+  {
+    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`,
+    label: 'Craftsman',
+    body: 'I care about the details. Not because someone is watching — because quality compounds, and I want what I build to still be good long after the sprint is over.',
+  },
+  {
+    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>`,
+    label: 'Purposeful',
+    body: "I don't build things just for the sake of building them. Every decision should solve a real problem and move the product — and the people using it — forward.",
+  },
+  {
+    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>`,
+    label: 'Systems thinker',
+    body: 'Before writing a line, I ask how it fits the whole. Good architecture outlives any single feature — so I always build with the bigger picture in mind.',
+  },
+  {
+    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>`,
+    label: 'Passionate',
+    body: 'Building on the web isn\'t just my job — it\'s something I genuinely love. That energy comes through in every project, and it\'s what keeps me raising the bar.',
+  },
+];
+---
+
+<section id="about" class="px-6 py-32 border-t border-white/[0.06]">
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Header -->
+    <div data-reveal class="mb-12">
+      <p class="text-[#444] text-xs font-mono tracking-[0.25em] uppercase mb-4">About me</p>
+      <h2 class="text-3xl md:text-[2.5rem] font-bold text-white tracking-tight leading-tight">
+        A little about me.
+      </h2>
+    </div>
+
+    <!-- Bio -->
+    <div
+      data-reveal
+      style="transition-delay:80ms"
+      class="max-w-3xl space-y-5 text-[#777] text-base leading-relaxed mb-16"
+    >
+      <p>
+        Hi there! My name is Petar, and I'm passionate about building things on the web. I'm the kind
+        of person who truly cares about the details, and that's exactly how I approach engineering. I
+        don't build things just for the sake of building them — I build with purpose and with the
+        bigger picture in mind, always asking myself how each piece fits into the whole.
+      </p>
+      <p>
+        I've spent 7+ years building production software across fintech, enterprise, and startup
+        environments — from Fortune Global 500 platforms to early-stage products. Whether it's a
+        design system, a complex data-heavy dashboard, or a full-stack application, I bring the same
+        care and intentionality to every line.
+      </p>
+      <p>
+        Outside of engineering, I'm a singer in a band. I believe creativity in one domain sharpens
+        your thinking in another.
+      </p>
+    </div>
+
+    <!-- Values -->
+    <div data-reveal style="transition-delay:160ms" class="mb-2">
+      <p class="text-[#444] text-xs font-mono tracking-[0.25em] uppercase mb-8">My values</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {values.map(({ icon, label, body }, i) => (
+        <div
+          data-reveal
+          style={`transition-delay:${160 + i * 70}ms`}
+          class="value-card group relative border border-white/[0.06] rounded-xl p-6 hover:border-white/[0.12] hover:bg-white/[0.02] transition-all duration-300"
+        >
+          <span class="value-glow" aria-hidden="true" />
+          <span
+            class="flex items-center justify-center w-9 h-9 rounded-lg bg-white/[0.04] border border-white/[0.06] text-[#818cf8] mb-5 group-hover:bg-[#818cf8]/10 group-hover:border-[#818cf8]/20 transition-all duration-300 value-icon"
+            set:html={icon}
+          />
+          <h3 class="text-white font-semibold text-base mb-2">{label}</h3>
+          <p class="text-[#666] text-sm leading-relaxed">{body}</p>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .value-glow {
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    height: 1px;
+    border-radius: 0.75rem 0.75rem 0 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(129, 140, 248, 0.6) 50%, transparent 100%);
+    opacity: 0;
+    transform: scaleX(0.4);
+    transition:
+      opacity 0.35s ease,
+      transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .value-card:hover .value-glow {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  .value-icon {
+    transition:
+      background 0.3s ease,
+      border-color 0.3s ease,
+      transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .value-card:hover .value-icon {
+    transform: scale(1.08);
+  }
+</style>

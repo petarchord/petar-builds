@@ -1,49 +1,146 @@
 ---
-const highlights = [
+const services = [
   {
-    icon: '◈',
-    title: 'Component Libraries',
-    body: 'Building reusable design systems and component libraries that scale across multiple teams. From Storybook documentation to visual regression testing.',
+    number: '01',
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>`,
+    title: 'Build Your Product',
+    tagline: 'From idea to production-ready software.',
+    body: "Whether you're building an MVP or a complex SaaS platform, I help transform product ideas into scalable web applications with a strong technical foundation, clean architecture, and maintainable code. AI-accelerated prototyping is built into my workflow — so you ship faster without cutting corners.",
+    outcomes: [
+      'Production-ready MVP or SaaS application',
+      'Scalable architecture that grows with your business',
+      'Faster time-to-market without sacrificing quality',
+      'Clean, maintainable code built for long-term success',
+    ],
   },
   {
-    icon: '⬡',
-    title: 'Frontend Architecture',
-    body: 'Designing scalable React applications with clean data flows, Micro-Frontend patterns, and codebases that are maintainable as teams grow.',
+    number: '02',
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 1 7 7c0 2.97-1.85 5.52-4.5 6.57V17a1 1 0 0 1-1 1h-3a1 1 0 0 1-1-1v-1.43C6.85 14.52 5 11.97 5 9a7 7 0 0 1 7-7z"/></svg>`,
+    title: 'Technical Consulting',
+    tagline: 'Solve the problems slowing your team down.',
+    body: 'Need a second opinion on architecture, performance bottlenecks, scalability, or frontend complexity? I help teams identify root causes, make informed technical decisions, and define a clear path forward.',
+    outcomes: [
+      'Clear diagnosis of bottlenecks and technical debt',
+      'Actionable architecture and performance recommendations',
+      'Informed decisions on tech stack and tooling',
+      'A defined path forward for your team',
+    ],
   },
   {
-    icon: '◎',
-    title: 'Performance & Accessibility',
-    body: "Core Web Vitals, virtualization for large datasets, lazy loading, and ARIA-compliant interfaces. Speed and inclusivity aren't trade-offs.",
-  },
-  {
-    icon: '⟡',
-    title: 'AI-Assisted Development',
-    body: 'Daily use of Cursor, Claude, and GitHub Copilot—treating AI as a force multiplier, not a replacement for senior engineering judgment.',
+    number: '03',
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>`,
+    title: 'Modernize & Scale',
+    tagline: 'Improve what already works.',
+    body: "Legacy applications don't always need a rewrite. I help teams modernize codebases, introduce scalable architecture, establish design systems, improve performance, and reduce long-term maintenance costs without disrupting product development.",
+    outcomes: [
+      'Legacy codebase modernized without service disruption',
+      'Scalable architecture and established design system',
+      'Improved performance and Core Web Vitals',
+      'Reduced maintenance costs and technical debt',
+    ],
   },
 ];
 ---
 
-<section class="px-6 py-32">
+<section id="services" class="px-6 py-32">
   <div class="max-w-6xl mx-auto">
     <div data-reveal class="mb-14">
-      <p class="text-[#444] text-xs font-mono tracking-[0.25em] uppercase mb-4">Engineering Highlights</p>
+      <p class="text-[#444] text-xs font-mono tracking-[0.25em] uppercase mb-4">My Services</p>
       <h2 class="text-3xl md:text-[2.5rem] font-bold text-white tracking-tight leading-tight">
-        What I do well.
+        How I can help.
       </h2>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-4">
-      {highlights.map(({ icon, title, body }, i) => (
+    <div class="grid md:grid-cols-3 gap-4">
+      {services.map(({ number, icon, title, tagline, body, outcomes }, i) => (
         <div
           data-reveal
           style={`transition-delay:${i * 80}ms`}
-          class="border border-white/[0.06] rounded-xl p-8 hover:border-white/[0.10] hover:bg-white/[0.02] transition-all duration-300"
+          class="service-card group relative border border-white/[0.06] rounded-xl p-8 hover:border-white/[0.12] hover:bg-white/[0.02] transition-all duration-300 flex flex-col"
         >
-          <span class="text-[#818cf8] text-xl block mb-5" aria-hidden="true">{icon}</span>
-          <h3 class="text-white font-semibold text-lg mb-3">{title}</h3>
-          <p class="text-[#666] text-sm leading-relaxed">{body}</p>
+          <!-- Animated top-glow border on hover -->
+          <span class="service-glow" aria-hidden="true" />
+
+          <!-- Icon + number row -->
+          <div class="flex items-center justify-between mb-6">
+            <span
+              class="service-icon flex items-center justify-center w-10 h-10 rounded-lg bg-white/[0.04] border border-white/[0.06] text-[#818cf8] group-hover:bg-[#818cf8]/10 group-hover:border-[#818cf8]/20 transition-all duration-300"
+              set:html={icon}
+            />
+            <span class="text-[#333] text-xs font-mono">{number}</span>
+          </div>
+
+          <h3 class="text-white font-semibold text-lg mb-2">{title}</h3>
+          <p class="text-[#818cf8] text-sm font-medium mb-4">{tagline}</p>
+          <p class="text-[#666] text-sm leading-relaxed mb-6">{body}</p>
+
+          <!-- Outcomes -->
+          <div class="mt-auto pt-6 border-t border-white/[0.05]">
+            <ul class="space-y-2.5">
+              {outcomes.map((outcome, j) => (
+                <li
+                  class="outcome-item flex items-start gap-2.5 text-sm text-[#555]"
+                  style={`--delay:${(i * 80) + (j * 60) + 200}ms`}
+                >
+                  <span class="text-[#818cf8] shrink-0 mt-px text-xs">✓</span>
+                  <span class="group-hover:text-[#777] transition-colors duration-200">{outcome}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       ))}
     </div>
   </div>
 </section>
+
+<style>
+  /* Gradient top-line that slides in on hover */
+  .service-glow {
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    height: 1px;
+    border-radius: 0.75rem 0.75rem 0 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(129, 140, 248, 0.7) 50%, transparent 100%);
+    opacity: 0;
+    transform: scaleX(0.4);
+    transition:
+      opacity 0.35s ease,
+      transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .service-card:hover .service-glow {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  /* Icon subtle bounce on card hover */
+  .service-icon {
+    transition:
+      background 0.3s ease,
+      border-color 0.3s ease,
+      transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .service-card:hover .service-icon {
+    transform: scale(1.08);
+  }
+
+  /* Outcome items stagger in when card is revealed */
+  [data-reveal].in-view .outcome-item {
+    animation: outcome-fade-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: var(--delay);
+  }
+
+  @keyframes outcome-fade-in {
+    from {
+      opacity: 0;
+      transform: translateX(-6px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
