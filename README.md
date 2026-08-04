@@ -24,7 +24,7 @@ src/
 ## Commands
 
 | Command           | Action                                    |
-|:------------------|:------------------------------------------|
+| :---------------- | :---------------------------------------- |
 | `npm install`     | Install dependencies                      |
 | `npm run dev`     | Start dev server at http://localhost:4321 |
 | `npm run build`   | Build production site to ./dist/          |
@@ -39,7 +39,7 @@ Create a new `.md` or `.mdx` file in `src/content/blog/`:
 title: My New Post
 description: A short description
 pubDate: Jul 24 2026
-heroImage: /blog-placeholder-1.jpg
+heroImage: /blog-placeholder-1.png
 ---
 
 Your content here

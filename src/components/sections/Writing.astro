@@ -6,28 +6,10 @@ const posts = (await getCollection('blog')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
-const ideas = [
-  {
-    title: 'Building a React Component Library from Scratch',
-    description: 'Design tokens, Storybook, Chromatic, and the decisions that matter.',
-    tag: 'Architecture',
-  },
-  {
-    title: 'How We Standardized 90+ Components',
-    description: 'A real-world story of migrating a fragmented frontend to a single design system.',
-    tag: 'Design Systems',
-  },
-  {
-    title: "Why AI Won't Replace Senior Engineers",
-    description: 'AI is a force multiplier—but judgment, taste, and context still win.',
-    tag: 'Opinion',
-  },
-  {
-    title: "Virtualization Isn't Magic",
-    description: 'What windowing really does, and when you actually need it.',
-    tag: 'Performance',
-  },
-];
+const withMeta = posts.map((post) => ({
+  ...post,
+  readingTime: Math.max(1, Math.ceil((post.body?.split(/\s+/).length ?? 0) / 200)),
+}));
 ---
 
 <section id="writing" class="px-6 py-32 border-t border-white/[0.06] bg-[#0a0a0d]">
@@ -35,7 +17,7 @@ const ideas = [
     <div data-reveal class="mb-14">
       <p class="text-[#444] text-xs font-mono tracking-[0.25em] uppercase mb-4">Writing</p>
       <h2 class="text-3xl md:text-[2.5rem] font-bold text-white tracking-tight leading-tight">
-        Thinking out loud
+        Thinking out loud.
       </h2>
       <p class="text-[#666] text-base leading-relaxed mt-4 max-w-lg">
         Articles on frontend engineering, design systems, and building software
@@ -43,49 +25,61 @@ const ideas = [
       </p>
     </div>
 
-    <!-- In-progress articles -->
-    <div data-reveal style="transition-delay:80ms" class="mb-12">
-      <p class="text-[#444] text-xs font-mono tracking-[0.25em] uppercase mb-6">In progress</p>
-      <div class="grid sm:grid-cols-2 gap-4">
-        {ideas.map(({ title, description, tag }, i) => (
-          <div
+    {withMeta.length > 0 && (
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {withMeta.map((post, i) => (
+          <a
+            href={`/blog/${post.id}/`}
             data-reveal
-            style={`transition-delay:${80 + i * 70}ms`}
-            class="border border-white/[0.06] rounded-xl p-6 hover:border-white/[0.10] hover:bg-white/[0.02] transition-all duration-300 cursor-default"
+            style={`transition-delay:${i * 80}ms`}
+            class="group flex flex-col border border-white/[0.06] rounded-xl overflow-hidden hover:border-white/[0.12] hover:bg-white/[0.02] transition-all duration-300"
           >
-            <span class="text-[10px] text-[#818cf8] font-mono tracking-widest uppercase border border-[#818cf8]/25 px-2 py-0.5 rounded-full">
-              {tag}
-            </span>
-            <h3 class="text-white font-semibold text-base mt-4 mb-2 leading-snug">{title}</h3>
-            <p class="text-[#666] text-sm leading-relaxed">{description}</p>
-            <p class="text-[#3f3f46] text-xs font-mono mt-4">Coming soon</p>
-          </div>
-        ))}
-      </div>
-    </div>
+            <!-- Card image -->
+            {post.data.heroImage ? (
+              <div class="aspect-[16/9] overflow-hidden bg-[#101013]">
+                <img
+                  src={post.data.heroImage.src}
+                  alt={post.data.title}
+                  class="w-full h-full object-cover group-hover:opacity-90 group-hover:scale-[1.02] transition-all duration-500"
+                />
+              </div>
+            ) : (
+              <div class="aspect-[16/9] bg-gradient-to-br from-[#818cf8]/10 to-[#6366f1]/5 border-b border-white/[0.06]" />
+            )}
 
-    <!-- Published posts -->
-    {posts.length > 0 && (
-      <div data-reveal style="transition-delay:160ms">
-        <p class="text-[#444] text-xs font-mono tracking-[0.25em] uppercase mb-6">Published</p>
-        <div class="divide-y divide-white/[0.06]">
-          {posts.map((post, i) => (
-            <a
-              href={`/blog/${post.id}/`}
-              data-reveal
-              style={`transition-delay:${160 + i * 60}ms`}
-              class="group flex flex-col sm:flex-row sm:items-center justify-between gap-3 py-5 hover:text-white transition-colors duration-200"
-            >
-              <h3 class="text-[#aaa] group-hover:text-white font-medium text-base transition-colors duration-200">
+            <!-- Card body -->
+            <div class="flex flex-col flex-1 p-6">
+              <!-- Tags -->
+              {post.data.tags && post.data.tags.length > 0 && (
+                <div class="flex flex-wrap gap-1.5 mb-3">
+                  {post.data.tags.map((tag: string) => (
+                    <span class="text-[10px] text-[#818cf8] font-mono tracking-widest uppercase border border-[#818cf8]/25 px-2 py-0.5 rounded-full">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+
+              <!-- Title -->
+              <h3 class="text-white font-semibold text-base leading-snug mb-2 group-hover:text-[#818cf8] transition-colors duration-200">
                 {post.data.title}
               </h3>
-              <span class="text-[#444] text-xs font-mono shrink-0">
+
+              <!-- Description -->
+              <p class="text-[#555] text-sm leading-relaxed flex-1 mb-4">
+                {post.data.description}
+              </p>
+
+              <!-- Meta row -->
+              <div class="flex items-center justify-between text-[#3f3f46] text-xs font-mono mt-auto pt-4 border-t border-white/[0.05]">
                 <FormattedDate date={post.data.pubDate} />
-              </span>
-            </a>
-          ))}
-        </div>
+                <span>{post.readingTime} min read</span>
+              </div>
+            </div>
+          </a>
+        ))}
       </div>
     )}
   </div>
 </section>
+
