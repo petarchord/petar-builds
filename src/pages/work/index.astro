@@ -1,5 +1,6 @@
 ---
 import PortfolioLayout from '../../layouts/PortfolioLayout.astro';
+import TechIcon from '../../components/TechIcon.astro';
 ---
 
 <PortfolioLayout
@@ -41,7 +42,7 @@ import PortfolioLayout from '../../layouts/PortfolioLayout.astro';
         </div>
         <div class="shrink-0 flex flex-wrap gap-2 md:justify-end">
           {['TypeScript', 'React', 'Tailwind', 'Radix UI', 'RTL', 'Jest', 'GitHub CI/CD'].map(t => (
-            <span class="text-[11px] text-[#555] border border-white/[0.06] px-2.5 py-1 rounded-md font-mono">{t}</span>
+            <span class="inline-flex items-center gap-1.5 text-[11px] text-[#555] border border-white/[0.06] px-2.5 py-1 rounded-md font-mono"><TechIcon name={t} size={11} />{t}</span>
           ))}
         </div>
       </div>
@@ -118,8 +119,8 @@ import PortfolioLayout from '../../layouts/PortfolioLayout.astro';
       </div>
 
       <!-- Context note -->
-      <p data-reveal class="text-[#666666] text-base leading-relaxed max-w-2xl mb-14">
-        Symphony is a software development outsourcing company. During my two years there, I contributed
+      <p data-reveal class="text-[#777] text-base leading-relaxed max-w-2xl mb-14">
+        Symphony is a software development company. During my two years there, I contributed
         to four separate client projects - each with distinct requirements, teams, and tech stacks.
       </p>
 
@@ -135,14 +136,14 @@ import PortfolioLayout from '../../layouts/PortfolioLayout.astro';
             <h3 class="text-white font-semibold text-base">MFE Web App — Fortune Global 500 Fashion Enterprise</h3>
             <span class="text-[#818cf8] text-xs font-mono shrink-0">Primary engagement</span>
           </div>
-          <p class="text-[#666] text-sm leading-relaxed mb-3">
+          <p class="text-[#777] text-sm leading-relaxed mb-3">
             Successfully shipped a Micro-Frontend (MFE) web application that supports the article
             production workflow and day-to-day business operations between external suppliers worldwide
             and the company's quality assurance teams. Worked under Domain-Driven Design (DDD) principles,
             coordinating with 10+ diverse cross-functional teams to build adaptable solutions that met
             continuously evolving business requirements.
           </p>
-          <p class="text-[#555] text-sm leading-relaxed mb-4">
+          <p class="text-[#777] text-sm leading-relaxed mb-4">
             Built and maintained a shared internal UI component library published as a versioned npm
             package — enabling consistent design and accelerating development across all MFE teams.
             Established mutation testing with Stryker.js to ensure high code confidence and reduce
@@ -151,7 +152,7 @@ import PortfolioLayout from '../../layouts/PortfolioLayout.astro';
           </p>
           <div class="flex flex-wrap gap-2">
             {['TypeScript', 'JavaScript', 'React', 'RTL', 'Jest', 'Stryker.js', 'ESLint/Prettier', 'Docker', 'AWS', 'Azure App Insights', 'GitHub CI/CD', 'Scrum'].map(t => (
-              <span class="text-[11px] text-[#555] border border-white/[0.06] px-2.5 py-1 rounded-md font-mono">{t}</span>
+              <span class="inline-flex items-center gap-1.5 text-[11px] text-[#777] border border-white/[0.06] px-2.5 py-1 rounded-md font-mono"><TechIcon name={t} size={11} />{t}</span>
             ))}
           </div>
         </div>
@@ -166,7 +167,7 @@ import PortfolioLayout from '../../layouts/PortfolioLayout.astro';
             <h3 class="text-white font-semibold text-base">Booking Platform — US Marketplace</h3>
             <span class="text-[#444] text-xs font-mono shrink-0">Full-stack product</span>
           </div>
-          <p class="text-[#666] text-sm leading-relaxed mb-4">
+          <p class="text-[#777] text-sm leading-relaxed mb-4">
             Successfully delivered a full-stack application connecting service providers and consumers,
             enabling seamless service discovery, booking, and management. Implemented end-to-end booking
             flows, authentication via Auth0, provider and consumer dashboards, and Calendly API integration
@@ -174,7 +175,7 @@ import PortfolioLayout from '../../layouts/PortfolioLayout.astro';
           </p>
           <div class="flex flex-wrap gap-2">
             {['TypeScript', 'JavaScript', 'Next.js', 'Prisma', 'PostgreSQL', 'Auth0', 'Material UI', 'ESLint/Prettier', 'Docker', 'AWS', 'Calendly API', 'GitHub CI/CD', 'Scrum'].map(t => (
-              <span class="text-[11px] text-[#555] border border-white/[0.06] px-2.5 py-1 rounded-md font-mono">{t}</span>
+              <span class="inline-flex items-center gap-1.5 text-[11px] text-[#777] border border-white/[0.06] px-2.5 py-1 rounded-md font-mono"><TechIcon name={t} size={11} />{t}</span>
             ))}
           </div>
         </div>
@@ -189,14 +190,14 @@ import PortfolioLayout from '../../layouts/PortfolioLayout.astro';
             <h3 class="text-white font-semibold text-base">CRM Tool — HR &amp; People Placement</h3>
             <span class="text-[#444] text-xs font-mono shrink-0">Internal tooling</span>
           </div>
-          <p class="text-[#666] text-sm leading-relaxed mb-4">
+          <p class="text-[#777] text-sm leading-relaxed mb-4">
             Developed the admin panel of an internal CRM platform, crafting and continuously improving
             the UI/UX to provide clear insights into employee skills and experience. Enabled efficient
             people placement by surfacing structured data about team capabilities in an intuitive interface.
           </p>
           <div class="flex flex-wrap gap-2">
             {['TypeScript', 'JavaScript', 'Next.js', 'Redux Toolkit', 'Redux Thunk', 'Material UI', 'ESLint/Prettier', 'Husky', 'GitHub CI/CD', 'Kanban'].map(t => (
-              <span class="text-[11px] text-[#555] border border-white/[0.06] px-2.5 py-1 rounded-md font-mono">{t}</span>
+              <span class="inline-flex items-center gap-1.5 text-[11px] text-[#777] border border-white/[0.06] px-2.5 py-1 rounded-md font-mono"><TechIcon name={t} size={11} />{t}</span>
             ))}
           </div>
         </div>
@@ -211,7 +212,7 @@ import PortfolioLayout from '../../layouts/PortfolioLayout.astro';
             <h3 class="text-white font-semibold text-base">Internal Learning Platform</h3>
             <span class="text-[#444] text-xs font-mono shrink-0">Internal product</span>
           </div>
-          <p class="text-[#666] text-sm leading-relaxed mb-4">
+          <p class="text-[#777] text-sm leading-relaxed mb-4">
             Developed and released an internal learning platform, helping hundreds of employees learn,
             share knowledge, and collaborate in a more effective and structured way. Integrated Google
             APIs for authentication and content management, with Firebase as the backend. Managed state
@@ -219,7 +220,7 @@ import PortfolioLayout from '../../layouts/PortfolioLayout.astro';
           </p>
           <div class="flex flex-wrap gap-2">
             {['TypeScript', 'JavaScript', 'React', 'Redux Toolkit', 'Redux Thunk', 'Material UI', 'ESLint/Prettier', 'Google APIs', 'Firebase', 'Husky', 'GitHub CI/CD', 'Kanban'].map(t => (
-              <span class="text-[11px] text-[#555] border border-white/[0.06] px-2.5 py-1 rounded-md font-mono">{t}</span>
+              <span class="inline-flex items-center gap-1.5 text-[11px] text-[#777] border border-white/[0.06] px-2.5 py-1 rounded-md font-mono"><TechIcon name={t} size={11} />{t}</span>
             ))}
           </div>
         </div>
@@ -254,7 +255,7 @@ import PortfolioLayout from '../../layouts/PortfolioLayout.astro';
         <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">
           <a href="https://devtechgroup.com/" target="_blank" rel="noopener noreferrer" class="hover:text-[#818cf8] transition-colors duration-200">Devtech</a>
         </h2>
-        <p class="text-[#666] mt-2 text-base">Devtech is a software development company. During my time there, I contributed to two client engagements across fintech and AI-powered enterprise platforms, each with unique technical challenges, domains, and engineering practices.</p>
+        <p class="text-[#777] mt-2 text-base">Devtech is a software development company. During my time there, I contributed to two client engagements across fintech and AI-powered enterprise platforms, each with unique technical challenges, domains, and engineering practices.</p>
       </div>
 
       <!-- Sub-projects -->
@@ -269,12 +270,12 @@ import PortfolioLayout from '../../layouts/PortfolioLayout.astro';
             <h3 class="text-white font-semibold text-base">Enterprise Accounting Platform</h3>
             <span class="text-[#818cf8] text-xs font-mono shrink-0">FinQuery · USA</span>
           </div>
-          <p class="text-[#666] text-sm leading-relaxed mb-3">
+          <p class="text-[#777] text-sm leading-relaxed mb-3">
             Modernized a legacy enterprise accounting system into a scalable, high-performance platform
             using modern technologies. Designed and implemented core features including financial reporting
             dashboards and lease accounting flows.
           </p>
-          <p class="text-[#555] text-sm leading-relaxed mb-4">
+          <p class="text-[#777] text-sm leading-relaxed mb-4">
             Developed performant, data-heavy UI components — advanced tables, filtering systems, and
             export functionality — enabling efficient handling of large-scale financial datasets. Built
             interactive visualizations and actively participated in planning, organizing, and delivering
@@ -282,7 +283,7 @@ import PortfolioLayout from '../../layouts/PortfolioLayout.astro';
           </p>
           <div class="flex flex-wrap gap-2">
             {['TypeScript', 'JavaScript', 'Next.js', 'Redux Toolkit', 'Redux Saga', 'ASP.NET', 'PostgreSQL', 'AWS', 'Jenkins', 'Scrum'].map(t => (
-              <span class="text-[11px] text-[#555] border border-white/[0.06] px-2.5 py-1 rounded-md font-mono">{t}</span>
+              <span class="inline-flex items-center gap-1.5 text-[11px] text-[#777] border border-white/[0.06] px-2.5 py-1 rounded-md font-mono"><TechIcon name={t} size={11} />{t}</span>
             ))}
           </div>
         </div>
@@ -297,12 +298,12 @@ import PortfolioLayout from '../../layouts/PortfolioLayout.astro';
             <h3 class="text-white font-semibold text-base">AI-Powered Digital Enablement Platform</h3>
             <span class="text-[#444] text-xs font-mono shrink-0">Microsoft 365 ecosystem</span>
           </div>
-          <p class="text-[#666] text-sm leading-relaxed mb-3">
+          <p class="text-[#777] text-sm leading-relaxed mb-3">
             Contributed to a large-scale platform helping thousands of organizations improve their digital
             experiences and maximize the value of Microsoft 365. The platform leverages AI to surface
             actionable insights across an organization's M365 toolset.
           </p>
-          <p class="text-[#555] text-sm leading-relaxed mb-4">
+          <p class="text-[#777] text-sm leading-relaxed mb-4">
             Led the release of an advanced application version featuring complex big-data visualizations.
             Built custom, standalone chart components using D3.js to represent large datasets in clear,
             interactive graphics. Integrated with Azure Cosmos DB, Azure Blob Storage, and Azure SQL DB,
@@ -310,7 +311,7 @@ import PortfolioLayout from '../../layouts/PortfolioLayout.astro';
           </p>
           <div class="flex flex-wrap gap-2">
             {['TypeScript', 'JavaScript', 'React', 'Context API', 'D3.js', 'Material UI', 'ASP.NET', 'Husky', 'Azure DevOps', 'Azure Cosmos DB', 'Azure Blob Storage', 'Azure SQL', 'ScrumBan'].map(t => (
-              <span class="text-[11px] text-[#555] border border-white/[0.06] px-2.5 py-1 rounded-md font-mono">{t}</span>
+              <span class="inline-flex items-center gap-1.5 text-[11px] text-[#777] border border-white/[0.06] px-2.5 py-1 rounded-md font-mono"><TechIcon name={t} size={11} />{t}</span>
             ))}
           </div>
         </div>

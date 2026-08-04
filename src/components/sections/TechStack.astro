@@ -1,18 +1,56 @@
 ---
-const tech = [
-  'React', 'TypeScript', 'Next.js', 'Node.js', 'Astro',
-  'Tailwind', 'PostgreSQL', 'Docker', 'GitHub Actions', 'AWS', 'Storybook', 'Testing',
+import TechIcon from '../TechIcon.astro';
+
+const categories = [
+  {
+    label: 'Languages',
+    items: ['TypeScript', 'JavaScript', 'PHP'],
+  },
+  {
+    label: 'Frontend',
+    items: ['React', 'Next.js', 'Astro', 'Tailwind', 'Radix UI', 'Material UI', 'Redux Toolkit', 'D3.js', 'Sass'],
+  },
+  {
+    label: 'Testing',
+    items: ['Jest', 'RTL', 'Stryker.js', 'Storybook', 'Vitest'],
+  },
+  {
+    label: 'Backend & Data',
+    items: ['Node.js', 'PostgreSQL', 'MySQL', 'MongoDB', 'Prisma', 'Firebase'],
+  },
+  {
+    label: 'Infra & DevOps',
+    items: ['Docker', 'GitHub Actions', 'Jenkins', 'Vite', 'Webpack'],
+  },
+  {
+    label: 'Auth & Tooling',
+    items: ['Auth0', 'ESLint', 'Git', 'Figma'],
+  },
 ];
 ---
 
-<section class="border-t border-white/[0.06] px-6 py-20">
+<section class="border-t border-white/[0.06] px-6 py-24">
   <div class="max-w-6xl mx-auto">
-    <p data-reveal class="text-[#444] text-xs font-mono tracking-[0.25em] uppercase mb-8">Tech</p>
-    <div data-reveal class="flex flex-wrap gap-3">
-      {tech.map((t) => (
-        <span class="text-sm text-[#666] border border-white/[0.06] px-4 py-2 rounded-lg hover:border-white/[0.12] hover:text-[#aaa] transition-colors duration-200">
-          {t}
-        </span>
+    <div data-reveal class="mb-12">
+      <p class="text-[#444] text-xs font-mono tracking-[0.25em] uppercase mb-4">Tech</p>
+      <h2 class="text-3xl md:text-[2.5rem] font-bold text-white tracking-tight leading-tight">
+        Tools of the trade.
+      </h2>
+    </div>
+
+    <div class="space-y-10">
+      {categories.map(({ label, items }, ci) => (
+        <div data-reveal style={`transition-delay:${ci * 60}ms`}>
+          <p class="text-[#444] text-xs font-mono tracking-[0.2em] uppercase mb-4">{label}</p>
+          <div class="flex flex-wrap gap-2.5">
+            {items.map((t) => (
+              <span class="inline-flex items-center gap-2 text-sm text-[#666] border border-white/[0.06] px-3.5 py-2 rounded-lg hover:border-white/[0.12] hover:text-[#aaa] hover:bg-white/[0.02] transition-all duration-200">
+                <TechIcon name={t} size={14} />
+                {t}
+              </span>
+            ))}
+          </div>
+        </div>
       ))}
     </div>
   </div>

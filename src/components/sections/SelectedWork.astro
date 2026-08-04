@@ -1,4 +1,5 @@
 ---
+import TechIcon from '../TechIcon.astro';
 const selectedWork = [
   {
     label: 'Fintech · Component Systems',
@@ -17,7 +18,7 @@ const selectedWork = [
   },
   {
     label: 'Fashion Industry · E-commerce · EdTech',
-    company: 'Symphony - IT Services Agency',
+    company: 'Symphony - Software Development Company',
     tagline: '4 client projects · Sep 2022–Dec 2024',
     projects: [
       {
@@ -48,7 +49,7 @@ const selectedWork = [
   },
   {
     label: 'Fintech · Accounting & Analytics · AI-powered EdTech',
-    company: 'Devtech - IT Services Agency',
+    company: 'Devtech - Software Development Company',
     tagline: '2 client projects · Aug 2021–Sep 2022',
     projects: [
       {
@@ -115,7 +116,8 @@ const selectedWork = [
               )}
               <div class="flex flex-wrap gap-2">
                 {stack.map((t) => (
-                  <span class="text-[11px] text-[#555] border border-white/[0.06] px-2.5 py-1 rounded-md font-mono">
+                  <span class="inline-flex items-center gap-1.5 text-[11px] text-[#555] border border-white/[0.06] px-2.5 py-1 rounded-md font-mono">
+                    <TechIcon name={t} size={11} />
                     {t}
                   </span>
                 ))}

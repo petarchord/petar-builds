@@ -1,0 +1,78 @@
+---
+import {
+  siTypescript, siJavascript, siReact, siNextdotjs, siTailwindcss,
+  siNodedotjs, siRedux, siD3, siPostgresql, siDocker, siJest,
+  siGithubactions, siMongodb, siMui, siPrisma, siFirebase, siAuth0,
+  siRadixui, siEslint, siStryker,
+  siAstro, siStorybook, siVite, siVitest, siWebpack, siMysql, siPhp,
+  siDotnet, siJenkins, siGit, siFigma, siSass,
+} from 'simple-icons';
+
+interface Props { name: string; size?: number }
+const { name, size = 12 } = Astro.props;
+
+const iconMap: Record<string, { path: string; hex: string }> = {
+  // Languages
+  'TypeScript':        siTypescript,
+  'JavaScript':        siJavascript,
+  'PHP':               siPhp,
+  // Frontend frameworks & libraries
+  'React':             siReact,
+  'Next.js':           siNextdotjs,
+  'Astro':             siAstro,
+  'Tailwind':          siTailwindcss,
+  'Tailwind CSS':      siTailwindcss,
+  'Radix UI':          siRadixui,
+  'Material UI':       siMui,
+  'MUI':               siMui,
+  'Redux':             siRedux,
+  'Redux Toolkit':     siRedux,
+  'Redux Thunk':       siRedux,
+  'Redux Saga':        siRedux,
+  'D3.js':             siD3,
+  'Sass':              siSass,
+  // Testing
+  'Jest':              siJest,
+  'RTL':               siReact,
+  'Storybook':         siStorybook,
+  'Stryker.js':        siStryker,
+  'Vitest':            siVitest,
+  // Backend & databases
+  'Node.js':           siNodedotjs,
+  'ASP.NET':           siDotnet,
+  'PostgreSQL':        siPostgresql,
+  'MongoDB':           siMongodb,
+  'MySQL':             siMysql,
+  'Prisma':            siPrisma,
+  'Firebase':          siFirebase,
+  // Auth & APIs
+  'Auth0':             siAuth0,
+  // Infra & DevOps
+  'Docker':            siDocker,
+  'GitHub CI/CD':      siGithubactions,
+  'GitHub Actions':    siGithubactions,
+  'Jenkins':           siJenkins,
+  'Vite':              siVite,
+  'Webpack':           siWebpack,
+  // Tooling
+  'ESLint':            siEslint,
+  'ESLint/Prettier':   siEslint,
+  'Git':               siGit,
+  'Figma':             siFigma,
+};
+
+const icon = iconMap[name];
+---
+
+{icon && (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill={`#${icon.hex}`}
+    aria-hidden="true"
+    class="shrink-0 inline-block"
+  >
+    <path d={icon.path} />
+  </svg>
+)}
