@@ -1,22 +1,6 @@
 ---
-import PaayedLogo from '../../assets/Paayed-logo.png';
-import InditexLogo from '../../assets/Inditex-logo.webp';
-import FinqueryLogo from '../../assets/Finquery-logo.webp';
-import SymphonyLogo from '../../assets/Symphony-logo.png';
-import DevtechLogo from '../../assets/Devtech-logo.png';
-import NuliaLogo from '../../assets/Nulia-logo.png';
 import PortraitImage from '../../assets/petar-portfolio-image.png';
-import FitcherLogo from '../../assets/Fitcher-logo.png';
-
-const logos = [
-  { name: 'Paayed',   src: PaayedLogo.src,   type: 'solid' },
-  { name: 'Inditex',  src: InditexLogo.src,  type: 'solid' },
-  { name: 'FinQuery', src: FinqueryLogo.src, type: 'transparent' },
-  { name: 'Symphony', src: SymphonyLogo.src, type: 'transparent' },
-  { name: 'Devtech',  src: DevtechLogo.src,  type: 'transparent' },
-  { name: 'Nulia',    src: NuliaLogo.src,    type: 'solid' },
-  { name: 'Fitcher',    src: FitcherLogo.src,    type: 'transparent' },
-];
+import WorkedWith from './WorkedWith.astro';
 ---
 
 <section id="hero" class="min-h-[100svh] flex items-center px-6 pt-28 pb-20 overflow-x-hidden">
@@ -63,29 +47,9 @@ const logos = [
         </a>
       </div>
 
-      <!-- Worked with – marquee directly below CTAs -->
+      <!-- Worked with -->
       <div data-reveal style="transition-delay:340ms">
-        <p class="text-[#3f3f46] text-xs font-mono tracking-[0.25em] uppercase mb-5">
-          Worked with
-        </p>
-        <div
-          class="marquee-outer relative overflow-hidden"
-          style="mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);"
-        >
-          <div class="marquee-track flex w-max items-center">
-            {[...logos, ...logos].map((logo) => (
-              <div class="flex items-center shrink-0">
-                <img
-                  src={logo.src}
-                  alt={logo.name}
-                  class={`logo-${logo.type}`}
-                  draggable="false"
-                />
-                <span class="text-[#1e1e22] select-none px-8 text-xs" aria-hidden="true">/</span>
-              </div>
-            ))}
-          </div>
-        </div>
+        <WorkedWith />
       </div>
     </div>
 
