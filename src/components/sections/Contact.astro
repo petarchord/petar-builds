@@ -18,7 +18,7 @@ const perks = [
       style="transition-delay:80ms"
       class="text-3xl md:text-[2.5rem] font-bold text-white tracking-tight leading-tight mb-6"
     >
-      Let's build something powerful together.
+      Let's build something powerful together
     </h2>
     <p
       data-reveal
@@ -29,11 +29,11 @@ const perks = [
       about your challenges and whether I can help.
     </p>
 
-    <!-- Perks: 2-col grid on desktop, 1-col on mobile -->
-    <ul data-reveal style="transition-delay:200ms" class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10 text-left w-full">
+    <!-- Perks: divider-grid matching Engineering Principles style -->
+    <ul data-reveal style="transition-delay:200ms" class="grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/[0.06] mb-10 text-left w-full rounded-xl overflow-hidden">
       {perks.map((perk) => (
-        <li class="flex items-center gap-3 text-sm text-[#777]">
-          <span class="flex items-center justify-center w-5 h-5 rounded-full bg-[#818cf8]/10 border border-[#818cf8]/20 shrink-0">
+        <li class="flex items-start gap-3 bg-[#09090b] px-6 py-5 hover:bg-[#0c0c0f] transition-colors duration-300 text-sm text-[#777]">
+          <span class="flex items-center justify-center w-5 h-5 rounded-full bg-[#818cf8]/10 border border-[#818cf8]/20 shrink-0 mt-px">
             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="20 6 9 17 4 12"/>
             </svg>
