@@ -37,7 +37,7 @@ import PortfolioLayout from '../../layouts/PortfolioLayout.astro';
           <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">
             <a href="https://paayed.com/" target="_blank" rel="noopener noreferrer" class="hover:text-[#818cf8] transition-colors duration-200">Paayed</a>
           </h2>
-          <p class="text-[#666] mt-2 text-base">All-in-One B2B Fintech Operating Platform for UK SMEs</p>
+          <p class="text-[#666] mt-2 text-base">Paayed is an all-in-one B2B fintech operating platform built for UK SMEs, enabling businesses to manage payments, accounting, CRM, invoicing, reporting, and day-to-day financial operations from a single unified platform.</p>
         </div>
         <div class="shrink-0 flex flex-wrap gap-2 md:justify-end">
           {['TypeScript', 'React', 'Tailwind', 'Radix UI', 'RTL', 'Jest', 'GitHub CI/CD'].map(t => (
@@ -62,16 +62,17 @@ import PortfolioLayout from '../../layouts/PortfolioLayout.astro';
           <h3 class="text-[#444] text-xs font-mono tracking-[0.2em] uppercase mb-5">My Contribution</h3>
           <ul class="space-y-2.5">
             {[
-              'Designed and led the full shared React component library and design system',
-              'Standardized 90+ components with TypeScript and documented in Storybook',
-              'Introduced Chromatic for visual regression testing',
-              'Set up ESLint rules, Husky git hooks, and CI/CD validation',
-              'Implemented secure authentication (Laravel Sanctum + 3D Secure)',
-              'Built hosted payment page (HPP) integration',
-              'Delivered real-time analytics dashboards and reporting',
-              'Admin & Client CRM modules',
-              'Full accounting suite: Invoices, Quotes, Credit Notes, Expenses',
-            ].map(item => (
+  'Designed and led the development of a shared npm UI component library and design system',
+  'Refactored and migrated 90+ legacy UI components into the shared library',
+  'Documented reusable components and usage patterns in Storybook',
+  'Introduced Chromatic for visual review and regression testing',
+  'Established frontend quality controls with ESLint rules, Husky hooks, and CI validation',
+  'Implemented secure session-based authentication with Laravel Sanctum',
+  'Delivered 3D Secure payment flows and Hosted Payment Page integration',
+  'Built analytics dashboards, financial reporting, and data export functionality',
+  'Delivered core Admin and Client CRM workflows',
+  'Built accounting features including invoices, quotes, credit notes, and expenses',
+].map(item => (
               <li class="flex gap-3 text-sm text-[#777]">
                 <span class="text-[#818cf8] shrink-0 mt-1">›</span>
                 {item}
@@ -85,11 +86,12 @@ import PortfolioLayout from '../../layouts/PortfolioLayout.astro';
           <h3 class="text-[#444] text-xs font-mono tracking-[0.2em] uppercase mb-5">The Impact</h3>
           <ul class="space-y-4">
             {[
-              { metric: '90+', label: 'components standardized' },
-              { metric: '1', label: 'single source of truth for all UI' },
-              { metric: '↓', label: 'reduced maintenance cost long-term' },
-              { metric: '↑', label: 'faster feature delivery across teams' },
-              { metric: '✓', label: 'compliant with UK acquiring requirements' },
+              { metric: '1', label: 'Single source of truth for UI' },
+              { metric: '90+', label: 'legacy components standardized & moved to the library' },
+              { metric: '↑',   label: 'accelerated feature delivery' },
+              { metric: '↑',  label: 'improved application performance' },
+              { metric: '↓',   label: 'reduced long-term maintenance' },
+              { metric: '✓',   label: 'UK fintech compliance requirements' },
             ].map(({ metric, label }) => (
               <li class="flex gap-4 items-baseline">
                 <span class="text-white font-bold text-lg w-10 shrink-0">{metric}</span>
@@ -108,7 +110,7 @@ import PortfolioLayout from '../../layouts/PortfolioLayout.astro';
 
       <!-- Header -->
       <div data-reveal class="mb-6">
-        <p class="text-[#818cf8] text-xs font-mono tracking-widest uppercase mb-3">Outsourcing · Enterprise &amp; Product · Sep 2022–Dec 2024</p>
+        <p class="text-[#818cf8] text-xs font-mono tracking-widest uppercase mb-3">F500 · Fashion Industry · E-commerce · Ed-tech · Sep 2022–Dec 2024</p>
         <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">
           <a href="https://symphony.is/" target="_blank" rel="noopener noreferrer" class="hover:text-[#818cf8] transition-colors duration-200">Symphony</a>
         </h2>
@@ -227,10 +229,10 @@ import PortfolioLayout from '../../layouts/PortfolioLayout.astro';
       <!-- Impact summary -->
       <div data-reveal class="mt-14 pt-10 border-t border-white/[0.06] grid sm:grid-cols-4 gap-8">
         {[
-          { metric: '10+', label: 'coordinated engineering teams' },
-          { metric: 'F500', label: 'flagship client scale' },
-          { metric: '4',    label: 'shipped client products' },
-          { metric: 'npm',  label: 'shared UI library published' },
+          { metric: '10+',  label: 'engineering teams collaborated' },
+          { metric: '4',    label: 'products successfully delivered' },
+          { metric: '5+',   label: 'engineering teams consuming shared npm UI library' },
+          { metric: '✓',    label: 'cross-functional collaboration at scale' },
         ].map(({ metric, label }) => (
           <div>
             <p class="text-white font-bold text-2xl tracking-tight mb-1">{metric}</p>
@@ -248,11 +250,11 @@ import PortfolioLayout from '../../layouts/PortfolioLayout.astro';
 
       <!-- Header -->
       <div data-reveal class="mb-6">
-        <p class="text-[#818cf8] text-xs font-mono tracking-widest uppercase mb-3">Enterprise · Software Development · Aug 2021–Sep 2022</p>
+        <p class="text-[#818cf8] text-xs font-mono tracking-widest uppercase mb-3">Fintech · Accounting & Analytics · AI-powered Ed-tech · Aug 2021–Sep 2022</p>
         <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">
           <a href="https://devtechgroup.com/" target="_blank" rel="noopener noreferrer" class="hover:text-[#818cf8] transition-colors duration-200">Devtech</a>
         </h2>
-        <p class="text-[#666] mt-2 text-base">Software Developer — 2 client engagements across enterprise accounting and AI-powered digital enablement</p>
+        <p class="text-[#666] mt-2 text-base">Devtech is a software development company. During my time there, I contributed to two client engagements across fintech and AI-powered enterprise platforms, each with unique technical challenges, domains, and engineering practices.</p>
       </div>
 
       <!-- Sub-projects -->
@@ -318,10 +320,10 @@ import PortfolioLayout from '../../layouts/PortfolioLayout.astro';
       <!-- Impact summary -->
       <div data-reveal class="pt-10 border-t border-white/[0.06] grid sm:grid-cols-4 gap-8">
         {[
-          { metric: '#1',  label: 'leading USA accounting platform' },
-          { metric: 'K+',  label: 'organisations on the M365 platform' },
-          { metric: 'D3',  label: 'custom big-data chart components' },
-          { metric: '2',   label: 'legacy systems modernised' },
+          { metric: '↑',  label: 'high-performance analytics dashboards' },
+          { metric: 'AI', label: 'AI-powered learning platform' },
+          { metric: 'D3', label: 'custom D3.js data visualizations' },
+          { metric: '✓',  label: 'enterprise platform modernized' },
         ].map(({ metric, label }) => (
           <div>
             <p class="text-white font-bold text-2xl tracking-tight mb-1">{metric}</p>
@@ -345,37 +347,69 @@ import PortfolioLayout from '../../layouts/PortfolioLayout.astro';
         {[
           {
             company: 'Lioneve Media',
-            period: '2020–2021',
-            projects: ['Fitcher — Social & subscription platform (Instagram-like Stories, creator profiles)', 'Magic Unbox — Entertainment platform with payment processing and probability engine'],
-          },
-          {
-            company: 'Boopro',
-            period: '2020',
-            projects: ['Bridge TV — Smart TV interface for Samsung & LG built from scratch with React'],
+            role: 'Software Developer',
+            period: 'Jan 2020–Oct 2020',
+            projects: [
+              {
+                name: 'Fitcher',
+                desc: 'Built and launched a social & content subscription platform from greenfield to beta. Developed Instagram-style Stories, creator subscription workflows, and dynamic user/creator profile systems.',
+              },
+            ],
+            stack: ['TypeScript', 'Next.js', 'Redux', 'Node.js', 'MongoDB'],
           },
           {
             company: 'Permanentum',
-            period: '2019',
-            projects: ['Affiliate marketing platform with Ethereum-based position system and referral tree visualizations'],
+            role: 'Head of Software & Support',
+            period: 'Jan 2020–Oct 2020',
+            projects: [
+              {
+                name: 'Affiliate Marketing Platform',
+                desc: 'Delivered the platform from scratch — Ethereum-backed position purchase & subscription mechanism, multi-level referral flows, and complex D3-style visualizations of deep referral hierarchies (thousands of nodes).',
+              },
+            ],
+            stack: ['TypeScript', 'React', 'Node.js', 'MySQL'],
           },
-        ].map(({ company, period, projects }, i) => (
+          {
+            company: 'Boopro',
+            role: 'Software Developer',
+            period: 'Jan 2019–Dec 2019',
+            projects: [
+              {
+                name: 'Bridge TV',
+                desc: 'Smart TV application for Samsung & LG — built the UI from scratch with full player control features.',
+              },
+              {
+                name: 'Magic Unbox',
+                desc: 'Entertainment platform — integrated payment processing, email operations, and real-time promotional & probability logic.',
+              },
+            ],
+            stack: ['TypeScript', 'React', 'Redux', 'Node.js', 'PHP', 'MySQL'],
+          },
+        ].map(({ company, role, period, projects, stack }, i) => (
           <div
             data-reveal
             style={`transition-delay:${i * 80}ms`}
-            class="border border-white/[0.06] rounded-xl p-6 hover:border-white/[0.10] transition-colors duration-300"
+            class="border border-white/[0.06] rounded-xl p-6 hover:border-white/[0.10] transition-colors duration-300 flex flex-col"
           >
-            <div class="flex items-baseline justify-between mb-4">
+            <div class="flex items-start justify-between gap-2 mb-1">
               <h3 class="text-white font-semibold text-sm">{company}</h3>
-              <span class="text-[#3f3f46] text-xs font-mono">{period}</span>
+              <span class="text-[#3f3f46] text-xs font-mono shrink-0">{period}</span>
             </div>
-            <ul class="space-y-2">
+            <p class="text-[#444] text-xs font-mono mb-4">{role}</p>
+            <ul class="space-y-3 flex-1">
               {projects.map(p => (
-                <li class="text-[#666] text-xs leading-relaxed flex gap-2">
-                  <span class="text-[#444] shrink-0">·</span>
-                  {p}
+                <li class="text-[#666] text-xs leading-relaxed">
+                  <span class="text-[#818cf8] font-medium">{p.name}</span>
+                  <span class="text-[#555]"> — </span>
+                  {p.desc}
                 </li>
               ))}
             </ul>
+            <div class="flex flex-wrap gap-1.5 mt-5 pt-4 border-t border-white/[0.05]">
+              {stack.map(t => (
+                <span class="text-[10px] text-[#444] font-mono border border-white/[0.05] px-2 py-0.5 rounded">{t}</span>
+              ))}
+            </div>
           </div>
         ))}
       </div>
