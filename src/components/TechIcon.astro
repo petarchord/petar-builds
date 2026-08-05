@@ -6,6 +6,7 @@ import {
   siRadixui, siEslint, siStryker,
   siAstro, siStorybook, siVite, siVitest, siWebpack, siMysql, siPhp,
   siDotnet, siJenkins, siGit, siFigma, siSass,
+  siGithubcopilot, siClaude, siCursor, siGooglegemini, siPerplexity,
 } from 'simple-icons';
 
 interface Props { name: string; size?: number }
@@ -47,6 +48,12 @@ const iconMap: Record<string, { path: string; hex: string }> = {
   'Firebase':          siFirebase,
   // Auth & APIs
   'Auth0':             siAuth0,
+  // AI Tools (override black hex values so they're visible on dark backgrounds)
+  'GitHub Copilot':    { path: siGithubcopilot.path, hex: 'a5b4fc' },
+  'Claude':            siClaude,
+  'Cursor':            { path: siCursor.path, hex: '888888' },
+  'Gemini':            siGooglegemini,
+  'Perplexity':        siPerplexity,
   // Infra & DevOps
   'Docker':            siDocker,
   'GitHub CI/CD':      siGithubactions,
