@@ -1,24 +1,25 @@
 ---
+import PortraitImage from '../../assets/petar-portfolio-image.png';
 const values = [
   {
-    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`,
-    label: 'Craftsman',
-    body: 'I care about the details. Not because someone is watching — because quality compounds, and I want what I build to still be good long after the sprint is over.',
+    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>`,
+    label: 'Meticulous',
+    body: 'I notice the smallest details and genuinely care about getting things right. That\'s what separates good software from exceptional software — and it\'s non-negotiable for me.',
   },
   {
-    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>`,
+    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`,
+    label: 'Transparent',
+    body: "I'd rather say 'I don't know' than pretend I do and create a bigger problem later. I value honesty, clear communication, and trust — in every project, with every collaborator.",
+  },
+  {
+    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+    label: 'User-first',
+    body: "I simplify complexity and put myself in the user's shoes. Today the question isn't 'Can we build it?' — it's 'Should we?' Great engineering solves the right problems.",
+  },
+  {
+    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>`,
     label: 'Purposeful',
-    body: "I don't build things just for the sake of building them. Every decision should solve a real problem and move the product — and the people using it — forward.",
-  },
-  {
-    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>`,
-    label: 'Systems thinker',
-    body: 'Before writing a line, I ask how it fits the whole. Good architecture outlives any single feature — so I always build with the bigger picture in mind.',
-  },
-  {
-    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>`,
-    label: 'Passionate',
-    body: 'Building on the web isn\'t just my job — it\'s something I genuinely love. That energy comes through in every project, and it\'s what keeps me raising the bar.',
+    body: "I don't complete task lists — I genuinely care about your product, challenge assumptions when needed, and only take on work where I believe I can make a real impact.",
   },
 ];
 ---
@@ -28,57 +29,148 @@ const values = [
 
     <!-- Header -->
     <div data-reveal class="mb-12">
-      <p class="text-[#444] text-xs font-mono tracking-[0.25em] uppercase mb-4">Get to know me</p>
+      <p class="text-[#444] text-xs font-mono tracking-[0.25em] uppercase mb-4">The Person Behind the Code</p>
       <h2 class="text-3xl md:text-[2.5rem] font-bold text-white tracking-tight leading-tight">
-        About Me
+        Get to Know Me
       </h2>
     </div>
 
-    <!-- Bio -->
-    <div
-      data-reveal
-      style="transition-delay:80ms"
-      class="max-w-3xl space-y-5 text-[#777] text-base leading-relaxed mb-16"
-    >
-      <p>
-        Hi there! My name is Petar, and I'm passionate about building things on the web. I'm the kind
-        of person who truly cares about the details, and that's exactly how I approach engineering. I
-        don't build things just for the sake of building them — I build with purpose and with the
-        bigger picture in mind, always asking myself how each piece fits into the whole.
-      </p>
-      <p>
-        I've spent 7+ years building production software across fintech, enterprise, and startup
-        environments — from Fortune Global 500 platforms to early-stage products. Whether it's a
-        design system, a complex data-heavy dashboard, or a full-stack application, I bring the same
-        care and intentionality to every line.
-      </p>
-      <p>
-        Outside of engineering, I'm a singer in a band. I believe creativity in one domain sharpens
-        your thinking in another.
-      </p>
-    </div>
+    <!-- Portrait + stats: mobile only (hidden on desktop where Hero shows it) -->
+    <div class="block lg:hidden mb-12">
+      <div class="relative mx-auto" style="width:320px; height:310px;">
 
-    <!-- Values -->
-    <div data-reveal style="transition-delay:160ms" class="mb-2">
-      <p class="text-[#444] text-xs font-mono tracking-[0.25em] uppercase mb-8">My values</p>
-    </div>
-
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      {values.map(({ icon, label, body }, i) => (
-        <div
-          data-reveal
-          style={`transition-delay:${160 + i * 70}ms`}
-          class="value-card group relative border border-white/[0.06] rounded-xl p-6 hover:border-white/[0.12] hover:bg-white/[0.02] transition-all duration-300"
+        <!-- Portrait circle -->
+        <figure
+          class="absolute rounded-full overflow-hidden bg-[#101013] border border-white/[0.06]"
+          style="width:180px; height:180px; left:70px; top:65px;"
         >
-          <span class="value-glow" aria-hidden="true" />
-          <span
-            class="flex items-center justify-center w-9 h-9 rounded-lg bg-white/[0.04] border border-white/[0.06] text-[#818cf8] mb-5 group-hover:bg-[#818cf8]/10 group-hover:border-[#818cf8]/20 transition-all duration-300 value-icon"
-            set:html={icon}
+          <img
+            src={PortraitImage.src}
+            alt="Petar Jovanovic"
+            class="w-full h-full object-cover object-top grayscale-[0.8]"
           />
-          <h3 class="text-white font-semibold text-base mb-2">{label}</h3>
-          <p class="text-[#666] text-sm leading-relaxed">{body}</p>
+        </figure>
+
+        <!-- Top-left stat -->
+        <div class="stat-card absolute" style="width:110px; left:0; top:28px; animation-delay:300ms;">
+          <p class="text-white font-bold text-xl tracking-tight leading-none mb-1">7+</p>
+          <p class="text-[#555] text-xs leading-snug">Years of experience</p>
         </div>
-      ))}
+
+        <!-- Top-right stat -->
+        <div class="stat-card absolute" style="width:110px; right:0; top:50px; animation-delay:500ms;">
+          <p class="text-white font-bold text-xl tracking-tight leading-none mb-1">3</p>
+          <p class="text-[#555] text-xs leading-snug">Startups built from ground up</p>
+        </div>
+
+        <!-- Bottom-left stat -->
+        <div class="stat-card absolute" style="width:110px; left:0; bottom:38px; animation-delay:700ms;">
+          <p class="text-white font-bold text-xl tracking-tight leading-none mb-1">10+</p>
+          <p class="text-[#555] text-xs leading-snug">Production projects</p>
+        </div>
+
+        <!-- Bottom-right stat -->
+        <div class="stat-card absolute" style="width:110px; right:0; bottom:18px; animation-delay:900ms;">
+          <p class="text-white font-bold text-xl tracking-tight leading-none mb-1">100K+</p>
+          <p class="text-[#555] text-xs leading-snug">Users impacted</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bio + Values: side-by-side on desktop, stacked on mobile -->
+    <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+
+      <!-- Bio -->
+      <div
+        data-reveal
+        style="transition-delay:80ms"
+        class="flex-1 space-y-5 text-[#777] text-base leading-relaxed"
+      >
+      <p>
+        Hi there! I'm Petar, and I love building things for the web.
+      </p>
+      <p>
+        My primary focus is frontend engineering and creating user interfaces people enjoy
+        using. However, my curiosity about how products work end to end naturally expanded my
+        expertise into backend development. One day, my manager asked me to take ownership of
+        building a full-stack MVP for a startup booking platform from the ground up. That project
+        marked the beginning of my backend journey. Since then, I've become comfortable designing
+        APIs, modeling databases, and building complete products from idea to production.
+      </p>
+      <p>
+        I'm the kind of person who notices the smallest details and genuinely cares about getting
+        things right. That's exactly how I approach software development. I believe this is what
+        separates good software from exceptional software. I'm thorough by nature and deeply care
+        about quality. Whenever I build something, I want to look at it at the end of the day and
+        think, <em class="text-[#888] not-italic">"I'm genuinely proud of what I've created."</em>
+      </p>
+      <p>
+        I enjoy simplifying complexity. Over the years, I've found that this mindset benefits not
+        only the codebase and the engineering team, but also the people who use the product every
+        day. Experience has taught me to step outside the engineer's mindset and put myself in the
+        user's shoes. Today, with AI making software development faster than ever, the question is
+        no longer <em class="text-[#888] not-italic">"Can we build it?"</em>—it's{' '}
+        <em class="text-[#888] not-italic">"Should we build it?"</em> I believe great engineering
+        is about solving the right problems, not simply building more features.
+      </p>
+      <p>
+        Transparency is one of my core values, both professionally and personally. I'd rather say{' '}
+        <em class="text-[#888] not-italic">"I don't know"</em> than pretend I do and create a
+        bigger problem later. I value honesty, clear communication, and trust. That's also why I
+        only take on projects where I genuinely believe I can make a meaningful impact.
+      </p>
+      <p>
+        Beyond client work, I'm also the founder of{' '}
+        <strong class="text-[#aaa] font-semibold"><a href="https://www.whatistheoutput.com/" target="_blank" rel="noopener noreferrer" class="hover:text-[#818cf8] transition-colors duration-200">What Is The Output</a></strong>,
+        a platform with a simple mission: helping developers identify their knowledge gaps and
+        discover the right learning resources to close them. We're currently in the
+        proof-of-concept stage, validating the idea while looking to connect with technical
+        educators, investors, and people who share our vision of making developer learning more
+        personalized and effective. If that resonates with you, I'd love to hear from you and have
+        a conversation.
+      </p>
+      <p>
+        Outside of engineering, I'm a passionate musician and an avid reader. I believe creativity
+        in one discipline sharpens your thinking in another, and some of my best technical ideas
+        have come from experiences completely unrelated to programming. I also recently became the
+        proud father of a wonderful little girl, Lola. These days, most of my free time is happily
+        spent with her.
+      </p>
+      <p>
+        If you're simply looking for someone to complete a list of tasks, there are plenty of
+        engineers who can do that. But if you're looking for someone who will genuinely care about
+        your product, challenge assumptions when needed, contribute ideas, and build software your
+        users truly need, I'd love to have a conversation and explore how we can work together.
+      </p>
+      </div>
+
+      <!-- Values -->
+      <div class="lg:w-80 xl:w-96 shrink-0">
+        <div data-reveal style="transition-delay:160ms" class="mb-6">
+          <p class="text-[#444] text-xs font-mono tracking-[0.25em] uppercase">My values</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
+          {values.map(({ icon, label, body }, i) => (
+            <div
+              data-reveal
+              style={`transition-delay:${160 + i * 70}ms`}
+              class="value-card group relative border border-white/[0.06] rounded-xl p-6 hover:border-white/[0.12] hover:bg-white/[0.02] transition-all duration-300"
+            >
+              <span class="value-glow" aria-hidden="true" />
+              <div class="flex items-center gap-3 mb-3">
+                <span
+                  class="flex items-center justify-center w-8 h-8 rounded-lg bg-white/[0.04] border border-white/[0.06] text-[#818cf8] group-hover:bg-[#818cf8]/10 group-hover:border-[#818cf8]/20 transition-all duration-300 value-icon shrink-0"
+                  set:html={icon}
+                />
+                <h3 class="text-white font-semibold text-sm">{label}</h3>
+              </div>
+              <p class="text-[#666] text-sm leading-relaxed">{body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
     </div>
 
   </div>
