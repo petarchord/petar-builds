@@ -16,6 +16,47 @@ const year = new Date().getFullYear();
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://www.petarbuilds.tech/#person",
+          "name": "Petar Jovanovic",
+          "jobTitle": "Senior Web Developer",
+          "description": "Senior Web Developer specializing in React, Next.js, TypeScript, and scalable SaaS products. 7+ years building fintech, enterprise, and startup software.",
+          "url": "https://www.petarbuilds.tech",
+          "email": "petarbuilds.tech@gmail.com",
+          "sameAs": [
+            "https://www.linkedin.com/in/petar-jovanovic-231a52135",
+            "https://github.com/petarchord"
+          ],
+          "knowsAbout": [
+            "TypeScript", "React", "Next.js", "Node.js", "Software Engineering",
+            "SaaS", "Fintech", "Design Systems", "Frontend Architecture"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.petarbuilds.tech/#website",
+          "url": "https://www.petarbuilds.tech",
+          "name": "petarbuilds.tech",
+          "description": "Portfolio and services of Petar Jovanovic — Senior Web Developer",
+          "author": { "@id": "https://www.petarbuilds.tech/#person" }
+        },
+        {
+          "@type": "ProfessionalService",
+          "name": "petarbuilds.tech",
+          "url": "https://www.petarbuilds.tech",
+          "description": "Web development, technical consulting, and product modernization by Petar Jovanovic.",
+          "founder": { "@id": "https://www.petarbuilds.tech/#person" },
+          "serviceType": [
+            "Web Application Development", "SaaS Development",
+            "Frontend Engineering", "Technical Consulting", "MVP Development"
+          ]
+        }
+      ]
+    })} />
   </head>
   <body>
     <Nav />

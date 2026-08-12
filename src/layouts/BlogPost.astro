@@ -17,6 +17,25 @@ const year = new Date().getFullYear();
 <html lang="en">
   <head>
     <BaseHead title={`${title} — ${SITE_TITLE}`} description={description} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": title,
+      "description": description,
+      "datePublished": pubDate.toISOString(),
+      "author": {
+        "@type": "Person",
+        "name": "Petar Jovanovic",
+        "url": "https://www.petarbuilds.tech"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Petar Jovanovic",
+        "url": "https://www.petarbuilds.tech"
+      },
+      "url": Astro.url.toString(),
+      "keywords": tags?.join(", ") ?? "web development, software engineering"
+    })} />
   </head>
   <body>
     <Nav />
