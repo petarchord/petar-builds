@@ -1,37 +1,38 @@
 ---
-const CALENDLY_URL = 'https://calendly.com/petarbuilds-tech/30min';
+import { ui } from '../../i18n/ui';
+import type { Lang } from '../../i18n/ui';
 
-const perks = [
-  '30-minute focused conversation',
-  'No obligation, completely free',
-  'Understand your challenges first',
-  'Get actionable insights either way',
-];
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'en' } = Astro.props;
+const tr = ui[lang];
+const CALENDLY_URL = 'https://calendly.com/petarbuilds-tech/30min';
 ---
 
 <section id="contact" class="px-6 py-32 border-t border-white/[0.06]">
   <!-- Centered hero content -->
   <div class="max-w-2xl mx-auto text-center">
-    <p data-reveal class="text-[#444] text-xs font-mono tracking-[0.25em] uppercase mb-5">Let's Connect</p>
+    <p data-reveal class="text-[#444] text-xs font-mono tracking-[0.25em] uppercase mb-5">{tr.contact.eyebrow}</p>
     <h2
       data-reveal
       style="transition-delay:80ms"
       class="text-3xl md:text-[2.5rem] font-bold text-white tracking-tight leading-tight mb-6"
     >
-      Let's build something powerful together
+      {tr.contact.heading}
     </h2>
     <p
       data-reveal
       style="transition-delay:160ms"
       class="text-[#666] text-base leading-relaxed mb-10"
     >
-      Book a free discovery call. No sales pitch — just an honest conversation
-      about your challenges and whether I can help.
+      {tr.contact.body}
     </p>
 
-    <!-- Perks: divider-grid matching Engineering Principles style -->
+    <!-- Perks -->
     <ul data-reveal style="transition-delay:200ms" class="grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/[0.06] mb-10 text-left w-full rounded-xl overflow-hidden">
-      {perks.map((perk) => (
+      {tr.contact.perks.map((perk) => (
         <li class="flex items-start gap-3 bg-[#09090b] px-6 py-5 hover:bg-[#0c0c0f] transition-colors duration-300 text-sm text-[#777]">
           <span class="flex items-center justify-center w-5 h-5 rounded-full bg-[#818cf8]/10 border border-[#818cf8]/20 shrink-0 mt-px">
             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
@@ -57,16 +58,16 @@ const perks = [
           <line x1="8" y1="2" x2="8" y2="6"/>
           <line x1="3" y1="10" x2="21" y2="10"/>
         </svg>
-        Schedule your free call
+        {tr.contact.ctaBook}
       </a>
 
       <p class="text-[#555] text-xs">
-        or if you prefer —{' '}
+        {tr.contact.orEmail}{' '}
         <a
           href="mailto:petarbuilds.tech@gmail.com"
           class="text-[#777] underline underline-offset-2 hover:text-white transition-colors duration-200"
         >
-          send me an email
+          {tr.contact.emailLink}
         </a>
       </p>
     </div>
@@ -75,15 +76,9 @@ const perks = [
   <!-- Context cards -->
   <div class="max-w-6xl mx-auto grid sm:grid-cols-3 gap-4 mt-20">
     <div data-reveal class="border border-white/[0.06] rounded-xl p-7 hover:border-white/[0.10] transition-colors duration-300">
-      <p class="text-[#444] text-xs font-mono tracking-widest uppercase mb-4">What I'm looking for</p>
+      <p class="text-[#444] text-xs font-mono tracking-widest uppercase mb-4">{tr.contact.lookingFor.eyebrow}</p>
       <ul class="space-y-3">
-        {[
-          'Senior frontend roles',
-          'Full-stack roles (Next.js or Node.js)',
-          'Complex products at scale',
-          'Teams that care about craft',
-          'Remote or hybrid (Serbia-based)',
-        ].map(item => (
+        {tr.contact.lookingFor.items.map((item) => (
           <li class="flex gap-3 text-sm text-[#777]">
             <span class="text-[#818cf8] mt-0.5 shrink-0">›</span>
             {item}
@@ -93,16 +88,16 @@ const perks = [
     </div>
 
     <div data-reveal style="transition-delay:80ms" class="border border-white/[0.06] rounded-xl p-7 hover:border-white/[0.10] transition-colors duration-300">
-      <p class="text-[#444] text-xs font-mono tracking-widest uppercase mb-4">Response time</p>
+      <p class="text-[#444] text-xs font-mono tracking-widest uppercase mb-4">{tr.contact.responseTime.eyebrow}</p>
       <p class="text-[#666] text-sm leading-relaxed">
-        I typically respond within 24 hours. If it's urgent, mention it in the subject line.
+        {tr.contact.responseTime.body}
       </p>
     </div>
 
     <div data-reveal style="transition-delay:160ms" class="border border-white/[0.06] rounded-xl p-7 hover:border-white/[0.10] transition-colors duration-300">
-      <p class="text-[#444] text-xs font-mono tracking-widest uppercase mb-4">Location</p>
-      <p class="text-[#666] text-sm">Niš, Serbia</p>
-      <p class="text-[#444] text-xs font-mono mt-1">UTC+1 (CET) / UTC+2 (CEST)</p>
+      <p class="text-[#444] text-xs font-mono tracking-widest uppercase mb-4">{tr.contact.location.eyebrow}</p>
+      <p class="text-[#666] text-sm">{tr.contact.location.city}</p>
+      <p class="text-[#444] text-xs font-mono mt-1">{tr.contact.location.timezone}</p>
     </div>
   </div>
 

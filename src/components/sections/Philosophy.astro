@@ -1,39 +1,32 @@
 ---
-const steps = [
-  {
-    number: '01',
-    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v3l2 2"/></svg>`,
-    title: 'Analyze Your Requirements',
-    body: 'Every successful product starts with understanding the problem. We don\'t start building until I fully understand every detail of your vision. I\'ll take the time to learn about your business, users, goals, and technical constraints before making any implementation decisions. The right solution begins with asking the right questions.',
-  },
-  {
-    number: '02',
-    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 1 7 7c0 2.97-1.85 5.52-4.5 6.57V17a1 1 0 0 1-1 1h-3a1 1 0 0 1-1-1v-1.43C6.85 14.52 5 11.97 5 9a7 7 0 0 1 7-7z"/></svg>`,
-    title: 'Propose the Right Solution',
-    body: 'Once I understand the bigger picture, I\'ll recommend an approach that balances business goals, technical quality, scalability, and development speed. Every decision is made with your product\'s long-term success in mind.',
-  },
-  {
-    number: '03',
-    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
-    title: 'Build with Engineering in Mind',
-    body: 'This is where ideas become reality. I leverage AI to accelerate development, helping you validate your idea faster without compromising quality. Combined with clean architecture, maintainable code, thoughtful user experiences, and transparent communication, it allows us to move quickly while building software that\'s made to last.',
-  },
-  {
-    number: '04',
-    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>`,
-    title: 'Launch & Keep Improving',
-    body: "Shipping isn't the finish line—it's the beginning. After launch, we'll gather feedback, measure results, iterate on what matters, and continue improving the product as it grows.",
-  },
+import { ui } from '../../i18n/ui';
+import type { Lang } from '../../i18n/ui';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'en' } = Astro.props;
+const tr = ui[lang];
+const prefix = lang === 'sr' ? '/sr' : '';
+
+const stepIcons = [
+  `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v3l2 2"/></svg>`,
+  `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 1 7 7c0 2.97-1.85 5.52-4.5 6.57V17a1 1 0 0 1-1 1h-3a1 1 0 0 1-1-1v-1.43C6.85 14.52 5 11.97 5 9a7 7 0 0 1 7-7z"/></svg>`,
+  `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
+  `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>`,
 ];
+const numbers = ['01', '02', '03', '04'];
+const steps = tr.philosophy.steps.map((s, i) => ({ ...s, icon: stepIcons[i], number: numbers[i] }));
 ---
 
 <section class="px-6 py-32 bg-[#0a0a0d]">
   <div class="max-w-6xl mx-auto">
 
     <div data-reveal class="mb-16">
-      <p class="text-[#444] text-xs font-mono tracking-[0.25em] uppercase mb-4">Process</p>
+      <p class="text-[#444] text-xs font-mono tracking-[0.25em] uppercase mb-4">{tr.philosophy.eyebrow}</p>
       <h2 class="text-3xl md:text-[2.5rem] font-bold text-white tracking-tight leading-tight">
-        How we'll work together
+        {tr.philosophy.heading}
       </h2>
     </div>
 
@@ -44,29 +37,23 @@ const steps = [
           style={`transition-delay:${i * 100}ms`}
           class="process-card group relative border border-white/[0.06] rounded-xl p-8 hover:border-white/[0.12] hover:bg-white/[0.02] transition-all duration-300 overflow-hidden"
         >
-          <!-- Animated top-glow on hover -->
           <span class="process-glow" aria-hidden="true" />
 
-          <!-- Number watermark -->
           <span class="absolute top-5 right-6 text-[4rem] font-bold text-white/[0.03] leading-none select-none pointer-events-none group-hover:text-white/[0.05] transition-colors duration-500">
             {number}
           </span>
 
-          <!-- Icon -->
           <span
             class="process-icon flex items-center justify-center w-11 h-11 rounded-xl bg-white/[0.04] border border-white/[0.06] text-[#818cf8] mb-6 group-hover:bg-[#818cf8]/10 group-hover:border-[#818cf8]/20 transition-all duration-300"
             set:html={icon}
           />
 
-          <!-- Step label -->
-          <p class="text-[#444] text-xs font-mono mb-2">Step {number}</p>
+          <p class="text-[#444] text-xs font-mono mb-2">{tr.philosophy.stepLabel} {number}</p>
 
-          <!-- Title -->
           <h3 class="text-white font-semibold text-lg mb-3 group-hover:text-[#818cf8] transition-colors duration-200">
             {title}
           </h3>
 
-          <!-- Body -->
           <p class="text-[#666] text-sm leading-relaxed">{body}</p>
         </div>
       ))}
@@ -86,13 +73,13 @@ const steps = [
           <line x1="8" y1="2" x2="8" y2="6"/>
           <line x1="3" y1="10" x2="21" y2="10"/>
         </svg>
-        Book a free call
+        {tr.philosophy.ctaBook}
       </a>
       <a
-        href="/#work"
+        href={`${prefix}/#work`}
         class="inline-flex items-center gap-2 border border-white/10 text-white text-sm font-medium px-6 py-3.5 rounded-lg hover:border-white/20 hover:bg-white/[0.04] transition-colors duration-200"
       >
-        See my work &rarr;
+        {tr.philosophy.ctaWork}
       </a>
     </div>
 

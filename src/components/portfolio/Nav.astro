@@ -1,11 +1,22 @@
 ---
+import { ui } from '../../i18n/ui';
+import type { Lang } from '../../i18n/ui';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'en' } = Astro.props;
+const tr = ui[lang];
+const prefix = lang === 'sr' ? '/sr' : '';
+
 const navLinks = [
-  { href: '/#hero',     label: 'Home',     section: 'hero' },
-  { href: '/#about',    label: 'About',    section: 'about' },
-  { href: '/#work',     label: 'Work',     section: 'work' },
-  { href: '/#services', label: 'Services', section: 'services' },
-  { href: '/#writing',  label: 'Writing',  section: 'writing' },
-  { href: '/#contact',  label: 'Contact',  section: 'contact' },
+  { href: `${prefix}/#hero`,     label: tr.nav.home,     section: 'hero' },
+  { href: `${prefix}/#about`,    label: tr.nav.about,    section: 'about' },
+  { href: `${prefix}/#work`,     label: tr.nav.work,     section: 'work' },
+  { href: `${prefix}/#services`, label: tr.nav.services, section: 'services' },
+  { href: `${prefix}/#writing`,  label: tr.nav.writing,  section: 'writing' },
+  { href: `${prefix}/#contact`,  label: tr.nav.contact,  section: 'contact' },
 ];
 ---
 
@@ -43,11 +54,19 @@ const navLinks = [
           </li>
         ))}
       </ul>
+      <!-- Language switcher -->
+      <a
+        href={tr.nav.switchToHref}
+        aria-label={tr.nav.switchToLabel}
+        class="ml-2 text-xs font-mono text-[#555] hover:text-white border border-white/[0.08] hover:border-white/20 px-2.5 py-1.5 rounded-md transition-colors duration-200"
+      >
+        {tr.nav.switchTo}
+      </a>
       <a
         href="https://calendly.com/petarbuilds-tech/30min"
         target="_blank"
         rel="noopener noreferrer"
-        class="ml-3 inline-flex items-center gap-2 bg-[#818cf8] text-white text-sm font-semibold px-4 py-1.5 rounded-lg hover:bg-[#6366f1] transition-colors duration-200"
+        class="ml-2 inline-flex items-center gap-2 bg-[#818cf8] text-white text-sm font-semibold px-4 py-1.5 rounded-lg hover:bg-[#6366f1] transition-colors duration-200"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
@@ -55,7 +74,7 @@ const navLinks = [
           <line x1="8" y1="2" x2="8" y2="6"/>
           <line x1="3" y1="10" x2="21" y2="10"/>
         </svg>
-        Book a call
+        {tr.nav.bookCall}
       </a>
     </div>
 
@@ -118,6 +137,14 @@ const navLinks = [
         </li>
       ))}
     </ul>
+    <!-- Language switcher (mobile) -->
+    <a
+      href={tr.nav.switchToHref}
+      aria-label={tr.nav.switchToLabel}
+      class="inline-flex items-center text-xs font-mono text-[#555] hover:text-white border border-white/[0.08] hover:border-white/20 px-3 py-2 rounded-md transition-colors duration-200 w-fit mb-3"
+    >
+      {tr.nav.switchTo}
+    </a>
     <a
       href="https://calendly.com/petarbuilds-tech/30min"
       target="_blank"
@@ -130,7 +157,7 @@ const navLinks = [
         <line x1="8" y1="2" x2="8" y2="6"/>
         <line x1="3" y1="10" x2="21" y2="10"/>
       </svg>
-      Book a call
+      {tr.nav.bookCall}
     </a>
   </div>
 </header>

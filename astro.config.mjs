@@ -12,6 +12,13 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   site: "https://www.petarbuilds.tech",
   integrations: [mdx(), sitemap(), react()],
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en", "sr"],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
 
   fonts: [
     {

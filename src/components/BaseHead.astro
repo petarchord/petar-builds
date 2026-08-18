@@ -8,11 +8,13 @@ interface Props {
 	title: string;
 	description: string;
 	image?: ImageMetadata | string;
+	showAlternates?: boolean;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image } = Astro.props;
+const { title, description, image, showAlternates = false } = Astro.props;
+const siteRoot = Astro.site ?? new URL('/', Astro.url);
 // Use a static public path so social crawlers can always resolve it
 const ogImageUrl = image
   ? new URL(typeof image === 'string' ? image : image.src, Astro.url).toString()
@@ -39,6 +41,15 @@ const ogImageUrl = image
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
+
+<!-- hreflang alternates (only on pages that have a /sr/ counterpart) -->
+{showAlternates && (
+  <>
+    <link rel="alternate" hreflang="en" href={new URL('/', siteRoot)} />
+    <link rel="alternate" hreflang="sr" href={new URL('/sr/', siteRoot)} />
+    <link rel="alternate" hreflang="x-default" href={new URL('/', siteRoot)} />
+  </>
+)}
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>

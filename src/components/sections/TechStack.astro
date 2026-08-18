@@ -1,44 +1,23 @@
 ---
 import TechIcon from '../TechIcon.astro';
+import { ui } from '../../i18n/ui';
+import type { Lang } from '../../i18n/ui';
 
-const categories = [
-  {
-    label: 'Languages',
-    items: ['TypeScript', 'JavaScript', 'PHP'],
-  },
-  {
-    label: 'Frontend',
-    items: ['React', 'Next.js', 'Astro', 'Tailwind', 'Radix UI', 'Material UI', 'Redux Toolkit', 'D3.js', 'Sass'],
-  },
-  {
-    label: 'Testing',
-    items: ['Jest', 'RTL', 'Stryker.js', 'Storybook', 'Vitest'],
-  },
-  {
-    label: 'Backend & Data',
-    items: ['Node.js', 'PostgreSQL', 'MySQL', 'MongoDB', 'Prisma', 'Firebase'],
-  },
-  {
-    label: 'Infra & DevOps',
-    items: ['Docker', 'GitHub Actions', 'Jenkins', 'Vite', 'Webpack'],
-  },
-  {
-    label: 'AI Tools',
-    items: ['GitHub Copilot', 'Claude', 'Cursor', 'Gemini'],
-  },
-  {
-    label: 'Auth & Tooling',
-    items: ['Auth0', 'ESLint', 'Git', 'Figma'],
-  },
-];
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'en' } = Astro.props;
+const tr = ui[lang];
+const categories = tr.techStack.categories;
 ---
 
 <section class="border-t border-white/[0.06] px-6 py-24">
   <div class="max-w-6xl mx-auto">
     <div data-reveal class="mb-12">
-      <p class="text-[#444] text-xs font-mono tracking-[0.25em] uppercase mb-4">Tech</p>
+      <p class="text-[#444] text-xs font-mono tracking-[0.25em] uppercase mb-4">{tr.techStack.eyebrow}</p>
       <h2 class="text-3xl md:text-[2.5rem] font-bold text-white tracking-tight leading-tight">
-        Tools of the trade
+        {tr.techStack.heading}
       </h2>
     </div>
 

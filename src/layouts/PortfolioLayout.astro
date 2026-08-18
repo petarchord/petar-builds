@@ -1,21 +1,25 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
 import Nav from '../components/portfolio/Nav.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { ui } from '../i18n/ui';
+import type { Lang } from '../i18n/ui';
 
 interface Props {
   title?: string;
   description?: string;
+  lang?: Lang;
 }
 
-const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
+const { lang = 'en', ...rest } = Astro.props;
+const tr = ui[lang];
+const { title = tr.site.title, description = tr.site.description } = rest;
 const year = new Date().getFullYear();
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={tr.htmlLang}>
   <head>
-    <BaseHead title={title} description={description} />
+    <BaseHead title={title} description={description} showAlternates={true} />
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@graph": [
@@ -59,7 +63,7 @@ const year = new Date().getFullYear();
     })} />
   </head>
   <body>
-    <Nav />
+    <Nav lang={lang} />
     <slot />
 
     <footer class="border-t border-white/[0.06] px-6 py-12 mt-32">
@@ -75,7 +79,7 @@ const year = new Date().getFullYear();
               <span class="text-white">petar</span><span class="text-[#818cf8]">builds</span><span class="text-[#444] font-mono text-[11px]">.tech</span>
             </span>
           </div>
-          <p class="text-[#555] text-sm">Building scalable software that grows with your business</p>
+          <p class="text-[#555] text-sm">{tr.footer.tagline}</p>
         </div>
         <div class="flex items-center gap-5">
           <a
