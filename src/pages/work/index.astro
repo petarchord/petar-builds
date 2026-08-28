@@ -10,7 +10,7 @@ import TechIcon from '../../components/TechIcon.astro';
   <!-- Page header -->
   <section class="pt-36 pb-16 px-6 border-b border-white/[0.06]">
     <div class="max-w-6xl mx-auto">
-      <p data-reveal class="text-[#444] text-xs font-mono tracking-[0.25em] uppercase mb-5">Selected Work</p>
+      <p data-reveal class="text-[#666] text-xs font-mono tracking-[0.25em] uppercase mb-5">Selected Work</p>
       <h1
         data-reveal
         style="transition-delay:80ms"
@@ -42,7 +42,7 @@ import TechIcon from '../../components/TechIcon.astro';
         </div>
         <div class="shrink-0 flex flex-wrap gap-2 md:justify-end">
           {['TypeScript', 'React', 'Tailwind', 'Radix UI', 'RTL', 'Jest', 'GitHub CI/CD'].map(t => (
-            <span class="inline-flex items-center gap-1.5 text-[11px] text-[#555] border border-white/[0.06] px-2.5 py-1 rounded-md font-mono"><TechIcon name={t} size={11} />{t}</span>
+            <span class="inline-flex items-center gap-1.5 text-[11px] text-[#777] border border-white/[0.06] px-2.5 py-1 rounded-md font-mono"><TechIcon name={t} size={11} />{t}</span>
           ))}
         </div>
       </div>
@@ -50,7 +50,7 @@ import TechIcon from '../../components/TechIcon.astro';
       <div class="grid md:grid-cols-3 gap-12 lg:gap-20">
         <!-- Problem -->
         <div data-reveal>
-          <h3 class="text-[#444] text-xs font-mono tracking-[0.2em] uppercase mb-5">The Problem</h3>
+          <h3 class="text-[#666] text-xs font-mono tracking-[0.2em] uppercase mb-5">The Problem</h3>
           <div class="space-y-3 text-[#777] text-sm leading-relaxed">
             <p>A growing fintech platform serving UK SMEs was scaling rapidly, but its frontend wasn't.</p>
             <p>Components were duplicated across teams, designs were inconsistent, and every new feature required re-solving the same UI problems from scratch.</p>
@@ -60,7 +60,7 @@ import TechIcon from '../../components/TechIcon.astro';
 
         <!-- Contribution -->
         <div data-reveal style="transition-delay:80ms">
-          <h3 class="text-[#444] text-xs font-mono tracking-[0.2em] uppercase mb-5">My Contribution</h3>
+          <h3 class="text-[#666] text-xs font-mono tracking-[0.2em] uppercase mb-5">My Contribution</h3>
           <ul class="space-y-2.5">
             {[
   'Designed and led the development of a shared npm UI component library and design system',
@@ -84,7 +84,7 @@ import TechIcon from '../../components/TechIcon.astro';
 
         <!-- Impact -->
         <div data-reveal style="transition-delay:160ms">
-          <h3 class="text-[#444] text-xs font-mono tracking-[0.2em] uppercase mb-5">The Impact</h3>
+          <h3 class="text-[#666] text-xs font-mono tracking-[0.2em] uppercase mb-5">The Impact</h3>
           <ul class="space-y-4">
             {[
               { metric: '1', label: 'Single source of truth for UI' },
@@ -165,7 +165,7 @@ import TechIcon from '../../components/TechIcon.astro';
         >
           <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 mb-3">
             <h3 class="text-white font-semibold text-base">Booking Platform — US Marketplace</h3>
-            <span class="text-[#444] text-xs font-mono shrink-0">Full-stack product</span>
+            <span class="text-[#666] text-xs font-mono shrink-0">Full-stack product</span>
           </div>
           <p class="text-[#777] text-sm leading-relaxed mb-4">
             Successfully delivered a full-stack application connecting service providers and consumers,
@@ -188,7 +188,7 @@ import TechIcon from '../../components/TechIcon.astro';
         >
           <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 mb-3">
             <h3 class="text-white font-semibold text-base">CRM Tool — HR &amp; People Placement</h3>
-            <span class="text-[#444] text-xs font-mono shrink-0">Internal tooling</span>
+            <span class="text-[#666] text-xs font-mono shrink-0">Internal tooling</span>
           </div>
           <p class="text-[#777] text-sm leading-relaxed mb-4">
             Developed the admin panel of an internal CRM platform, crafting and continuously improving
@@ -210,7 +210,7 @@ import TechIcon from '../../components/TechIcon.astro';
         >
           <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 mb-3">
             <h3 class="text-white font-semibold text-base">Internal Learning Platform</h3>
-            <span class="text-[#444] text-xs font-mono shrink-0">Internal product</span>
+            <span class="text-[#666] text-xs font-mono shrink-0">Internal product</span>
           </div>
           <p class="text-[#777] text-sm leading-relaxed mb-4">
             Developed and released an internal learning platform, helping hundreds of employees learn,
@@ -237,7 +237,7 @@ import TechIcon from '../../components/TechIcon.astro';
         ].map(({ metric, label }) => (
           <div>
             <p class="text-white font-bold text-2xl tracking-tight mb-1">{metric}</p>
-            <p class="text-[#555] text-xs leading-snug">{label}</p>
+            <p class="text-[#777] text-xs leading-snug">{label}</p>
           </div>
         ))}
       </div>
@@ -296,7 +296,7 @@ import TechIcon from '../../components/TechIcon.astro';
         >
           <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 mb-3">
             <h3 class="text-white font-semibold text-base">AI-Powered Digital Enablement Platform</h3>
-            <span class="text-[#444] text-xs font-mono shrink-0">Microsoft 365 ecosystem</span>
+            <span class="text-[#666] text-xs font-mono shrink-0">Microsoft 365 ecosystem</span>
           </div>
           <p class="text-[#777] text-sm leading-relaxed mb-3">
             Contributed to a large-scale platform helping thousands of organizations improve their digital
@@ -328,7 +328,7 @@ import TechIcon from '../../components/TechIcon.astro';
         ].map(({ metric, label }) => (
           <div>
             <p class="text-white font-bold text-2xl tracking-tight mb-1">{metric}</p>
-            <p class="text-[#555] text-xs leading-snug">{label}</p>
+            <p class="text-[#777] text-xs leading-snug">{label}</p>
           </div>
         ))}
       </div>
@@ -340,7 +340,7 @@ import TechIcon from '../../components/TechIcon.astro';
   <section class="px-6 py-24 bg-[#0a0a0d]">
     <div class="max-w-6xl mx-auto">
       <div data-reveal class="mb-12">
-        <p class="text-[#444] text-xs font-mono tracking-[0.25em] uppercase mb-4">Earlier Work</p>
+        <p class="text-[#666] text-xs font-mono tracking-[0.25em] uppercase mb-4">Earlier Work</p>
         <h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight">More projects</h2>
       </div>
 
@@ -396,19 +396,19 @@ import TechIcon from '../../components/TechIcon.astro';
               <h3 class="text-white font-semibold text-sm">{company}</h3>
               <span class="text-[#3f3f46] text-xs font-mono shrink-0">{period}</span>
             </div>
-            <p class="text-[#444] text-xs font-mono mb-4">{role}</p>
+            <p class="text-[#666] text-xs font-mono mb-4">{role}</p>
             <ul class="space-y-3 flex-1">
               {projects.map(p => (
                 <li class="text-[#666] text-xs leading-relaxed">
                   <span class="text-[#818cf8] font-medium">{p.name}</span>
-                  <span class="text-[#555]"> — </span>
+                  <span class="text-[#777]"> — </span>
                   {p.desc}
                 </li>
               ))}
             </ul>
             <div class="flex flex-wrap gap-1.5 mt-5 pt-4 border-t border-white/[0.05]">
               {stack.map(t => (
-                <span class="text-[10px] text-[#444] font-mono border border-white/[0.05] px-2 py-0.5 rounded">{t}</span>
+                <span class="text-[10px] text-[#666] font-mono border border-white/[0.05] px-2 py-0.5 rounded">{t}</span>
               ))}
             </div>
           </div>

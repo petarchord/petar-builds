@@ -17,14 +17,24 @@ const workStatic = [
   { href: '/work#devtech', stack: ['TypeScript', 'Next.js', 'React', 'D3.js', 'Redux Toolkit', 'PostgreSQL', 'Azure'] },
 ];
 
-const selectedWork = tr.work.items.map((item, i) => ({ ...item, ...workStatic[i] }));
+type WorkItem = {
+  label: string;
+  company: string;
+  href: string;
+  stack: string[];
+  outcomes: readonly string[];
+  description?: string;
+  tagline?: string;
+  projects?: readonly { name: string; highlight: string }[];
+};
+const selectedWork = tr.work.items.map((item, i) => ({ ...item, ...workStatic[i] })) as WorkItem[];
 ---
 
 <section id="work" class="px-6 py-32 bg-[#0a0a0d]">
   <div class="max-w-6xl mx-auto">
     <div data-reveal class="flex items-end justify-between mb-14">
       <div>
-        <p class="text-[#444] text-xs font-mono tracking-[0.25em] uppercase mb-4">{tr.work.eyebrow}</p>
+        <p class="text-[#666] text-xs font-mono tracking-[0.25em] uppercase mb-4">{tr.work.eyebrow}</p>
         <h2 class="text-3xl md:text-[2.5rem] font-bold text-white tracking-tight leading-tight">
           {tr.work.heading}
         </h2>
@@ -42,12 +52,12 @@ const selectedWork = tr.work.items.map((item, i) => ({ ...item, ...workStatic[i]
           <div class="flex flex-col lg:flex-row lg:items-start gap-8">
             <!-- Left: info -->
             <div class="flex-1 min-w-0">
-              <p class="text-[#444] text-xs font-mono mb-3">{label}</p>
+              <p class="text-[#666] text-xs font-mono mb-3">{label}</p>
               <h3 class="text-white font-semibold text-xl mb-3 group-hover:text-[#818cf8] transition-colors duration-200">
                 {company}
               </h3>
               {'tagline' in ({ label, company, description, tagline, projects, outcomes, stack, href }) && tagline && (
-                <p class="text-[#555] text-xs font-mono mb-4">{tagline}</p>
+                <p class="text-[#777] text-xs font-mono mb-4">{tagline}</p>
               )}
               {projects ? (
                 <div class="mb-6">
@@ -65,7 +75,7 @@ const selectedWork = tr.work.items.map((item, i) => ({ ...item, ...workStatic[i]
               )}
               <div class="flex flex-wrap gap-2">
                 {stack.map((t: string) => (
-                  <span class="inline-flex items-center gap-1.5 text-[11px] text-[#555] border border-white/[0.06] px-2.5 py-1 rounded-md font-mono">
+                  <span class="inline-flex items-center gap-1.5 text-[11px] text-[#777] border border-white/[0.06] px-2.5 py-1 rounded-md font-mono">
                     <TechIcon name={t} size={11} />
                     {t}
                   </span>
@@ -90,7 +100,7 @@ const selectedWork = tr.work.items.map((item, i) => ({ ...item, ...workStatic[i]
 
     <!-- Mobile "all projects" link -->
     <div data-reveal class="mt-6 md:hidden">
-      <a href="/work" class="text-sm text-[#555] hover:text-white transition-colors duration-200">
+      <a href="/work" class="text-sm text-[#777] hover:text-white transition-colors duration-200">
         View all projects →
       </a>
     </div>
