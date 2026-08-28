@@ -26,7 +26,7 @@ export const ui = {
       eyebrow: "Sr. Web Developer · SaaS Specialist · AI Enthusiast",
       headingHtml:
         'Building scalable <span class="text-[#818cf8]">software</span> that grows with your <span class="text-[#818cf8]">business</span>',
-      body: "I've spent the last 7+ years building products for industry leaders, including platforms for Fortune Global 500 companies spanning fintech, ed-tech, social networking, and e-commerce.",
+      body: "I help SaaS companies build and scale web products end-to-end — from launching MVPs and adding new features to modernizing products that become harder to maintain as they grow.",
       ctaWork: "View my work",
       ctaTalk: "Let's talk",
       workedWithLabel: "Worked with",
@@ -42,62 +42,35 @@ export const ui = {
       heading: "Get to Know Me",
       valuesEyebrow: "My values",
       bio: [
-        `Hi there! I'm Petar, and I love building things for the web.`,
-        `My primary focus is frontend engineering and creating user interfaces people enjoy
-        using. However, my curiosity about how products work end to end naturally expanded my
-        expertise into backend development. One day, my manager asked me to take ownership of
-        building a full-stack MVP for a startup booking platform from the ground up. That project
-        marked the beginning of my backend journey. Since then, I've become comfortable designing
-        APIs, modeling databases, and building complete products from idea to production.`,
-        `I'm the kind of person who notices the smallest details and genuinely cares about getting
-        things right. That's exactly how I approach software development. I believe this is what
-        separates good software from exceptional software. I'm thorough by nature and deeply care
-        about quality. Whenever I build something, I want to look at it at the end of the day and
-        think, <em class="text-[#888] not-italic">"I'm genuinely proud of what I've created."</em>`,
-        `I enjoy simplifying complexity. Over the years, I've found that this mindset benefits not
-        only the codebase and the engineering team, but also the people who use the product every
-        day. Experience has taught me to step outside the engineer's mindset and put myself in the
-        user's shoes. Today, with AI making software development faster than ever, the question is
-        no longer <em class="text-[#888] not-italic">"Can we build it?"</em>—it's
-        <em class="text-[#888] not-italic">"Should we build it?"</em> I believe great engineering
-        is about solving the right problems, not simply building more features.`,
-        `Transparency is one of my core values, both professionally and personally. I'd rather say
-        <em class="text-[#888] not-italic">"I don't know"</em> than pretend I do and create a
-        bigger problem later. I value honesty, clear communication, and trust. That's also why I
-        only take on projects where I genuinely believe I can make a meaningful impact.`,
-        `Beyond client work, I'm also the founder of <strong class="text-[#aaa] font-semibold"><a href="https://www.whatistheoutput.com/" target="_blank" rel="noopener noreferrer" class="hover:text-[#818cf8] transition-colors duration-200">What Is The Output</a></strong>,
-        a platform with a simple mission: helping developers identify their knowledge gaps and
-        discover the right learning resources to close them. We're currently in the
-        proof-of-concept stage, validating the idea while looking to connect with technical
-        educators, investors, and people who share our vision of making developer learning more
-        personalized and effective. If that resonates with you, I'd love to hear from you and have
-        a conversation.`,
-        `Outside of engineering, I'm a passionate musician and an avid reader. I believe creativity
-        in one discipline sharpens your thinking in another, and some of my best technical ideas
-        have come from experiences completely unrelated to programming. I also recently became the
-        proud father of a wonderful little girl, Lola. These days, most of my free time is happily
-        spent with her.`,
-        `If you're simply looking for someone to complete a list of tasks, there are plenty of
-        engineers who can do that. But if you're looking for someone who will genuinely care about
-        your product, challenge assumptions when needed, contribute ideas, and build software your
-        users truly need, I'd love to have a conversation and explore how we can work together.`,
+        `Hi there! I'm Petar, a Senior Software Engineer and technical partner. I'm here to help you <strong class="text-[#aaa] font-semibold">build or evolve your SaaS product end-to-end</strong> — one that solves the right problem, feels effortless to use, and can grow from user #1 to user #1,000,000.`,
+        `I've spent the last 7+ years building products across startups and large enterprise environments, including platforms for Fortune Global 500 companies, spanning fintech, ed-tech, social networking, and e-commerce.`,
+        `That experience has taught me that building a successful product is about much more than writing good code. Before thinking about implementation, I want to understand the problem we're actually trying to solve. Who is using the product? Why do they need this feature? Is there a simpler way to achieve the same outcome? And will the decisions we make today still make sense as the product grows?`,
+        `That's the mindset I bring to every project.`,
+        `I especially enjoy the challenges that come with growing SaaS products. What starts as a simple application naturally becomes more complex as customers, features, and requirements accumulate. Patterns that worked at the beginning stop scaling. Development slows down. Small changes start affecting unexpected parts of the product.`,
+        `I enjoy stepping into that complexity, understanding what's causing it, and finding ways to make the product easier to build, maintain, and evolve.`,
+        `That mindset shaped some of the work I'm most proud of. Most recently, at <strong class="text-[#aaa] font-semibold"><a href="https://www.paayed.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#818cf8] transition-colors duration-200">Paayed</a></strong>, a UK-based B2B fintech SaaS platform, I saw that an inconsistent UI and duplicated frontend patterns were becoming increasingly difficult to maintain as the platform grew. I built a shared component library and design system that was adopted across the product, giving the team a stronger foundation for developing new features and evolving the platform.`,
+        `I'm also someone who cares about the small details. Whether it's an interaction that doesn't quite feel right, an unnecessarily complicated piece of code, or an architectural decision that could create problems later, I find it difficult to simply say, <em class="text-[#888] not-italic">"good enough."</em> I want to finish something and genuinely be proud of what I've built.`,
+        `AI has made building software faster than ever, and I use it extensively in my own development process. But I think that makes engineering judgment even more important. The interesting question is increasingly not <em class="text-[#888] not-italic">"Can we build this?"</em> but <em class="text-[#888] not-italic">"Should we build this — and what's the simplest way to solve the actual problem?"</em>`,
+        `Outside of client and product work, I'm building <strong class="text-[#aaa] font-semibold"><a href="https://www.whatistheoutput.com/" target="_blank" rel="noopener noreferrer" class="hover:text-[#818cf8] transition-colors duration-200">What Is The Output</a></strong>, my own experiment in making developer education more personalized. Building something of my own has given me another perspective on software — thinking not only about architecture and code, but also about users, validation, priorities, and whether an idea actually creates enough value to deserve being built.`,
+        `And when I'm away from the keyboard, you'll usually find me playing music, reading, or spending time with my family.`,
+        `So if you're building a SaaS product and looking for an engineer who will understand the bigger picture, care about the details, contribute ideas, and take ownership beyond the code itself — we'll probably have a lot to talk about.`,
       ],
       values: [
         {
           label: "Meticulous",
-          body: "I notice the smallest details and genuinely care about getting things right. That's what separates good software from exceptional software — and it's non-negotiable for me.",
+          body: "Whether it's an interaction that doesn't feel right, an overly complicated piece of code, or an architectural decision that could cause problems later — I find it difficult to simply say 'good enough.' I want to finish something and genuinely be proud of what I've built.",
         },
         {
           label: "Transparent",
-          body: "I'd rather say 'I don't know' than pretend I do and create a bigger problem later. I value honesty, clear communication, and trust — in every project, with every collaborator.",
+          body: "I surface concerns early rather than staying quiet and letting them grow. I value clear, honest communication — about what's working, what isn't, and what decisions we're making and why.",
         },
         {
-          label: "User-first",
-          body: "I simplify complexity and put myself in the user's shoes. Today the question isn't 'Can we build it?' — it's 'Should we?' Great engineering solves the right problems.",
+          label: "Problem-first",
+          body: "Before thinking about implementation, I want to understand the actual problem. Who is using this? Why do they need it? Is there a simpler way? The question is no longer 'Can we build this?' — it's 'Should we, and what's the simplest way to solve the real problem?'",
         },
         {
           label: "Purposeful",
-          body: "I don't complete task lists — I genuinely care about your product, challenge assumptions when needed, and only take on work where I believe I can make a real impact.",
+          body: "I understand the bigger picture, contribute ideas, and take ownership beyond the code. I'm not completing a task list — I'm helping build a product that solves the right problem and can grow from user #1 to user #1,000,000.",
         },
       ],
     },
