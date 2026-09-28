@@ -6,7 +6,7 @@ export const ui = {
     htmlLang: "en",
     site: {
       title:
-        "Petar Jovanovic - Senior Web Developer | SaaS Specialist | AI Enthusiast | Founder",
+        "Petar Jovanovic - Senior Product Engineer | SaaS & AI Development | AI-Assisted Development",
       description:
         "I help startups and businesses turn their vision into scalable web applications with clean architecture, thoughtful UX, and a strong technical foundation.",
     },
@@ -23,7 +23,8 @@ export const ui = {
       switchToHref: "/sr/",
     },
     hero: {
-      eyebrow: "Sr. Web Developer · SaaS Specialist · AI Enthusiast",
+      eyebrow:
+        "Senior Product Engineer · SaaS & AI Development · AI-Assisted Development",
       headingHtml:
         'Building scalable <span class="text-[#818cf8]">software</span> that grows with your <span class="text-[#818cf8]">business</span>',
       body: "I help SaaS companies build and scale web products end-to-end — from launching MVPs and adding new features to modernizing products that become harder to maintain as they grow.",
@@ -42,7 +43,7 @@ export const ui = {
       heading: "Get to Know Me",
       valuesEyebrow: "My values",
       bio: [
-        `Hi there! I'm Petar, a Senior Software Engineer and technical partner. I'm here to help you <strong class="text-[#aaa] font-semibold">build or evolve your SaaS product end-to-end</strong> — one that solves the right problem, feels effortless to use, and can grow from user #1 to user #1,000,000.`,
+        `Hi there! I'm Petar, a Senior Product Engineer and technical partner. I'm here to help you <strong class="text-[#aaa] font-semibold">build or evolve your SaaS product end-to-end</strong> — one that solves the right problem, feels effortless to use, and can grow from user #1 to user #1,000,000.`,
         `I've spent the last 7+ years building products across startups and large enterprise environments, including platforms for Fortune Global 500 companies, spanning fintech, ed-tech, social networking, and e-commerce.`,
         `That experience has taught me that the best software comes from understanding the problem before writing the solution. Before thinking about implementation, I want to understand the problem we're actually trying to solve. Who is using the product? Why do they need this feature? Is there a simpler way to achieve the same outcome? And will the decisions we make today still make sense as the product grows?`,
         `That's the mindset I bring to every project.`,
@@ -312,7 +313,7 @@ export const ui = {
     htmlLang: "sr",
     site: {
       title:
-        "Petar Jovanović - Senior Web Developer | SaaS Specijalista | AI Entuzijast | Osnivač",
+        "Petar Jovanović - Senior Product Engineer | SaaS i AI razvoj | Razvoj uz pomoć AI-a",
       description:
         "Pomažem startapovima i preduzećima da pretvore svoju viziju u skalabilne veb aplikacije s čistom arhitekturom, promišljenim UX-om i jakim tehničkim temeljima.",
     },
@@ -329,7 +330,8 @@ export const ui = {
       switchToHref: "/",
     },
     hero: {
-      eyebrow: "Senior Web Developer · SaaS Specijalista · AI Entuzijast",
+      eyebrow:
+        "Senior Product Engineer · SaaS i AI razvoj · Razvoj uz pomoć AI-a",
       headingHtml:
         'Gradim <span class="text-[#818cf8]">softver</span> na webu koji raste zajedno s vašim <span class="text-[#818cf8]">poslovanjem</span>',
       body: "Više od 7 godina gradim proizvode za industrijske lidere, uključujući platforme za kompanije s Fortune Global 500 liste u fintech-u, ed-techu, društvenim mrežama i e-commercu.",
