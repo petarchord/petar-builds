@@ -1,5 +1,6 @@
 ---
-import PortraitImage from '../../assets/petar-portfolio-image.png';
+import { Image } from 'astro:assets';
+import PortraitImage from '../../assets/petar-portfolio-image.webp';
 import { ui } from '../../i18n/ui';
 import type { Lang } from '../../i18n/ui';
 
@@ -39,9 +40,11 @@ const values = tr.about.values.map((v, i) => ({ ...v, icon: valueIcons[i] }));
           class="absolute rounded-full overflow-hidden bg-[#101013] border border-white/[0.06]"
           style="width:180px; height:180px; left:70px; top:65px;"
         >
-          <img
-            src={PortraitImage.src}
+          <Image
+            src={PortraitImage}
             alt="Petar Jovanovic"
+            width={360}
+            height={360}
             class="w-full h-full object-cover object-top grayscale-[0.8]"
           />
         </figure>

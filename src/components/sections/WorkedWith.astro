@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import PaayedLogo from '../../assets/Paayed-logo.png';
 import InditexLogo from '../../assets/Inditex-logo.webp';
 import FinqueryLogo from '../../assets/Finquery-logo.webp';
@@ -14,13 +15,13 @@ interface Props {
 const { label = 'Worked with', class: className = '' } = Astro.props;
 
 const logos = [
-  { name: 'Paayed',   src: PaayedLogo.src,   type: 'solid' },
-  { name: 'Inditex',  src: InditexLogo.src,  type: 'solid' },
-  { name: 'FinQuery', src: FinqueryLogo.src, type: 'transparent' },
-  { name: 'Symphony', src: SymphonyLogo.src, type: 'transparent' },
-  { name: 'Devtech',  src: DevtechLogo.src,  type: 'transparent' },
-  { name: 'Nulia',    src: NuliaLogo.src,    type: 'solid' },
-  { name: 'Fitcher',  src: FitcherLogo.src,  type: 'transparent' },
+  { name: 'Paayed',   src: PaayedLogo,   type: 'solid' },
+  { name: 'Inditex',  src: InditexLogo,  type: 'solid' },
+  { name: 'FinQuery', src: FinqueryLogo, type: 'transparent' },
+  { name: 'Symphony', src: SymphonyLogo, type: 'transparent' },
+  { name: 'Devtech',  src: DevtechLogo,  type: 'transparent' },
+  { name: 'Nulia',    src: NuliaLogo,    type: 'solid' },
+  { name: 'Fitcher',  src: FitcherLogo,  type: 'transparent' },
 ];
 ---
 
@@ -33,9 +34,10 @@ const logos = [
     <div class="marquee-track flex w-max items-center">
       {[...logos, ...logos].map((logo) => (
         <div class="flex items-center shrink-0">
-          <img
+          <Image
             src={logo.src}
             alt={logo.name}
+            height={52}
             class={`logo-${logo.type}`}
             draggable="false"
           />

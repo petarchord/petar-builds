@@ -65,7 +65,9 @@ const year = new Date().getFullYear();
   </head>
   <body>
     <Nav lang={lang} />
-    <slot />
+    <main>
+      <slot />
+    </main>
 
     <footer class="border-t border-white/[0.06] px-6 py-12 mt-32">
       <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">

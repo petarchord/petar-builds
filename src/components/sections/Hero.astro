@@ -1,5 +1,6 @@
 ---
-import PortraitImage from '../../assets/petar-portfolio-image.png';
+import { Image } from 'astro:assets';
+import PortraitImage from '../../assets/petar-portfolio-image.webp';
 import WorkedWith from './WorkedWith.astro';
 import { ui } from '../../i18n/ui';
 import type { Lang } from '../../i18n/ui';
@@ -73,9 +74,13 @@ const prefix = lang === 'sr' ? '/sr' : '';
           class="absolute rounded-full overflow-hidden bg-[#101013] border border-white/[0.06]"
           style="width:240px; height:240px; left:90px; top:80px;"
         >
-          <img
-            src={PortraitImage.src}
+          <Image
+            src={PortraitImage}
             alt="Petar Jovanovic"
+            width={480}
+            height={480}
+            loading="eager"
+            fetchpriority="high"
             class="w-full h-full object-cover object-top grayscale-[0.8]"
           />
         </figure>
