@@ -1,0 +1,117 @@
+---
+import TechIcon from '../TechIcon.astro';
+import ProjectVisual from './ProjectVisual.astro';
+import type { Project } from '../../data/projects';
+import type { Lang } from '../../i18n/ui';
+
+interface Props {
+  project: Project;
+  lang?: Lang;
+  featured?: boolean;
+  delay?: number;
+}
+
+const { project, lang = 'en', featured = false, delay = 0 } = Astro.props;
+const { slug, title, category, summary, role, year, stack, highlight, liveUrl } = project;
+
+const copy = {
+  en: { role: 'Role', cta: 'View case study', live: 'Visit' },
+  sr: { role: 'Uloga', cta: 'Pogledaj studiju slučaja', live: 'Posetite' },
+} as const;
+const c = copy[lang];
+const visibleStack = stack.slice(0, featured ? 6 : 4);
+const liveHost = liveUrl ? new URL(liveUrl).hostname.replace(/^www\./, '') : '';
+---
+
+<div data-reveal style={`transition-delay:${delay}ms`} class={`flex min-w-0 ${featured ? 'md:col-span-2' : ''}`}>
+  <article
+    class={`project-card group relative flex min-w-0 flex-1 flex-col gap-6 rounded-2xl border border-white/[0.07] bg-[#0c0c11] p-4 sm:p-5 ${featured ? 'lg:grid lg:grid-cols-[1.15fr_1fr] lg:items-center lg:gap-10 lg:p-6' : ''}`}
+  >
+    <ProjectVisual project={project} eager={featured} />
+
+    <div class="flex min-w-0 flex-1 flex-col px-1 pb-1">
+      <div class="mb-3 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-[11px] font-mono uppercase tracking-[0.14em]">
+        <span class="text-[#818cf8]">{category[lang]}</span>
+        <span class="text-[#80808a]">{year}</span>
+      </div>
+
+      <h3 class={`text-white font-semibold tracking-tight leading-snug mb-3 group-hover:text-[#c7d2fe] transition-colors duration-300 ${featured ? 'text-2xl md:text-3xl' : 'text-lg md:text-xl'}`}>
+        {title[lang]}
+      </h3>
+
+      <p class={`text-[#a1a1aa] leading-relaxed mb-5 ${featured ? 'text-base' : 'text-sm'}`}>{summary[lang]}</p>
+
+      <div class="mb-5 flex items-baseline gap-3 rounded-lg border border-white/[0.06] bg-white/[0.02] px-4 py-3">
+        <span class="shrink-0 text-white font-bold text-xl tracking-tight">{highlight.value}</span>
+        <span class="text-[#8e8e8e] text-xs leading-snug">{highlight.label[lang]}</span>
+      </div>
+
+      <dl class="mb-5 space-y-1.5 text-xs">
+        <div class="flex gap-3"><dt class="w-12 shrink-0 font-mono uppercase tracking-wider text-[#80808a]">{c.role}</dt><dd class="text-[#d4d4d8]">{role}</dd></div>
+      </dl>
+
+      <div class="mb-6 flex flex-wrap gap-1.5">
+        {visibleStack.map((t) => (
+          <span class="inline-flex items-center gap-1.5 rounded-md border border-white/[0.06] px-2 py-0.5 font-mono text-[10px] text-[#8e8e8e]">
+            <TechIcon name={t} size={10} />{t}
+          </span>
+        ))}
+        {stack.length > visibleStack.length && (
+          <span class="rounded-md border border-white/[0.06] px-2 py-0.5 font-mono text-[10px] text-[#80808a]">+{stack.length - visibleStack.length}</span>
+        )}
+      </div>
+
+      <div class="mt-auto flex flex-wrap items-center justify-between gap-x-6 gap-y-3">
+        <!-- ::after stretches this link over the whole card -->
+        <a href={`/work/${slug}/`} class="card-link inline-flex items-center gap-2 whitespace-nowrap text-sm font-medium text-white after:absolute after:inset-0 after:rounded-2xl after:content-['']">
+          {c.cta}
+          <span class="cta-arrow inline-flex h-7 w-7 items-center justify-center rounded-full border border-white/[0.15] transition-all duration-300 group-hover:border-[#818cf8] group-hover:bg-[#818cf8] group-hover:text-[#0a0a0d]">→</span>
+        </a>
+        {liveUrl && (
+          <a
+            href={liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${c.live} ${liveHost}`}
+            class="relative z-10 ml-auto inline-flex items-center gap-1.5 whitespace-nowrap rounded-full border border-white/[0.12] px-3.5 py-1.5 text-xs font-medium text-[#d4d4d8] hover:border-[#818cf8]/60 hover:text-white transition-colors duration-200"
+          >
+            <span class="h-1.5 w-1.5 rounded-full bg-[#818cf8]"></span>
+            {liveHost}
+            <span aria-hidden="true">↗</span>
+          </a>
+        )}
+      </div>
+    </div>
+  </article>
+</div>
+
+<style>
+  .project-card {
+    transition:
+      transform 320ms cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 240ms ease,
+      background-color 240ms ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(129, 140, 248, 0.35);
+    background-color: #0f0f15;
+  }
+
+  .project-card:hover .cta-arrow {
+    transform: translateX(3px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .project-card,
+    .cta-arrow {
+      transition: none;
+    }
+
+    .project-card:hover,
+    .project-card:hover .cta-arrow {
+      transform: none;
+    }
+  }
+</style>

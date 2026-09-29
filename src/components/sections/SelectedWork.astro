@@ -1,5 +1,6 @@
 ---
-import TechIcon from '../TechIcon.astro';
+import ProjectCard from '../work/ProjectCard.astro';
+import { projects } from '../../data/projects';
 import { ui } from '../../i18n/ui';
 import type { Lang } from '../../i18n/ui';
 
@@ -10,99 +11,58 @@ interface Props {
 const { lang = 'en' } = Astro.props;
 const tr = ui[lang];
 
-// Static data (hrefs and tech stacks are language-independent)
-const workStatic = [
-  { href: '/work#paayed', stack: ['TypeScript', 'React', 'Next.js', 'Tailwind', 'Radix UI', 'Jest', 'Docker', 'AWS'] },
-  { href: '/work#symphony', stack: ['TypeScript', 'React', 'Next.js', 'Jest', 'Stryker.js', 'Docker', 'AWS'] },
-  { href: '/work#devtech', stack: ['TypeScript', 'Next.js', 'React', 'D3.js', 'Redux Toolkit', 'PostgreSQL', 'Azure'] },
-];
+const [featured, ...others] = projects;
+const shown = others.slice(0, 4);
 
-type WorkItem = {
-  label: string;
-  company: string;
-  href: string;
-  stack: string[];
-  outcomes: readonly string[];
-  description?: string;
-  tagline?: string;
-  projects?: readonly { name: string; highlight: string }[];
-};
-const selectedWork = tr.work.items.map((item, i) => ({ ...item, ...workStatic[i] })) as WorkItem[];
+const copy = {
+  en: {
+    subtitle: 'Products I helped design, build and ship — for fintech startups, enterprise teams and Fortune Global 500 companies.',
+    all: `See all ${projects.length} case studies`,
+    similar: 'Have a similar product in mind?',
+    book: 'Book a free call',
+  },
+  sr: {
+    subtitle: 'Proizvodi koje sam pomogao da se osmisle, izgrade i isporuče — za fintech startape, enterprise timove i Fortune Global 500 kompanije.',
+    all: `Pogledajte svih ${projects.length} studija slučaja`,
+    similar: 'Imate sličan proizvod na umu?',
+    book: 'Zakažite besplatan poziv',
+  },
+} as const;
+const c = copy[lang];
 ---
 
 <section id="work" class="px-6 py-32 bg-[#0a0a0d]">
   <div class="max-w-6xl mx-auto">
-    <div data-reveal class="flex items-end justify-between mb-14">
+    <div data-reveal class="mb-14 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
       <div>
         <p class="text-[#858585] text-xs font-mono tracking-[0.25em] uppercase mb-4">{tr.work.eyebrow}</p>
-        <h2 class="text-3xl md:text-[2.5rem] font-bold text-white tracking-tight leading-tight">
+        <h2 class="text-3xl md:text-[2.5rem] font-bold text-white tracking-tight leading-tight mb-4">
           {tr.work.heading}
         </h2>
+        <p class="text-[#a1a1aa] max-w-2xl text-base leading-relaxed">{c.subtitle}</p>
       </div>
+      <a href="/work/" class="hidden md:inline-flex shrink-0 items-center gap-2 whitespace-nowrap text-sm text-[#a1a1aa] hover:text-white transition-colors duration-200">
+        {c.all} <span aria-hidden="true">→</span>
+      </a>
     </div>
 
-    <div class="space-y-4">
-      {selectedWork.map(({ label, company, description, tagline, projects, outcomes, stack, href }, i) => (
-        <a
-          href={href}
-          data-reveal
-          style={`transition-delay:${i * 80}ms`}
-          class="group block border border-white/[0.06] rounded-xl p-7 lg:p-8 hover:border-white/[0.12] hover:bg-white/[0.02] transition-all duration-300"
-        >
-          <div class="flex flex-col lg:flex-row lg:items-start gap-8">
-            <!-- Left: info -->
-            <div class="flex-1 min-w-0">
-              <p class="text-[#858585] text-xs font-mono mb-3">{label}</p>
-              <h3 class="text-white font-semibold text-xl mb-3 group-hover:text-[#818cf8] transition-colors duration-200">
-                {company}
-              </h3>
-              {'tagline' in ({ label, company, description, tagline, projects, outcomes, stack, href }) && tagline && (
-                <p class="text-[#8e8e8e] text-xs font-mono mb-4">{tagline}</p>
-              )}
-              {projects ? (
-                <div class="mb-6">
-                  <ul class="space-y-3">
-                    {projects.map((p: { name: string; highlight: string }) => (
-                      <li>
-                        <span class="text-white/70 text-sm font-semibold block mb-0.5">{p.name}</span>
-                        <span class="text-[#858585] text-sm leading-relaxed">{p.highlight}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ) : (
-                <p class="text-[#858585] text-sm leading-relaxed mb-6">{description}</p>
-              )}
-              <div class="flex flex-wrap gap-2">
-                {stack.map((t: string) => (
-                  <span class="inline-flex items-center gap-1.5 text-[11px] text-[#8e8e8e] border border-white/[0.06] px-2.5 py-1 rounded-md font-mono">
-                    <TechIcon name={t} size={11} />
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <!-- Right: outcomes -->
-            <ul class="shrink-0 space-y-2 lg:text-right">
-              {outcomes.map((o: string) => (
-                <li class="flex lg:justify-end items-start gap-2 text-sm text-[#858585]">
-                  <span class="text-[#818cf8] text-xs mt-1 lg:hidden">↗</span>
-                  <span>{o}</span>
-                  <span class="text-[#818cf8] text-xs mt-1 hidden lg:inline">↗</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </a>
+    <div class="grid gap-5 md:grid-cols-2">
+      <ProjectCard project={featured} lang={lang} featured />
+      {shown.map((project, i) => (
+        <ProjectCard project={project} lang={lang} delay={(i % 2) * 80} />
       ))}
     </div>
 
-    <!-- Mobile "all projects" link -->
-    <div data-reveal class="mt-6 md:hidden">
-      <a href="/work" class="text-sm text-[#8e8e8e] hover:text-white transition-colors duration-200">
-        View all projects →
-      </a>
+    <div data-reveal class="mt-10 flex flex-col items-start gap-4 rounded-2xl border border-white/[0.07] bg-[#0c0c11] p-6 sm:flex-row sm:items-center sm:justify-between md:p-8">
+      <p class="text-white text-lg font-semibold tracking-tight">{c.similar}</p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/work/" class="rounded-lg border border-white/10 px-5 py-2.5 text-sm font-medium text-white hover:border-white/20 hover:bg-white/[0.04] transition-colors duration-200">
+          {c.all}
+        </a>
+        <a href="https://calendly.com/petarbuilds-tech/30min" target="_blank" rel="noopener noreferrer" class="rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-[#09090b] hover:bg-[#e8e8e8] transition-colors duration-200">
+          {c.book}
+        </a>
+      </div>
     </div>
   </div>
 </section>

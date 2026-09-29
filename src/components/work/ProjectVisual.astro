@@ -1,0 +1,277 @@
+---
+import { Image } from 'astro:assets';
+import type { Project } from '../../data/projects';
+
+interface Props {
+  project: Project;
+  eager?: boolean;
+  large?: boolean;
+}
+
+const { project, eager = false, large = false } = Astro.props;
+const { visual, image } = project;
+
+const nuliaLine = [[0, 70], [30, 58], [60, 64], [90, 40], [120, 48], [150, 26], [180, 34], [210, 14], [240, 20]];
+const nuliaPath = nuliaLine.map(([x, y], i) => `${i ? 'L' : 'M'}${x} ${y}`).join(' ');
+---
+
+<div class={`pv relative overflow-hidden rounded-xl border border-white/[0.08] bg-[#0d0d13] ${large ? 'pv-lg aspect-[16/10] md:aspect-[16/8]' : 'aspect-[16/10]'}`}>
+  {image ? (
+    <Image src={image} alt={project.title.en} widths={[480, 800, 1200]} sizes="(min-width: 1024px) 50vw, 100vw" loading={eager ? 'eager' : 'lazy'} class="h-full w-full object-cover object-top" />
+  ) : (
+    <div aria-hidden="true" class="absolute inset-0">
+      <div class="pv-glow absolute inset-0"></div>
+      <div class="pv-grid absolute inset-0"></div>
+
+      <div class="pv-window absolute inset-x-[7%] top-[10%] -bottom-2 rounded-t-lg border border-white/[0.1] bg-[#111118] shadow-[0_30px_80px_-30px_rgba(0,0,0,0.9)] overflow-hidden">
+        <div class="flex items-center gap-1.5 border-b border-white/[0.06] px-3 py-2">
+          <span class="h-1.5 w-1.5 rounded-full bg-white/20"></span>
+          <span class="h-1.5 w-1.5 rounded-full bg-white/15"></span>
+          <span class="h-1.5 w-1.5 rounded-full bg-white/10"></span>
+          <span class="ml-3 h-1.5 w-20 rounded-full bg-white/[0.06]"></span>
+        </div>
+
+        <div class="pv-content p-3 sm:p-4 text-[9px] sm:text-[10px] leading-tight">
+          {visual === 'paayed' && (
+            <div class="grid grid-cols-5 gap-3">
+              <div class="col-span-3 rounded-md border border-white/[0.08] bg-[#0d0d13] p-3">
+                <div class="flex justify-between text-[#8e8e8e] font-mono uppercase tracking-wider mb-2"><span>Secure checkout</span><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="4" y="11" width="16" height="10" rx="2" /><path d="M8 11V7a4 4 0 0 1 8 0v4" /></svg></div>
+                <div class="text-white text-base sm:text-lg font-semibold mb-2">£1,240.00</div>
+                <div class="rounded border border-white/[0.08] px-2 py-1.5 mb-2 font-mono text-[#a1a1aa] tracking-widest">•••• •••• 4242</div>
+                <div class="flex items-center gap-1.5 mb-2 text-[#a1a1aa]"><span class="inline-flex h-3 w-3 items-center justify-center rounded-full bg-[#818cf8]/25 text-[#818cf8] text-[7px]">✓</span>3D Secure verified</div>
+                <div class="rounded bg-[#818cf8] py-1.5 text-center font-semibold text-[#0a0a0d]">Pay now</div>
+              </div>
+              <div class="col-span-2 space-y-2">
+                {['Invoices', 'Quotes', 'Clients'].map((m, i) => (
+                  <div class="rounded-md border border-white/[0.08] bg-[#0d0d13] p-2">
+                    <div class="text-[#8e8e8e] mb-1.5">{m}</div>
+                    <div class="flex items-end gap-0.5 h-5">
+                      {[40, 65, 50, 80, 60, 95].map((h, j) => (
+                        <span class="flex-1 rounded-[1px]" style={`height:${h - i * 8}%;background:rgba(129,140,248,${0.25 + j * 0.1})`}></span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {visual === 'fashion' && (
+            <div class="space-y-3">
+              <div class="flex justify-between text-[#8e8e8e] font-mono uppercase tracking-wider"><span>Critical path</span><span>ART-2041</span></div>
+              <div class="relative flex justify-between px-1">
+                <div class="absolute left-3 right-3 top-[5px] h-px bg-white/[0.1]"></div>
+                <div class="absolute left-3 top-[5px] h-px w-[60%] bg-[#818cf8]"></div>
+                {[['Production', 'done'], ['Quality', 'done'], ['Shipping', 'active'], ['Handover', 'todo']].map(([label, state]) => (
+                  <div class="relative flex flex-col items-center gap-1.5">
+                    <span class={`h-2.5 w-2.5 rounded-full border ${state === 'done' ? 'bg-[#818cf8] border-[#818cf8]' : state === 'active' ? 'pv-pulse bg-[#111118] border-[#818cf8]' : 'bg-[#111118] border-white/25'}`}></span>
+                    <span class={state === 'todo' ? 'text-[#80808a]' : 'text-[#a1a1aa]'}>{label}</span>
+                  </div>
+                ))}
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <div class="rounded-md border border-white/[0.08] bg-[#0d0d13] p-2 space-y-1.5">
+                  <div class="text-[#a1a1aa]"><span class="text-[#818cf8]">✓</span> QA sample approved</div>
+                  <div class="text-[#a1a1aa]"><span class="text-[#818cf8]">✓</span> Lab test passed</div>
+                  <div class="text-[#8e8e8e]">○ Shipping docs pending</div>
+                </div>
+                <div class="rounded-md border border-dashed border-[#818cf8]/40 bg-[#818cf8]/[0.05] p-2">
+                  <div class="text-[#a1a1aa] mb-1.5">Uploading assets</div>
+                  {[80, 55].map((w) => (
+                    <div class="mb-1.5 h-1 rounded-full bg-white/[0.08] overflow-hidden"><div class="h-full bg-[#818cf8]/80" style={`width:${w}%`}></div></div>
+                  ))}
+                  <div class="text-[#8e8e8e] font-mono">spec-sheet.pdf</div>
+                </div>
+              </div>
+              <div class="grid grid-cols-3 gap-1.5">
+                {['Timeline MFE', 'Uploads MFE', 'Articles MFE'].map((m) => (
+                  <div class="rounded border border-white/[0.08] px-2 py-1 text-center text-[#8e8e8e]">{m}</div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {visual === 'booking' && (
+            <div class="space-y-2.5">
+              <div class="flex items-center gap-2 rounded-md border border-white/[0.08] bg-[#0d0d13] px-2 py-1.5 text-[#8e8e8e]">
+                <span>⌕</span> Find a service near you
+              </div>
+              {[['Home cleaning', '4.9'], ['Personal trainer', '4.8']].map(([name, rating], i) => (
+                <div class={`flex items-center gap-2 rounded-md border p-2 ${i === 0 ? 'border-[#818cf8]/40 bg-[#818cf8]/[0.06]' : 'border-white/[0.08] bg-[#0d0d13]'}`}>
+                  <span class="h-5 w-5 shrink-0 rounded-full bg-gradient-to-br from-[#818cf8]/60 to-[#312e81]"></span>
+                  <div class="flex-1 min-w-0"><div class="text-white/90">{name}</div><div class="text-[#8e8e8e]">★ {rating} · Verified</div></div>
+                  <span class="text-[#818cf8]">Book →</span>
+                </div>
+              ))}
+              <div class="grid grid-cols-4 gap-1.5">
+                {['09:00', '10:30', '13:00', '15:30'].map((slot, i) => (
+                  <span class={`rounded border py-1 text-center font-mono ${i === 1 ? 'border-[#818cf8]/60 bg-[#818cf8]/15 text-[#818cf8]' : 'border-white/[0.08] text-[#8e8e8e]'}`}>{slot}</span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {visual === 'crm' && (
+            <div class="space-y-2">
+              <div class="flex gap-1.5">
+                {['React', 'Node.js', 'Available'].map((f, i) => (
+                  <span class={`rounded-full border px-2 py-0.5 ${i === 2 ? 'border-[#818cf8]/50 text-[#818cf8]' : 'border-white/[0.1] text-[#a1a1aa]'}`}>{f}</span>
+                ))}
+              </div>
+              {[['Senior', ['React', 'TS'], true], ['Medior', ['Node', 'SQL'], true], ['Senior', ['Vue', 'AWS'], false], ['Junior', ['React'], true]].map(([level, skills, available]) => (
+                <div class="flex items-center gap-2 rounded-md border border-white/[0.06] bg-[#0d0d13] px-2 py-1.5">
+                  <span class="h-4 w-4 shrink-0 rounded-full bg-white/15"></span>
+                  <span class="h-1.5 w-14 rounded-full bg-white/20"></span>
+                  <span class="text-[#8e8e8e] w-10">{level}</span>
+                  <span class="flex gap-1 flex-1">
+                    {(skills as string[]).map((s) => (
+                      <span class="rounded bg-[#818cf8]/15 px-1.5 text-[#c7d2fe]">{s}</span>
+                    ))}
+                  </span>
+                  <span class={`h-1.5 w-1.5 rounded-full ${available ? 'bg-[#818cf8]' : 'bg-white/20'}`}></span>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {visual === 'fitcher' && (
+            <div class="space-y-2.5">
+              <div class="flex gap-2.5">
+                {['You', 'anna.fit', 'coach.mk', 'lift.lab', 'run.club'].map((name, i) => (
+                  <div class="flex flex-col items-center gap-1 min-w-0">
+                    <span class={`rounded-full p-[2px] ${i === 0 ? 'bg-white/15' : 'bg-gradient-to-tr from-[#818cf8] to-[#c7d2fe]'}`}>
+                      <span class="flex h-6 w-6 items-center justify-center rounded-full border-2 border-[#111118] bg-gradient-to-br from-[#312e81] to-[#1e1b4b] text-[#c7d2fe]">{i === 0 ? '+' : ''}</span>
+                    </span>
+                    <span class="max-w-[3rem] truncate text-[#8e8e8e]">{name}</span>
+                  </div>
+                ))}
+              </div>
+              <div class="grid grid-cols-5 gap-2.5">
+                <div class="col-span-3 rounded-md border border-white/[0.08] bg-[#0d0d13] p-2">
+                  <div class="flex items-center gap-1.5 mb-2">
+                    <span class="h-4 w-4 rounded-full bg-gradient-to-br from-[#818cf8]/70 to-[#312e81]"></span>
+                    <span class="text-white/90">anna.fit</span>
+                    <span class="ml-auto text-[#818cf8]">Creator</span>
+                  </div>
+                  <div class="relative aspect-[16/9] overflow-hidden rounded bg-gradient-to-br from-[#818cf8]/40 via-[#312e81]/60 to-[#0d0d13]">
+                    <div class="absolute inset-0 flex items-center justify-center backdrop-blur-[2px]">
+                      <span class="rounded-full border border-white/20 bg-black/40 px-2 py-0.5 text-white/90">Subscribers only</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-span-2 flex flex-col justify-between rounded-md border border-[#818cf8]/40 bg-[#818cf8]/[0.06] p-2">
+                  <div>
+                    <div class="text-[#8e8e8e] mb-1">Monthly</div>
+                    <div class="text-white text-sm font-semibold mb-2">£4.99</div>
+                    <div class="space-y-1 text-[#a1a1aa]">
+                      <div><span class="text-[#818cf8]">✓</span> Exclusive posts</div>
+                      <div><span class="text-[#818cf8]">✓</span> Stories</div>
+                    </div>
+                  </div>
+                  <div class="mt-2 rounded bg-[#818cf8] py-1 text-center font-semibold text-[#0a0a0d]">Subscribe</div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {visual === 'accounting' && (
+            <div class="space-y-2.5">
+              <div class="rounded-md border border-white/[0.08] bg-[#0d0d13] p-2">
+                <div class="flex justify-between text-[#8e8e8e] mb-1.5"><span>Onboarding</span><span class="font-mono">Step 3 / 5</span></div>
+                <div class="flex gap-1">
+                  {[0, 1, 2, 3, 4].map((s) => (
+                    <span class={`h-1 flex-1 rounded-full ${s < 3 ? 'bg-[#818cf8]' : 'bg-white/[0.1]'}`}></span>
+                  ))}
+                </div>
+              </div>
+              <div class="rounded-md border border-white/[0.08] bg-[#0d0d13] overflow-hidden">
+                <div class="grid grid-cols-4 gap-2 border-b border-white/[0.06] px-2 py-1.5 text-[#8e8e8e] font-mono uppercase">
+                  <span>Lease</span><span>Term</span><span>Liability</span><span class="text-right">Status</span>
+                </div>
+                {[['HQ Office', '60 mo', '$1.24M', 'Active'], ['Fleet', '36 mo', '$420K', 'Active'], ['Warehouse', '84 mo', '$2.9M', 'Review']].map(([n, t, v, s]) => (
+                  <div class="grid grid-cols-4 gap-2 px-2 py-1.5 text-[#a1a1aa] border-b border-white/[0.04] last:border-0">
+                    <span class="truncate text-white/85">{n}</span><span>{t}</span><span class="font-mono">{v}</span>
+                    <span class={`text-right ${s === 'Review' ? 'text-[#8e8e8e]' : 'text-[#818cf8]'}`}>{s}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {visual === 'nulia' && (
+            <div class="grid grid-cols-5 gap-2.5">
+              <div class="col-span-3 rounded-md border border-white/[0.08] bg-[#0d0d13] p-2">
+                <div class="flex justify-between text-[#8e8e8e] mb-1"><span>M365 adoption</span><span class="text-[#818cf8]">+18%</span></div>
+                <svg class="w-full h-16" viewBox="0 0 240 80" preserveAspectRatio="none">
+                  <path d={`${nuliaPath} L240 80 L0 80 Z`} fill="rgba(129,140,248,0.15)" />
+                  <path d={nuliaPath} fill="none" stroke="#818cf8" stroke-width="2" vector-effect="non-scaling-stroke" />
+                </svg>
+              </div>
+              <div class="col-span-2 rounded-md border border-white/[0.08] bg-[#0d0d13] p-2 flex flex-col items-center justify-center">
+                <svg class="h-14 w-14 -rotate-90" viewBox="0 0 36 36">
+                  <circle cx="18" cy="18" r="14" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="5" />
+                  <circle cx="18" cy="18" r="14" fill="none" stroke="#818cf8" stroke-width="5" stroke-dasharray="62 88" stroke-linecap="round" />
+                </svg>
+                <span class="mt-1 text-[#a1a1aa]">Skill score</span>
+              </div>
+              <div class="col-span-5 flex items-end gap-1 h-10 rounded-md border border-white/[0.08] bg-[#0d0d13] p-2">
+                {[30, 55, 42, 70, 48, 85, 62, 95, 74, 88, 66, 92].map((h) => (
+                  <span class="flex-1 rounded-[1px] bg-[#818cf8]/50" style={`height:${h}%`}></span>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  )}
+</div>
+
+<style>
+  .pv-glow {
+    background:
+      radial-gradient(ellipse at 85% 0%, rgba(129, 140, 248, 0.28) 0%, transparent 55%),
+      radial-gradient(ellipse at 0% 100%, rgba(129, 140, 248, 0.12) 0%, transparent 50%);
+  }
+
+  .pv-grid {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 22px 22px;
+    mask-image: radial-gradient(ellipse at 50% 0%, #000 20%, transparent 75%);
+  }
+
+  .pv-window {
+    transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @media (min-width: 768px) {
+    .pv-lg .pv-window {
+      inset-inline: 12%;
+    }
+
+    .pv-lg .pv-content {
+      zoom: 1.5;
+    }
+  }
+
+  :global(.group:hover) .pv-window {
+    transform: translateY(-6px);
+  }
+
+  .pv-pulse {
+    animation: pv-pulse 2s ease-out infinite;
+  }
+
+  @keyframes pv-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(129, 140, 248, 0.5); }
+    70%, 100% { box-shadow: 0 0 0 5px rgba(129, 140, 248, 0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pv-window { transition: none; }
+    :global(.group:hover) .pv-window { transform: none; }
+    .pv-pulse { animation: none; }
+  }
+</style>
