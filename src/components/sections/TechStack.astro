@@ -15,7 +15,7 @@ const categories = tr.techStack.categories;
 <section class="border-t border-white/[0.06] px-6 py-24">
   <div class="max-w-6xl mx-auto">
     <div data-reveal class="mb-12">
-      <p class="text-[#666] text-xs font-mono tracking-[0.25em] uppercase mb-4">{tr.techStack.eyebrow}</p>
+      <p class="text-[#858585] text-xs font-mono tracking-[0.25em] uppercase mb-4">{tr.techStack.eyebrow}</p>
       <h2 class="text-3xl md:text-[2.5rem] font-bold text-white tracking-tight leading-tight">
         {tr.techStack.heading}
       </h2>
@@ -24,10 +24,10 @@ const categories = tr.techStack.categories;
     <div class="space-y-10">
       {categories.map(({ label, items }, ci) => (
         <div data-reveal style={`transition-delay:${ci * 60}ms`}>
-          <p class="text-[#666] text-xs font-mono tracking-[0.2em] uppercase mb-4">{label}</p>
+          <p class="text-[#858585] text-xs font-mono tracking-[0.2em] uppercase mb-4">{label}</p>
           <div class="flex flex-wrap gap-2.5">
             {items.map((t) => (
-              <span class="inline-flex items-center gap-2 text-sm text-[#666] border border-white/[0.06] px-3.5 py-2 rounded-lg hover:border-white/[0.12] hover:text-[#aaa] hover:bg-white/[0.02] transition-all duration-200">
+              <span class="inline-flex items-center gap-2 text-sm text-[#858585] border border-white/[0.06] px-3.5 py-2 rounded-lg hover:border-white/[0.12] hover:text-[#aaa] hover:bg-white/[0.02] transition-all duration-200">
                 <TechIcon name={t} size={14} />
                 {t}
               </span>

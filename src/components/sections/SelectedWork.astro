@@ -34,7 +34,7 @@ const selectedWork = tr.work.items.map((item, i) => ({ ...item, ...workStatic[i]
   <div class="max-w-6xl mx-auto">
     <div data-reveal class="flex items-end justify-between mb-14">
       <div>
-        <p class="text-[#666] text-xs font-mono tracking-[0.25em] uppercase mb-4">{tr.work.eyebrow}</p>
+        <p class="text-[#858585] text-xs font-mono tracking-[0.25em] uppercase mb-4">{tr.work.eyebrow}</p>
         <h2 class="text-3xl md:text-[2.5rem] font-bold text-white tracking-tight leading-tight">
           {tr.work.heading}
         </h2>
@@ -52,12 +52,12 @@ const selectedWork = tr.work.items.map((item, i) => ({ ...item, ...workStatic[i]
           <div class="flex flex-col lg:flex-row lg:items-start gap-8">
             <!-- Left: info -->
             <div class="flex-1 min-w-0">
-              <p class="text-[#666] text-xs font-mono mb-3">{label}</p>
+              <p class="text-[#858585] text-xs font-mono mb-3">{label}</p>
               <h3 class="text-white font-semibold text-xl mb-3 group-hover:text-[#818cf8] transition-colors duration-200">
                 {company}
               </h3>
               {'tagline' in ({ label, company, description, tagline, projects, outcomes, stack, href }) && tagline && (
-                <p class="text-[#777] text-xs font-mono mb-4">{tagline}</p>
+                <p class="text-[#8e8e8e] text-xs font-mono mb-4">{tagline}</p>
               )}
               {projects ? (
                 <div class="mb-6">
@@ -65,17 +65,17 @@ const selectedWork = tr.work.items.map((item, i) => ({ ...item, ...workStatic[i]
                     {projects.map((p: { name: string; highlight: string }) => (
                       <li>
                         <span class="text-white/70 text-sm font-semibold block mb-0.5">{p.name}</span>
-                        <span class="text-[#666] text-sm leading-relaxed">{p.highlight}</span>
+                        <span class="text-[#858585] text-sm leading-relaxed">{p.highlight}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
               ) : (
-                <p class="text-[#666] text-sm leading-relaxed mb-6">{description}</p>
+                <p class="text-[#858585] text-sm leading-relaxed mb-6">{description}</p>
               )}
               <div class="flex flex-wrap gap-2">
                 {stack.map((t: string) => (
-                  <span class="inline-flex items-center gap-1.5 text-[11px] text-[#777] border border-white/[0.06] px-2.5 py-1 rounded-md font-mono">
+                  <span class="inline-flex items-center gap-1.5 text-[11px] text-[#8e8e8e] border border-white/[0.06] px-2.5 py-1 rounded-md font-mono">
                     <TechIcon name={t} size={11} />
                     {t}
                   </span>
@@ -86,7 +86,7 @@ const selectedWork = tr.work.items.map((item, i) => ({ ...item, ...workStatic[i]
             <!-- Right: outcomes -->
             <ul class="shrink-0 space-y-2 lg:text-right">
               {outcomes.map((o: string) => (
-                <li class="flex lg:justify-end items-start gap-2 text-sm text-[#666]">
+                <li class="flex lg:justify-end items-start gap-2 text-sm text-[#858585]">
                   <span class="text-[#818cf8] text-xs mt-1 lg:hidden">↗</span>
                   <span>{o}</span>
                   <span class="text-[#818cf8] text-xs mt-1 hidden lg:inline">↗</span>
@@ -100,7 +100,7 @@ const selectedWork = tr.work.items.map((item, i) => ({ ...item, ...workStatic[i]
 
     <!-- Mobile "all projects" link -->
     <div data-reveal class="mt-6 md:hidden">
-      <a href="/work" class="text-sm text-[#777] hover:text-white transition-colors duration-200">
+      <a href="/work" class="text-sm text-[#8e8e8e] hover:text-white transition-colors duration-200">
         View all projects →
       </a>
     </div>

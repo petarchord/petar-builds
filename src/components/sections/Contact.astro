@@ -14,7 +14,7 @@ const CALENDLY_URL = 'https://calendly.com/petarbuilds-tech/30min';
 <section id="contact" class="px-6 py-32 border-t border-white/[0.06]">
   <!-- Centered hero content -->
   <div class="max-w-2xl mx-auto text-center">
-    <p data-reveal class="text-[#666] text-xs font-mono tracking-[0.25em] uppercase mb-5">{tr.contact.eyebrow}</p>
+    <p data-reveal class="text-[#858585] text-xs font-mono tracking-[0.25em] uppercase mb-5">{tr.contact.eyebrow}</p>
     <h2
       data-reveal
       style="transition-delay:80ms"
@@ -25,7 +25,7 @@ const CALENDLY_URL = 'https://calendly.com/petarbuilds-tech/30min';
     <p
       data-reveal
       style="transition-delay:160ms"
-      class="text-[#666] text-base leading-relaxed mb-10"
+      class="text-[#858585] text-base leading-relaxed mb-10"
     >
       {tr.contact.body}
     </p>
@@ -33,7 +33,7 @@ const CALENDLY_URL = 'https://calendly.com/petarbuilds-tech/30min';
     <!-- Perks -->
     <ul data-reveal style="transition-delay:200ms" class="grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/[0.06] mb-10 text-left w-full rounded-xl overflow-hidden">
       {tr.contact.perks.map((perk) => (
-        <li class="flex items-start gap-3 bg-[#09090b] px-6 py-5 hover:bg-[#0c0c0f] transition-colors duration-300 text-sm text-[#777]">
+        <li class="flex items-start gap-3 bg-[#09090b] px-6 py-5 hover:bg-[#0c0c0f] transition-colors duration-300 text-sm text-[#8e8e8e]">
           <span class="flex items-center justify-center w-5 h-5 rounded-full bg-[#818cf8]/10 border border-[#818cf8]/20 shrink-0 mt-px">
             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="20 6 9 17 4 12"/>
@@ -61,11 +61,11 @@ const CALENDLY_URL = 'https://calendly.com/petarbuilds-tech/30min';
         {tr.contact.ctaBook}
       </a>
 
-      <p class="text-[#777] text-xs">
+      <p class="text-[#8e8e8e] text-xs">
         {tr.contact.orEmail}{' '}
         <a
           href="mailto:petarbuilds.tech@gmail.com"
-          class="text-[#777] underline underline-offset-2 hover:text-white transition-colors duration-200"
+          class="text-[#8e8e8e] underline underline-offset-2 hover:text-white transition-colors duration-200"
         >
           {tr.contact.emailLink}
         </a>
@@ -76,10 +76,10 @@ const CALENDLY_URL = 'https://calendly.com/petarbuilds-tech/30min';
   <!-- Context cards -->
   <div class="max-w-6xl mx-auto grid sm:grid-cols-3 gap-4 mt-20">
     <div data-reveal class="border border-white/[0.06] rounded-xl p-7 hover:border-white/[0.10] transition-colors duration-300">
-      <p class="text-[#666] text-xs font-mono tracking-widest uppercase mb-4">{tr.contact.lookingFor.eyebrow}</p>
+      <p class="text-[#858585] text-xs font-mono tracking-widest uppercase mb-4">{tr.contact.lookingFor.eyebrow}</p>
       <ul class="space-y-3">
         {tr.contact.lookingFor.items.map((item) => (
-          <li class="flex gap-3 text-sm text-[#777]">
+          <li class="flex gap-3 text-sm text-[#8e8e8e]">
             <span class="text-[#818cf8] mt-0.5 shrink-0">›</span>
             {item}
           </li>
@@ -88,16 +88,16 @@ const CALENDLY_URL = 'https://calendly.com/petarbuilds-tech/30min';
     </div>
 
     <div data-reveal style="transition-delay:80ms" class="border border-white/[0.06] rounded-xl p-7 hover:border-white/[0.10] transition-colors duration-300">
-      <p class="text-[#666] text-xs font-mono tracking-widest uppercase mb-4">{tr.contact.responseTime.eyebrow}</p>
-      <p class="text-[#666] text-sm leading-relaxed">
+      <p class="text-[#858585] text-xs font-mono tracking-widest uppercase mb-4">{tr.contact.responseTime.eyebrow}</p>
+      <p class="text-[#858585] text-sm leading-relaxed">
         {tr.contact.responseTime.body}
       </p>
     </div>
 
     <div data-reveal style="transition-delay:160ms" class="border border-white/[0.06] rounded-xl p-7 hover:border-white/[0.10] transition-colors duration-300">
-      <p class="text-[#666] text-xs font-mono tracking-widest uppercase mb-4">{tr.contact.location.eyebrow}</p>
-      <p class="text-[#666] text-sm">{tr.contact.location.city}</p>
-      <p class="text-[#666] text-xs font-mono mt-1">{tr.contact.location.timezone}</p>
+      <p class="text-[#858585] text-xs font-mono tracking-widest uppercase mb-4">{tr.contact.location.eyebrow}</p>
+      <p class="text-[#858585] text-sm">{tr.contact.location.city}</p>
+      <p class="text-[#858585] text-xs font-mono mt-1">{tr.contact.location.timezone}</p>
     </div>
   </div>
 

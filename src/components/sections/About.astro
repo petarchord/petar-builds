@@ -25,7 +25,7 @@ const values = tr.about.values.map((v, i) => ({ ...v, icon: valueIcons[i] }));
 
     <!-- Header -->
     <div data-reveal class="mb-12">
-      <p class="text-[#666] text-xs font-mono tracking-[0.25em] uppercase mb-4">{tr.about.eyebrow}</p>
+      <p class="text-[#858585] text-xs font-mono tracking-[0.25em] uppercase mb-4">{tr.about.eyebrow}</p>
       <h2 class="text-3xl md:text-[2.5rem] font-bold text-white tracking-tight leading-tight">
         {tr.about.heading}
       </h2>
@@ -52,25 +52,25 @@ const values = tr.about.values.map((v, i) => ({ ...v, icon: valueIcons[i] }));
         <!-- Top-left stat -->
         <div class="stat-card absolute" style="width:110px; left:0; top:28px; animation-delay:300ms;">
           <p class="text-white font-bold text-xl tracking-tight leading-none mb-1">7+</p>
-          <p class="text-[#777] text-xs leading-snug">{tr.stats.years}</p>
+          <p class="text-[#8e8e8e] text-xs leading-snug">{tr.stats.years}</p>
         </div>
 
         <!-- Top-right stat -->
         <div class="stat-card absolute" style="width:110px; right:0; top:50px; animation-delay:500ms;">
           <p class="text-white font-bold text-xl tracking-tight leading-none mb-1">3</p>
-          <p class="text-[#777] text-xs leading-snug">{tr.stats.startups}</p>
+          <p class="text-[#8e8e8e] text-xs leading-snug">{tr.stats.startups}</p>
         </div>
 
         <!-- Bottom-left stat -->
         <div class="stat-card absolute" style="width:110px; left:0; bottom:38px; animation-delay:700ms;">
           <p class="text-white font-bold text-xl tracking-tight leading-none mb-1">10+</p>
-          <p class="text-[#777] text-xs leading-snug">{tr.stats.projects}</p>
+          <p class="text-[#8e8e8e] text-xs leading-snug">{tr.stats.projects}</p>
         </div>
 
         <!-- Bottom-right stat -->
         <div class="stat-card absolute" style="width:110px; right:0; bottom:18px; animation-delay:900ms;">
           <p class="text-white font-bold text-xl tracking-tight leading-none mb-1">100K+</p>
-          <p class="text-[#777] text-xs leading-snug">{tr.stats.users}</p>
+          <p class="text-[#8e8e8e] text-xs leading-snug">{tr.stats.users}</p>
         </div>
 
       </div>
@@ -83,7 +83,7 @@ const values = tr.about.values.map((v, i) => ({ ...v, icon: valueIcons[i] }));
       <div
         data-reveal
         style="transition-delay:80ms"
-        class="flex-1 space-y-5 text-[#777] text-base leading-relaxed"
+        class="flex-1 space-y-5 text-[#8e8e8e] text-base leading-relaxed"
       >
         {tr.about.bio.map((paragraph) => (
           <p set:html={paragraph} />
@@ -93,7 +93,7 @@ const values = tr.about.values.map((v, i) => ({ ...v, icon: valueIcons[i] }));
       <!-- Values -->
       <div class="lg:w-80 xl:w-96 shrink-0">
         <div data-reveal style="transition-delay:160ms" class="mb-6">
-          <p class="text-[#666] text-xs font-mono tracking-[0.25em] uppercase">{tr.about.valuesEyebrow}</p>
+          <p class="text-[#858585] text-xs font-mono tracking-[0.25em] uppercase">{tr.about.valuesEyebrow}</p>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
           {values.map(({ icon, label, body }, i) => (
@@ -110,7 +110,7 @@ const values = tr.about.values.map((v, i) => ({ ...v, icon: valueIcons[i] }));
                 />
                 <h3 class="text-white font-semibold text-sm">{label}</h3>
               </div>
-              <p class="text-[#666] text-sm leading-relaxed">{body}</p>
+              <p class="text-[#858585] text-sm leading-relaxed">{body}</p>
             </div>
           ))}
         </div>
